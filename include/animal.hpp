@@ -10,7 +10,8 @@ class Animal{
         float comprimento;
         string ambiente;//habitat
         int patas;
-        string cor;
+       // string cor;
+        strint tipo_pele;
         string alimento;
         string ameacadoDeEx;
         string silvestreOuExotico;
