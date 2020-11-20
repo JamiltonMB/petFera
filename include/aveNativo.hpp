@@ -6,3 +6,5 @@
 class AveNativo : public Aves
 {
 };
+
+#endif

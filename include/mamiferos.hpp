@@ -10,3 +10,5 @@ public:
     string dentes; //se possui desenvolvidos
     string tipo_mamifero;
 };
+
+#endif

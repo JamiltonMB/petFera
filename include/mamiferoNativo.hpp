@@ -7,3 +7,5 @@
 class MamiferoNativo : public Mamiferos
 {
 };
+
+#endif

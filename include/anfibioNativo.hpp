@@ -6,3 +6,5 @@
 class AnfibioNativo : Anfibios
 {
 };
+
+#endif
