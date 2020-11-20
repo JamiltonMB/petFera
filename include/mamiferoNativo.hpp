@@ -1,11 +1,10 @@
 #ifndef _MAMIFERO_NATIVO_H_
 #define __MAMIFERO_NATIVO_H_
 
-#include "mamimiferos.hpp"
+#include "mamiferos.hpp"
 #include "nativo.hpp"
 
-class MamiferoNativo : public Mamiferos
-{
+class MamiferoNativo : public Mamiferos{
 };
 
 #endif

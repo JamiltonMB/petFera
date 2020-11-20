@@ -3,5 +3,7 @@
 
 #include "repteis.hpp"
 
-class RepteisExotico : Repteis{
+class RepteisExotico : public Repteis{
 };
+
+#endif

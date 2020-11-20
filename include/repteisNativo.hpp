@@ -7,3 +7,5 @@
 class RepteisNativo : public Repteis, public Nativo{
 
 };
+
+#endif

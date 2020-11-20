@@ -12,3 +12,5 @@ class Funcionario{
         string cpf;
         string cargo;
 };
+
+#endif
