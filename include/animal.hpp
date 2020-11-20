@@ -3,6 +3,7 @@
 
 class Animal{
     protected:
+        int id;
         string nome;
         string sexo;
         int idade;
