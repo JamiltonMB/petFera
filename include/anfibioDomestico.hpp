@@ -1,5 +1,5 @@
 #ifndef _ANFIBIO_DOMESTICO_H_
-#define __ANFIBIO_DOMESTICO_H_
+#define _ANFIBIO_DOMESTICO_H_
 
 #include "anfibios.hpp"
 #include "domestico.hpp"

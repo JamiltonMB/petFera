@@ -1,5 +1,5 @@
 #ifndef _MAMIFERO_DOMESTICO_H_
-#define __MAMIFERO_DOMESTICO_H_
+#define _MAMIFERO_DOMESTICO_H_
 
 #include "mamiferos.hpp"
 #include "domestico.hpp"
