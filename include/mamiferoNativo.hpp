@@ -4,8 +4,7 @@
 #include "mamiferos.hpp"
 #include "nativo.hpp"
 
-class MamiferoNativo : public Mamiferos
-{
+class MamiferoNativo : public Mamiferos , public Nativo{
 };
 
 #endif

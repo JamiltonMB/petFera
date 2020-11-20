@@ -1,7 +1,10 @@
-#ifdef _MAMIFERO_DOMESTICO_H_
+#ifndef _MAMIFERO_DOMESTICO_H_
 #define __MAMIFERO_DOMESTICO_H_
 
-class MamiferoDomestico : public Mamiferos
+#include "mamiferos.hpp"
+#include "domestico.hpp"
+
+class MamiferoDomestico : public Mamiferos , public Domestico
 {
 };
 

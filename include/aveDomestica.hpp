@@ -1,9 +1,10 @@
-#ifdef _AVE_DOMESTICA_H_
+#ifndef _AVE_DOMESTICA_H_
 #define __AVE_DOMESTICA_H_
 
 #include "aves.hpp"
+#include "domestico.hpp"
 
-class AveDomestica : Aves
+class AveDomestica : public Aves , public Domestico
 {
 };
 
