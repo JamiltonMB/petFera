@@ -1,2 +1,0 @@
-#ifdef _AVE_EXTINCAO_H_
-#define __AVE_EXTINCAO_H_
