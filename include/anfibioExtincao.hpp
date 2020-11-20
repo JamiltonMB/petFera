@@ -1,0 +1,2 @@
+#ifdef _ANFIBIO_EXTINCAO_H_
+#define __ANFIBIO_EXTINCAO_H_

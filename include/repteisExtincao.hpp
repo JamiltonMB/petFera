@@ -1,0 +1,2 @@
+#ifdef _REPTEIS_EXTINCAO_H_
+#define __REPTEIS_EXTINCAO_H_
