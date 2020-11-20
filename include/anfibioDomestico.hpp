@@ -6,3 +6,4 @@
 class AnfibioDomestico : Anfibios
 {
 };
+#endif 

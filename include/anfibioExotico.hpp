@@ -6,3 +6,4 @@
 class AnfibioExotico : Anfibios
 {
 };
+#endif

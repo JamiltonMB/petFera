@@ -6,3 +6,4 @@
 class MamiferoNativo : Mamiferos
 {
 };
+#endif

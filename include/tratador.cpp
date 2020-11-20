@@ -8,3 +8,4 @@ class Tratador: public Funcionario{
         string nivel_seguranca;
 
 };
+#endif

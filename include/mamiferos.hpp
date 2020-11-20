@@ -1,6 +1,6 @@
 #ifndef _MAMIFEROS_H_
 #define _MAMIFEROS_H_
-
+#include<iostream>
 #include "animal.hpp"
 
 class Mamiferos : public Animal
@@ -10,3 +10,4 @@ public:
     string dentes; //se possui desenvolvidos
     string tipo_mamifero;
 };
+#endif
