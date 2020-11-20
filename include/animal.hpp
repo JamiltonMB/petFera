@@ -11,14 +11,13 @@ class Animal{
         float comprimento;
         string ambiente;//habitat
         int patas;
-       // string cor;
         string especie;
         strint tipo_pele;
         string alimento;
         string ameacadoDeEx;
         string silvestreOuExotico;
-        //vetResponsavel
-        //tratadorResponsavel
+        string vetResponsavel
+        string tratadorResponsavel
 
 };
 

@@ -2,7 +2,7 @@
 #define __ANFIBIO_DOMESTICO_H_
 
 #include "anfibios.hpp"
+#include "domestico.hpp"
 
-class AnfibioDomestico : Anfibios
-{
+class AnfibioDomestico : public Domestico, public Anfibios {
 };

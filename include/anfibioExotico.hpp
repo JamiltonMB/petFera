@@ -3,6 +3,6 @@
 
 #include "anfibios.hpp"
 
-class AnfibioExotico : Anfibios
+class AnfibioExotico : public Anfibios
 {
 };
