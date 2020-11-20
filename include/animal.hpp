@@ -1,6 +1,8 @@
 #ifndef _ANIMAL_H_
 #define _ANIMAL_H_
 
+#include <iostream>
+
 class Animal{
     protected:
         int id;
