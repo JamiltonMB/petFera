@@ -3,7 +3,8 @@
 
 #include "mamiferos.hpp"
 
-class MamiferoExotico : public Mamiferos{
+class MamiferoExotico : public Mamiferos
+{
 };
 
 #endif

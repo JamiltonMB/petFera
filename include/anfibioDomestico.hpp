@@ -4,8 +4,8 @@
 #include "anfibios.hpp"
 #include "domestico.hpp"
 
-class AnfibioDomestico : public Domestico, public Anfibios {
+class AnfibioDomestico : public Domestico, public Anfibios
+{
 };
-
 
 #endif

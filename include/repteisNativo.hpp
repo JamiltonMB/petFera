@@ -4,8 +4,8 @@
 #include "repteis.hpp"
 #include "nativo.hpp"
 
-class RepteisNativo : public Repteis, public Nativo{
-
+class RepteisNativo : public Repteis, public Nativo
+{
 };
 
 #endif

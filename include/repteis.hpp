@@ -3,10 +3,8 @@
 
 #include "animal.hpp"
 
-class Repteis: public Animal{
-
-
-
+class Repteis : public Animal
+{
 };
 
 #endif

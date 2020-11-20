@@ -1,9 +1,10 @@
-#ifdef _AVE_EXOTICO_H
-#define __AVE_EXOTICO_H_
+#ifndef _MAMIFERO_EXOTICO_H_
+#define __MAMIFERO_EXOTICO_H_
 
-#include "aves.hpp"
+#include "mamiferos.hpp"
 
-class AveExotica : Aves{
+class MamiferoExotico : public Mamiferos
+{
 };
 
 #endif

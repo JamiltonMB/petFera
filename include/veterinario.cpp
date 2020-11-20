@@ -9,6 +9,4 @@ class Veterinario : public Funcionario{
         string crmv;
 };
 
-
-
 #endif
