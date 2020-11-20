@@ -3,6 +3,5 @@
 
 #include "aves.hpp"
 
-class AveExotica : Aves
-{
+class AveExotica : Aves{
 };
