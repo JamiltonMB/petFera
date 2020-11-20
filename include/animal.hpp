@@ -14,7 +14,8 @@ class Animal{
         string ambiente; //habitat
         int patas;
         string especie;
-        strint tipo_pele;
+        string tipo_pele;
+        string tipo_reproducao;
         string alimento;
         string ameacadoDeEx;
         string silvestreOuExotico;

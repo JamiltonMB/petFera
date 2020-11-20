@@ -7,8 +7,8 @@
 class Mamiferos : public Animal{
     public:
         sting cor_pelo;
-        string dentes; //se possui desenvolvidos
-        string tipo_mamifero;
+        string dentes; //se possui dentes desenvolvidos
+        //string tipo_mamifero;
 };
 
 #endif
