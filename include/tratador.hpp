@@ -7,7 +7,8 @@
 class Tratador : public Funcionario
 {
 public:
-    string nivel_seguranca;
+	Tratador(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo, string nivel_seguranca);
+	string nivel_seguranca;
 };
 
 #endif
