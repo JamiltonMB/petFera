@@ -5,6 +5,7 @@ Funcionario::Funcionario(std::string matricula, std::string nome, int idade, std
 
 Funcionario::~Funcionario(){}
 
+/* //Acho que os gets e sets dessa classe é desnecessário
 std::string Funcionario::getMatricula(){
 	return this->matricula;
 }
@@ -26,3 +27,8 @@ std::string Funcionario::getCpf(){
 std::string Funcionario::getCargo(){
 	return this->cargo;
 }
+
+void Funcionario::getMatricula(std::string matricula){
+
+}
+*/
