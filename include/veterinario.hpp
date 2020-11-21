@@ -5,8 +5,9 @@
 #include "funcionario.hpp"
 
 class Veterinario : public Funcionario{
-    public:
-        string crmv;
+	public:
+		Veterinario(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo, string crmv);
+		string crmv;
 };
 
 #endif
