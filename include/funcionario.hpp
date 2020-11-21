@@ -5,13 +5,13 @@
 class Funcionario
 {
 public:
-	Funcionario(int matricula, std::string nome, int idade, int celular, std::string endereco, std::string cpf, std::string cargo);
+	Funcionario(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo);
 	~Funcionario();
 protected:
-	int matricula;
+	std::string matricula;
 	std::string nome;
 	int idade;
-	int celular;
+	std::string celular;
 	std::string endereco;
 	std::string cpf;
 	std::string cargo;

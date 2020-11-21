@@ -7,8 +7,8 @@
 class Tratador : public Funcionario
 {
 public:
-	Tratador(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo, string nivel_seguranca);
-	string nivel_seguranca;
+	Tratador(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, string cargo, std::string nivel_seguranca);
+	std::string nivel_seguranca;
 };
 
 #endif
