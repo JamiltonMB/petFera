@@ -8,6 +8,7 @@ class Tratador : public Funcionario
 {
 public:
 	Tratador(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, string cargo, std::string nivel_seguranca);
+	~Tratador();
 	std::string nivel_seguranca;
 };
 
