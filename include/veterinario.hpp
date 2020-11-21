@@ -6,8 +6,8 @@
 
 class Veterinario : public Funcionario{
 	public:
-		Veterinario(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo, string crmv);
-		string crmv;
+		Veterinario(int matricula, std::string nome, int idade, int celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv);
+		std::string crmv;
 };
 
 #endif

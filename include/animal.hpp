@@ -6,21 +6,21 @@
 class Animal{
     protected:
         int id;
-        string nome;
-        string sexo;
+        std::string nome;
+        std::string sexo;
         int idade;
         float peso;
         float comprimento;
-        string ambiente; //habitat
+        std::string ambiente; //habitat
         int patas;
-        string especie;
-        string tipo_pele;
-        string tipo_reproducao;
-        string alimento;
-        string ameacadoDeEx;
-        string silvestreOuExotico;
-        string vetResponsavel
-        string tratadorResponsavel
+        std::string especie;
+        std::string tipo_pele;
+        std::string tipo_reproducao;
+        std::string alimento;
+        std::string ameacadoDeEx;
+        std::string silvestreOuExotico;
+        std::string vetResponsavel;
+        std::string tratadorResponsavel;
 };
 
 #endif
