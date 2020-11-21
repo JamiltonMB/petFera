@@ -2,25 +2,31 @@
 #define _ANIMAL_H_
 
 #include <iostream>
+using std::string;
 
 class Animal{
     protected:
         int id;
-        std::string nome;
-        std::string sexo;
+        string nome;
+        string sexo;
         int idade;
         float peso;
         float comprimento;
-        std::string ambiente; //habitat
+        string ambiente; //habitat
         int patas;
-        std::string especie;
-        std::string tipo_pele;
-        std::string tipo_reproducao;
-        std::string alimento;
-        std::string ameacadoDeEx;
-        std::string silvestreOuExotico;
-        std::string vetResponsavel;
-        std::string tratadorResponsavel;
+        string especie;
+        string tipo_pele;
+        string tipo_reproducao;
+        string alimento;
+        string ameacadoDeEx;
+        string silvestreOuExotico;
+        string vetResponsavel;
+        string tratadorResponsavel;
+    public:
+    Animal(int id, string nome, string sexo, int idade,float peso,float comprimento,string ambiente,
+        int patas, string especie, string tipo_pele, string tipo_reproducao, string alimento,
+        string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel, string tratadorResponsavel){}
+    ~Animal(){}
 };
 
 #endif
