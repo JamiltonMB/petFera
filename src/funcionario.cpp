@@ -27,6 +27,24 @@ std::string Funcionario::getCargo(){
 	return this->cargo;
 }
 
-void Funcionario::getMatricula(std::string matricula){
-
+void Funcionario::setMatricula(std::string matricula){
+	this->matricula=matricula;
+}
+void Funcionario::setNome(std::string nome){
+	this->nome=nome;
+}
+void Funcionario::setIdade(int idade){
+	this->idade=idade;
+}
+void Funcionario::setCelular(std::string celular){
+	this->celular=celular;
+}
+void Funcionario::setEnderco(std::string endereco){
+	this->endereco=endereco;
+}
+void Funcionario::setCpf(std::string cpf){
+	this->cpf=cpf;
+}
+void Funcionario::setCargo(std::string cargo){
+	this->cargo=cargo;
 }
