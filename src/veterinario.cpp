@@ -11,3 +11,4 @@ std::string Veterinario::getCrmv(){
 
 void Veterinario::setCrmv(std::string crmv){
 	this->crmv=crmv;
+}

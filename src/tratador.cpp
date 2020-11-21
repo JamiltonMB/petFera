@@ -11,3 +11,4 @@ std::string Tratador::getNivel_seguranca(){
 
 void Tratador::setNivel_seguranca(std::string nivel_seguranca){
 	this->nivel_seguranca=nivel_seguranca;
+}	

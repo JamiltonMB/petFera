@@ -4,11 +4,12 @@ Programa::Programa(){
 	veterinarios.clear();
 	tratadores.clear();
 }
+
 Programa::~Programa(){}
 
-void cadastrarVeterinario(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo, string crmv){}
+void cadastrarVeterinario(int matricula, std::string nome, int idade, int celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv){}
 
-void cadastrarTratador(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo, string nivel_seguranca){}
+void cadastrarTratador(int matricula, std::string nome, int idade, int celular, std::string endereco, std::string cpf, std::string cargo, std::string nivel_seguranca){}
 
 bool adicionarVeterinario(Veterinario* novo){
 	return true;
