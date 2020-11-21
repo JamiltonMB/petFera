@@ -6,7 +6,7 @@
 
 class Repteis : public Animal{
     protected:
-        string troca_de_pele;
+        std::string troca_de_pele;
 };
 
 #endif

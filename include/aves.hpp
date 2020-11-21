@@ -7,8 +7,10 @@
 class Aves : public Animal
 {
 public:
-    string coloracao_penas;
-    string formato_bico;
+    std::string coloracao_penas;
+    std::string formato_bico;
+    Aves(std::string coloraacao_penas, std::string formato_bico){}
 };
+
 
 #endif
