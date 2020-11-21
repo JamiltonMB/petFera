@@ -3,6 +3,8 @@
 
 class Funcionario
 {
+public:
+	Funcionario(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo);
 protected:
     int matricula;
     string nome;
