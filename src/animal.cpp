@@ -1,3 +1,4 @@
+#pragma once
 #include "animal.hpp"
 Animal::Animal(int id, string nome, string sexo, int idade, float peso, float comprimento, string ambiente,
                int patas, string especie, string tipo_pele, string tipo_reproducao, string alimento,
@@ -154,4 +155,26 @@ string Animal::getTratadorResponsavel()
 void Animal::setTratadorResponsavel(string tratadorResponsavel)
 {
     this->tratadorResponsavel = tratadorResponsavel;
+}
+
+std::ostream& Animal::imprimirAnimal(std::ostream& os) const{
+	os << "| ID: " << id<< 
+    " | Nome: " << nome << 
+    " | Sexo: "<< sexo << 
+    " | Idade: " <<  idade << 
+    " | Peso: " << peso << 
+    " | Comprimento: " << comprimento << 
+    " | Ambiente(Habitat): " << ambiente << 
+    " | Patas: " << patas << 
+    " | Especie: " << especie << 
+    " | Tipo de Pele " << tipo_pele << 
+    " | Tipo de Reprodução: " << tipo_reproducao <<
+	" | Alimento: " << alimento <<
+	" | Ameacado de Extinção: " << ameacadoDeEx << 
+    " | Silvestre ou Exotico:" << silvestreOuExotico << 
+    " | Veterinário Responsavél: " << vetResponsavel <<
+	" | Tratador Responsavél: " << tratadorResponsavel <<
+    " |\n"<<std::endl;
+	
+	return os;
 }
