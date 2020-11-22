@@ -5,10 +5,12 @@
 #include "animal.hpp"
 
 class Mamiferos : public Animal{
-    public:
-        sting cor_pelo;
-        string dentes; //se possui dentes desenvolvidos
+    protected:
+        std::string cor_pelo;
+        std::string dentes; //se possui dentes desenvolvidos
         //string tipo_mamifero;
+    public:
+    std::string getCorPelo();
 };
 
 #endif
