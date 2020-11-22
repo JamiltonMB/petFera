@@ -14,7 +14,7 @@ class Programa {
 public:
 	Programa();
 	~Programa();
-	void cadastrarVeterinario(int matricula, std::string nome, int idade, int celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv);
+	void cadastrarVeterinario(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv);
 	void cadastrarTratador(int matricula, std::string nome, int idade, int celular, std::string endereco, std::string cpf, std::string cargo, std::string nivel_seguranca);
 	bool adicionarVeterinario(Veterinario* novo);
 	bool adicionarTratador(Tratador* novo);
