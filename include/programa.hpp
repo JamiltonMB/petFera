@@ -5,7 +5,6 @@
 #include "funcionario.hpp"
 #include "tratador.hpp"
 #include "veterinario.hpp"
-#include "animal.hpp"
 #include <vector>
 #include <string>
 
@@ -15,8 +14,8 @@ class Programa {
 public:
 	Programa();
 	~Programa();
-	void cadastrarVeterinario(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo, string crmv);
-	void cadastrarTratador(int matricula, string nome, int idade, int celular, string endereco, string cpf, string cargo, string nivel_seguranca);
+	void cadastrarVeterinario(int matricula, std::string nome, int idade, int celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv);
+	void cadastrarTratador(int matricula, std::string nome, int idade, int celular, std::string endereco, std::string cpf, std::string cargo, std::string nivel_seguranca);
 	bool adicionarVeterinario(Veterinario* novo);
 	bool adicionarTratador(Tratador* novo);
 	bool removerFuncionario(int matricula);
@@ -27,7 +26,6 @@ public:
 private:
 	vector<Veterinario*> veterinarios;
 	vector<Tratador*> tratadores;
-	vector<Animal*> animais; 
 };
 
 #endif
