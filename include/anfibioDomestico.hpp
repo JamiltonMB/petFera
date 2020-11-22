@@ -6,7 +6,6 @@
 
 class AnfibioDomestico : public Domestico, public Anfibios
 {
-    AnfibioDomestico(){}
 };
 
 #endif

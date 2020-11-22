@@ -1,11 +1,11 @@
 #pragma once
 #include "aves.hpp"
 
-Aves::Aves(double tamanho_bico, double envergadura_asas) : Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,
+Aves::Aves(double tamanho_bico, double corPenas) : Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,
                                                                   tipo_pele, tipo_reproducao, alimento,
                                                                   ameacadoDeEx, silvestreOuExotico, vetResponsavel,
                                                                   tratadorResponsavel),
-                                                           tamanho_bico(tamanho_bico), envergadura_asas(envergadura_asas)
+                                                           tamanho_bico(tamanho_bico), corPenas(corPenas)
 {
 }
 
@@ -18,19 +18,19 @@ void Aves::setTamanhoBico(double tamanho_bico)
     this->tamanho_bico = tamanho_bico;
 }
 
-double Aves::getEnvergaduraAsas() const
+double Aves::getCorPenas() const
 {
-    return envergadura_asas;
+    return corPenas;
 }
-void Aves::setEnvergaduraAsas(double envergadura_asas)
+void Aves::setCorPenas(double corPenas)
 {
-    this->envergadura_asas = envergadura_asas;
+    this->corPenas = corPenas;
 }
 
 std::ostream &Aves::imprimirAves(std::ostream &os) const
 {
     imprimirAnimal(os);
     os<<" | Tamanho do Bico: "<<tamanho_bico<<std::endl
-      <<" | Envergadura das Asas: "<<envergadura_asas<<std::endl;
+      <<" | Cor das Penas: " << corPenas<<std::endl;
     return os;
 }
