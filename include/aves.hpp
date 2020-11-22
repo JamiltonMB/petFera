@@ -6,11 +6,24 @@
 
 class Aves : public Animal
 {
-public:
-    std::string coloracao_penas;
-    std::string formato_bico;
-    Aves(std::string coloraacao_penas, std::string formato_bico){}
-};
+protected:
+    double tamanho_bico;
+    double envergadura_asas;
+    std::ostream &listar_animais(std::ostream &os) const;
+    std::ofstream &salvar_animais(std::ofstream &out) const;
 
+public:
+    Aves(double tamanho_bico, double envergadura_asas);
+    Aves();
+    ~Aves();
+
+    double getTamanhoBico() const;
+    void setTamanhoBico(double tamanho_bico);
+
+    double getEnvergaduraAsas() const;
+    void setEnvergaduraAsas(double envergadura_asas);
+
+    std::ostream &Aves::imprimirAves(std::ostream &os) const;
+};
 
 #endif

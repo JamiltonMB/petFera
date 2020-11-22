@@ -26,57 +26,57 @@ protected:
 
 public:
     Animal(int id, string nome, string sexo, int idade, float peso, float comprimento,
-    string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-    string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-    string tratadorResponsavel) {}
+           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+           string tratadorResponsavel) {}
     ~Animal();
 
-    string getNome();
+    string getNome() const;
     void setNome(string nome);
 
-    string getSexo();
+    string getSexo() const;
     void setSexo(string sexo);
 
-    int getIdade();
+    int getIdade() const;
     void setIdade(int idade);
 
-    float getPeso();
+    float getPeso() const;
     void setPeso(float peso);
 
-    float getComprimento();
+    float getComprimento() const;
     void setComprimento(float comprimento);
 
-    string getAmbiente();
+    string getAmbiente() const;
     void setAmbiente(string ambiente);
 
-    int getPatas();
+    int getPatas() const;
     void setPatas(int patas);
 
-    string getEspecie();
+    string getEspecie() const;
     void setEspecie(string especie);
 
-    string getTipo_pele();
+    string getTipo_pele() const;
     void setTipo_pele(string tipo_pele);
 
-    string getTipo_reproducao();
+    string getTipo_reproducao() const;
     void setTipo_reproducao(string tipo_reproducao);
 
-    string getAlimento();
+    string getAlimento() const;
     void setAlimento(string alimento);
 
-    string getAmeacadoDeEx();
+    string getAmeacadoDeEx() const;
     void setAmeacadoDeEx(string ameacadoDeEx);
 
-    string getSilvestreOuExotico();
+    string getSilvestreOuExotico() const;
     void setSilvestreOuExotico(string silvestreOuExtico);
 
-    string getVetResposavel();
+    string getVetResposavel() const;
     void setVetResponsavel(string vetResponsavel);
 
-    string getTratadorResponsavel();
+    string getTratadorResponsavel() const;
     void setTratadorResponsavel(string tratadorResponsavel);
 
-    std::ostream& imprimirAnimal(std::ostream& os) const;
+    std::ostream &imprimirAnimal(std::ostream &os) const;
 };
 
 #endif

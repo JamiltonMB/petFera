@@ -5,6 +5,7 @@
 #include "funcionario.hpp"
 #include "tratador.hpp"
 #include "veterinario.hpp"
+#include "animal.hpp"
 #include <vector>
 #include <string>
 
@@ -26,6 +27,7 @@ public:
 private:
 	vector<Veterinario*> veterinarios;
 	vector<Tratador*> tratadores;
+	vector<Animal*> animais; 
 };
 
 #endif
