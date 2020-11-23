@@ -5,4 +5,5 @@ SET(CMAKE_CXX_STANDARD 11)
 
 INCLUDE_DIRECTORIES(include/)
 
-ADD_EXECUTABLE(prog src/main.cpp src/funcionario.cpp src/veterinario.cpp src/tratador.cpp src/programa.cpp)
+ADD_EXECUTABLE(prog src/main.cpp src/funcionario.cpp src/veterinario.cpp src/tratador.cpp src/programa.cpp 
+src/animal.cpp src/aves.cpp src/mamiferos.cpp src/repteis.cpp)

@@ -1,4 +1,3 @@
-#pragma once
 #include "repteis.hpp"
 
 Repteis::Repteis(bool troca_de_pele) : Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,

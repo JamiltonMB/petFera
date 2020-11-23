@@ -1,4 +1,3 @@
-#pragma once
 #include "animal.hpp"
 Animal::Animal(int id, string nome, string sexo, int idade, float peso, float comprimento, string ambiente,
                int patas, string especie, string tipo_pele, string tipo_reproducao, string alimento,
@@ -6,6 +5,7 @@ Animal::Animal(int id, string nome, string sexo, int idade, float peso, float co
                                                                                                                     especie(especie), tipo_pele(tipo_pele), tipo_reproducao(tipo_reproducao), alimento(alimento),
                                                                                                                     ameacadoDeEx(ameacadoDeEx), silvestreOuExotico(silvestreOuExotico), vetResponsavel(vetResponsavel),
                                                                                                                     tratadorResponsavel(tratadorResponsavel) {}
+Animal::~Animal() {}
 
 string Animal::getNome() const
 {
@@ -144,22 +144,22 @@ void Animal::setTratadorResponsavel(string tratadorResponsavel)
 
 std::ostream &Animal::imprimirAnimal(std::ostream &os) const
 {
-    os << "| ID: " << id << std::endl 
-       <<" | Nome: " << nome <<std::endl 
-       <<" | Sexo: " << sexo <<std::endl 
-       <<" | Idade: " << idade << std::endl 
-       <<" | Peso: " << peso << std::endl 
-       <<" | Comprimento: " << comprimento << std::endl 
-       <<" | Ambiente(Habitat): " << ambiente << std::endl 
-       <<" | Patas: " << patas << std::endl 
-       <<" | Especie: " << especie << std::endl 
-       <<" | Tipo de Pele " << tipo_pele << std::endl 
-       <<" | Tipo de Reprodução: " << tipo_reproducao <<std::endl 
-       <<" | Alimento: " << alimento << std::endl 
-       <<" | Ameacado de Extinção: " << ameacadoDeEx << std::endl 
-       <<" | Silvestre ou Exotico:" << silvestreOuExotico <<std::endl 
-       <<" | Veterinário Responsavél: " << vetResponsavel << std::endl 
-       <<" | Tratador Responsavél: " << tratadorResponsavel << std::endl;
+    os << "| ID: " << id << std::endl
+       << " | Nome: " << nome << std::endl
+       << " | Sexo: " << sexo << std::endl
+       << " | Idade: " << idade << std::endl
+       << " | Peso: " << peso << std::endl
+       << " | Comprimento: " << comprimento << std::endl
+       << " | Ambiente(Habitat): " << ambiente << std::endl
+       << " | Patas: " << patas << std::endl
+       << " | Especie: " << especie << std::endl
+       << " | Tipo de Pele " << tipo_pele << std::endl
+       << " | Tipo de Reprodução: " << tipo_reproducao << std::endl
+       << " | Alimento: " << alimento << std::endl
+       << " | Ameacado de Extinção: " << ameacadoDeEx << std::endl
+       << " | Silvestre ou Exotico:" << silvestreOuExotico << std::endl
+       << " | Veterinário Responsavél: " << vetResponsavel << std::endl
+       << " | Tratador Responsavél: " << tratadorResponsavel << std::endl;
 
     return os;
 }

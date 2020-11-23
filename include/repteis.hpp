@@ -15,7 +15,7 @@ public:
     bool getTrocaDePele() const;
     void setTrocaDePele(bool troca_de_pele);
 
-    std::ostream &Repteis::imprimirRepteis(std::ostream &os) const;
+    std::ostream &imprimirRepteis(std::ostream &os) const;
 };
 
 #endif

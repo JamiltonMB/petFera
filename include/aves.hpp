@@ -21,7 +21,7 @@ public:
     double getCorPenas() const;
     void setCorPenas(double corPenas);
 
-    std::ostream &Aves::imprimirAves(std::ostream &os) const;
+    std::ostream &imprimirAves(std::ostream &os) const;
 };
 
 #endif

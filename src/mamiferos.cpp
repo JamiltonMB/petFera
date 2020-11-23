@@ -1,4 +1,3 @@
-#pragma once
 #include "mamiferos.hpp"
 
 Mamiferos::Mamiferos(std::string cor_pelo, std::string dentes) : Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,

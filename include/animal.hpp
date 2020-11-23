@@ -28,7 +28,7 @@ public:
     Animal(int id, string nome, string sexo, int idade, float peso, float comprimento,
            string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
            string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel) {}
+           string tratadorResponsavel);
     ~Animal();
 
     string getNome() const;
