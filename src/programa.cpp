@@ -1,8 +1,7 @@
 #include "programa.hpp"
 
 Programa::Programa(){
-	veterinarios.clear();
-	tratadores.clear();
+	funcionarios.clear();
 }
 
 Programa::~Programa(){}
@@ -18,8 +17,23 @@ void Programa::cadastrarTratador(std::string matricula, std::string nome, int id
 	this->funcionarios.push_back(tratador);
 }
 
-bool Programa::removerFuncionario(std::string matricula){
-	return true;
+void Programa::removerFuncionario(std::string matricula){
+	if(this->findFuncionario(matricula)==nullptr){
+		std::cout<<"Matrícula inexistente"<<std::endl;
+	}else{
+		int index = 0;
+		for (auto& funcionario : this->funcionarios)
+		{
+			if (funcionario->getMatricula()==matricula)
+			{	
+				std::string nomeTemp = funcionario->getNome();
+				this->funcionarios.erase(this->funcionarios.begin()+index);
+				std::cout<<"Funcionario "<<nomeTemp<<" removido"<<std::endl;
+				break;
+			}
+			index++;
+		}
+	}
 }
 
 void Programa::alterarFuncionario(std::string matricula){}
@@ -42,4 +56,15 @@ void Programa::listarTodosFuncionarios(){
 			}
 		}		
 	}
+}
+
+Funcionario* Programa::findFuncionario(std::string matricula){
+	for (auto& funcionario : this->funcionarios)
+		{
+			if (funcionario->getMatricula()==matricula)
+			{
+				return funcionario;
+			}
+		}
+	return nullptr;
 }

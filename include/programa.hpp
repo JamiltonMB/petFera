@@ -16,15 +16,14 @@ public:
 	~Programa();
 	void cadastrarVeterinario(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv);
 	void cadastrarTratador(std::string matricula, std::string nome, int idade, std::string, std::string endereco, std::string cpf, std::string cargo, std::string nivel_seguranca);
-	bool removerFuncionario(std::string matricula);
+	void removerFuncionario(std::string matricula);
 	void alterarFuncionario(std::string matricula);
 	void listarFuncionario(std::string matricula);
 	void listarTodosFuncionarios();
 
 private:
-	vector<Veterinario*> veterinarios;
-	vector<Tratador*> tratadores;
 	vector<Funcionario*> funcionarios;
+	Funcionario* findFuncionario(std::string matricula);
 };
 
 #endif
