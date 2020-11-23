@@ -6,7 +6,7 @@ class Funcionario
 {
 public:
 	Funcionario(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo);
-	~Funcionario();
+	virtual ~Funcionario();
 	std::string getMatricula();
 	std::string getNome();
 	int getIdade();
@@ -14,6 +14,7 @@ public:
 	std::string getEnderaco();
 	std::string getCpf();
 	std::string getCargo();
+	bool getIsVeterinario();
 
 	void setMatricula(std::string matricula);
 	void setNome(std::string nome);
@@ -21,7 +22,8 @@ public:
 	void setCelular(std::string celular);
 	void setEnderco(std::string endereco);
 	void setCpf(std::string cpf);
-	void setCargo(std::string cargo);	
+	void setCargo(std::string cargo);
+	void setIsVeterinario(bool b);	
 protected:
 	std::string matricula;
 	std::string nome;
@@ -30,7 +32,7 @@ protected:
 	std::string endereco;
 	std::string cpf;
 	std::string cargo;
-
+	bool isVeterinario=false;
 };
 
 #endif

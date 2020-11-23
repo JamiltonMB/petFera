@@ -26,6 +26,9 @@ std::string Funcionario::getCpf(){
 std::string Funcionario::getCargo(){
 	return this->cargo;
 }
+bool Funcionario::getIsVeterinario(){
+	return this->isVeterinario;
+}
 
 void Funcionario::setMatricula(std::string matricula){
 	this->matricula=matricula;
@@ -47,4 +50,7 @@ void Funcionario::setCpf(std::string cpf){
 }
 void Funcionario::setCargo(std::string cargo){
 	this->cargo=cargo;
+}
+void Funcionario::setIsVeterinario(bool b){
+	this->isVeterinario=b;
 }
