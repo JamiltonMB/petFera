@@ -12,3 +12,15 @@ std::string Veterinario::getCrmv(){
 void Veterinario::setCrmv(std::string crmv){
 	this->crmv=crmv;
 }
+
+std::ostream& Veterinario::imprimeDados(std::ostream& o) const {
+	o <<"Matricula: "<<this->matricula<<std::endl
+		<<"Nome: "<<this->nome<<std::endl
+		<<"Idade: "<<this->idade<<std::endl
+		<<"Celular: "<<this->celular<<std::endl
+		<<"Endereço: "<<this->endereco<<std::endl
+		<<"CPF: "<<this->cpf<<std::endl
+		<<"Cargo: "<<this->cargo<<std::endl
+		<<"CRMV: "<<this->crmv<<std::endl;
+	return o;
+}

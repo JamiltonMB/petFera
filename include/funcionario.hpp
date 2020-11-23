@@ -23,7 +23,14 @@ public:
 	void setEnderco(std::string endereco);
 	void setCpf(std::string cpf);
 	void setCargo(std::string cargo);
-	void setIsVeterinario(bool b);	
+	void setIsVeterinario(bool b);
+
+	virtual std::ostream& imprimeDados(std::ostream& o) const = 0;
+
+	//bool operator==(const Conta& outro) const;
+
+	friend std::ostream& operator<< (std::ostream& o, Funcionario const &f);
+
 protected:
 	std::string matricula;
 	std::string nome;

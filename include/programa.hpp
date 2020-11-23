@@ -16,11 +16,9 @@ public:
 	~Programa();
 	void cadastrarVeterinario(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv);
 	void cadastrarTratador(std::string matricula, std::string nome, int idade, std::string, std::string endereco, std::string cpf, std::string cargo, std::string nivel_seguranca);
-	bool adicionarVeterinario(Veterinario* novo);
-	bool adicionarTratador(Tratador* novo);
-	bool removerFuncionario(int matricula);
-	void alterarFuncionario(int matricula);
-	void listarFuncionario(int matricula);
+	bool removerFuncionario(std::string matricula);
+	void alterarFuncionario(std::string matricula);
+	void listarFuncionario(std::string matricula);
 	void listarTodosFuncionarios();
 
 private:

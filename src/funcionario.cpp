@@ -54,3 +54,7 @@ void Funcionario::setCargo(std::string cargo){
 void Funcionario::setIsVeterinario(bool b){
 	this->isVeterinario=b;
 }
+
+std::ostream& operator<< (std::ostream& o, Funcionario const &func) {
+	return func.imprimeDados(o);
+}

@@ -13,6 +13,7 @@ public:
 	std::string getNivel_seguranca();
 
 	void setNivel_seguranca(std::string nivel_seguranca);
+	std::ostream& imprimeDados(std::ostream& o) const;
 
 protected:
 	std::string nivel_seguranca;

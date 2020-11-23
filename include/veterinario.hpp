@@ -12,6 +12,7 @@ class Veterinario : public Funcionario{
 		std::string getCrmv();
 
 		void setCrmv(std::string crmv);
+		std::ostream& imprimeDados(std::ostream& o) const;
 	
 	protected:
 		std::string crmv;
