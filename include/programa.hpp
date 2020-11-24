@@ -24,6 +24,7 @@ public:
 private:
 	vector<Funcionario*> funcionarios;
 	Funcionario* findFuncionario(std::string matricula);
+	Funcionario* editarFuncionario(Funcionario* funcionario);
 };
 
 #endif

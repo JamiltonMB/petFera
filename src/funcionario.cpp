@@ -17,7 +17,7 @@ int Funcionario::getIdade(){
 std::string Funcionario::getCelular(){
 	return this->celular;
 }
-std::string Funcionario::getEnderaco(){
+std::string Funcionario::getEndereco(){
 	return this->endereco;
 }
 std::string Funcionario::getCpf(){
@@ -42,7 +42,7 @@ void Funcionario::setIdade(int idade){
 void Funcionario::setCelular(std::string celular){
 	this->celular=celular;
 }
-void Funcionario::setEnderco(std::string endereco){
+void Funcionario::setEndereco(std::string endereco){
 	this->endereco=endereco;
 }
 void Funcionario::setCpf(std::string cpf){

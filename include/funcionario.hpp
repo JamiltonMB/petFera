@@ -11,7 +11,7 @@ public:
 	std::string getNome();
 	int getIdade();
 	std::string getCelular();
-	std::string getEnderaco();
+	std::string getEndereco();
 	std::string getCpf();
 	std::string getCargo();
 	bool getIsVeterinario();
@@ -20,7 +20,7 @@ public:
 	void setNome(std::string nome);
 	void setIdade(int idade);
 	void setCelular(std::string celular);
-	void setEnderco(std::string endereco);
+	void setEndereco(std::string endereco);
 	void setCpf(std::string cpf);
 	void setCargo(std::string cargo);
 	void setIsVeterinario(bool b);
