@@ -4,7 +4,7 @@
 #include "repteis.hpp"
 #include "exotico.hpp"
 
-class RepteisExotico : public Repteis, publico Exotico
+class RepteisExotico : public Repteis, public Exotico
 {
 };
 
