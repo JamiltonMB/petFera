@@ -7,6 +7,11 @@ Animal::Animal(int id, string nome, string sexo, int idade, float peso, float co
                                                                                                                     tratadorResponsavel(tratadorResponsavel) {}
 Animal::~Animal() {}
 
+int Animal::getId()
+{
+    return id;
+}
+
 string Animal::getNome() const
 {
     return nome;
