@@ -7,7 +7,7 @@ Animal::Animal(int id, string nome, string sexo, int idade, float peso, float co
                                                                                                                     tratadorResponsavel(tratadorResponsavel) {}
 Animal::~Animal() {}
 
-int Animal::setId(int id)
+void Animal::setId(int id)
 {
     this->id = id;
 }
