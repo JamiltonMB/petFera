@@ -33,6 +33,7 @@ private:
 	Funcionario* findFuncionario(std::string matricula);
 	Animal* findAnimal(int id);
 	Funcionario* editarFuncionario(Funcionario* funcionario);
+	Animal* editarAnimal(Animal* animal);
 };
 
 #endif

@@ -245,3 +245,125 @@ Funcionario *Programa::editarFuncionario(Funcionario *funcionario)
 
 	return funcionario;
 }
+
+Animal* Programa::editarAnimal(Animal* animal)
+{
+	using std::string;
+
+	int escolha = 0;
+	int id;
+    string nome;
+    string sexo;
+    int idade;
+    float peso;
+    float comprimento;
+    string ambiente; //habitat
+    int patas;
+    string especie;
+    string tipo_pele;
+    string tipo_reproducao;
+    string alimento;
+    string ameacadoDeEx;
+    string silvestreOuExotico;
+    string vetResponsavel;
+    string tratadorResponsavel;
+
+	do
+	{
+		std::cout << "0-Sair | 1-Id | 2-Nome | 3-Sexo | 4-Idade | 5-Peso | 6-Comprimento | " 
+		<<"7-Ambiente | 8-Patas | 9-Especie | 10-Tipo de Pele | 11-Tipo de Rprodução | "
+		<<"12-Alimento | 13-Ameaçado de Extinção | 14-Silvestre ou Exótico | 15-Veterinario | "
+		<<"16-Tratador" << std::endl;
+		std::cin >> escolha;
+		switch (escolha)
+		{
+		case 0:
+			break;
+		case 1:
+			std::cout << "Insira um novo Id: ";
+			std::cin >> id;
+			animal->setId(id);
+			break;
+		case 2:
+			std::cout << "Insira um novo Nome: ";
+			std::cin >> nome;
+			animal->setNome(nome);
+			break;
+		case 3:
+			std::cout << "Insira um novo Sexo: ";
+			std::cin >> sexo;
+			animal->setSexo(sexo);
+			break;
+		case 4:
+			std::cout << "Insira uma nova Idade: ";
+			std::cin >> idade;
+			animal->setIdade(idade);
+			break;
+		case 5:
+			std::cout << "Insira um novo Peso: ";
+			std::cin >> peso;
+			animal->setPeso(peso);
+			break;
+		case 6:
+			std::cout << "Insira um novo Comprimento: ";
+			std::cin >> comprimento;
+			animal->setComprimento(comprimento);
+			break;
+		case 7:
+			std::cout << "Insira um novo Ambiente: ";
+			std::cin >> ambiente;
+			animal->setAmbiente(ambiente);
+			break;
+		case 8:
+			std::cout << "Insira um numero de Patas: ";
+			std::cin >> patas;
+			animal->setPatas(patas);
+			break;
+		case 9:
+			std::cout << "Insira uma nova Especie: ";
+			std::cin >> especie;
+			animal->setEspecie(especie);
+			break;
+		case 10:
+			std::cout << "Insira um novo Tipo de Pele: ";
+			std::cin >> tipo_pele;
+			animal->setTipo_pele(tipo_pele);
+			break;
+		case 11:
+			std::cout << "Insira um novo Tipo de Reprodução: ";
+			std::cin >> tipo_reproducao;
+			animal->setTipo_reproducao(tipo_reproducao);
+			break;
+		case 12:
+			std::cout << "Insira um novo Alimento: ";
+			std::cin >> alimento;
+			animal->setAlimento(alimento);
+			break;
+		case 13:
+			std::cout << "Insira se é Ameçado de Extinção: ";
+			std::cin >> ameacadoDeEx;
+			animal->setAmeacadoDeEx(ameacadoDeEx);
+			break;
+		case 14:
+			std::cout << "Insira se é Silvestre ou Exotico: ";
+			std::cin >> silvestreOuExotico;
+			animal->setSilvestreOuExotico(silvestreOuExotico);
+			break;
+		case 15:
+			std::cout << "Insira Veterinário Responsavel: ";
+			std::cin >> vetResponsavel;
+			animal->setVetResponsavel(vetResponsavel);
+			break;
+		case 16:
+			std::cout << "Insira Tratador Responsavel: ";
+			std::cin >> tratadorResponsavel;
+			animal->setTratadorResponsavel(tratadorResponsavel);
+			break;
+		default:
+			std::cout << "Parâmetro inválido" << std::endl;
+			break;
+		}
+	} while (escolha != 0);
+
+	return animal;
+}
