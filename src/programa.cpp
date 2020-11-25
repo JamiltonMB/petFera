@@ -245,3 +245,121 @@ Funcionario *Programa::editarFuncionario(Funcionario *funcionario)
 
 	return funcionario;
 }
+
+void Programa::run(){
+	int escolha = 0;
+	std::cout<<"1-Módulo de cadastrado de funcionarios\n2-Módulo de cadastro e manejo de animais\n3-Sair"<<std::endl;
+	std::cout<<"Digite o número de uma das opções: ";
+	std::cin>>escolha;
+	switch(escolha){
+		case 1:
+			this->runFuncionario();
+			break;
+		case 2:
+			this->runAninal();
+		case 3:
+			break;
+		default:
+			std::cout<<"Parâmetro inválido"<<std::endl;
+			break;
+	}
+}
+
+void Programa::runFuncionario(){
+	int escolha = 0;
+	std::string matricula;
+	std::cout<<"1-Cadastar funcionário\n2-Deletar funcionario\n3-Editar funcionário\n4-Listar funcionário\n5-Listar todos os Funcionários\n6-Voltar"<<std::endl;
+	std::cout<<"Digite o número de uma das opções: ";
+	std::cin>>escolha;
+	switch(escolha){
+		case 1:
+			this->runCadastrarFuncionario();
+			break;
+		case 2:
+			std::cout<<"Informe a matrícula: ";
+			std::cin>>matricula;
+			this->removerFuncionario(matricula);
+			std::cout<<"Funcionário removido"<<std::endl;
+			this->run();
+			break;
+		case 3:
+			std::cout<<"Informe a matrícula: ";
+			std::cin>>matricula;
+			this->alterarFuncionario(matricula);
+			std::cout<<"Funcionário Alterado"<<std::endl;
+			this->run();
+			break;
+		case 4:
+			std::cout<<"Informe a matrícula: ";
+			std::cin>>matricula;
+			this->listarFuncionario(matricula);
+			this->run();
+			break;
+		case 5:
+			this->listarTodosFuncionarios();
+			this->run();
+			break;
+		case 6:
+			this->run();
+			break;									
+		default:
+			std::cout<<"Parâmetro inválido"<<std::endl;
+			this->run();
+			break;
+	}	
+}
+void Programa::runCadastrarFuncionario(){
+	std::string matricula; 
+	std::string nome;
+	int idade; 
+	std::string celular; 
+	std::string endereco; 
+	std::string cpf; 
+	std::string cargo; 
+	std::string crmv;
+	std::string nivel_seguranca;
+	
+	int escolha = 0;
+	std::cout<<"1-Cadastrar tratador\n2-Cadastrar veterinário\n3-Sair"<<std::endl;
+	std::cout<<"Digite o número de uma das opções: ";
+	std::cin>>escolha;
+	if(escolha==1 || escolha==2){
+		std::cout<<"Digite a matricula: ";
+		std::cin>>matricula;
+		std::cout<<"Digite o nome: "; 
+		std::cin>>nome;
+		std::cout<<"Digite a idade: ";
+		std::cin>>idade;
+		std::cout<<"Digite o celular: "; 
+		std::cin>>celular;
+		std::cout<<"Digite o endereço: "; 
+		std::cin>>endereco;
+		std::cout<<"Digite o cpf: "; 
+		std::cin>>cpf;
+		std::cout<<"Digite o cargo: "; 
+		std::cin>>cargo; 		
+	}
+	switch(escolha){
+		case 1:
+			std::cout<<"Digite o nivel de seguranca: "; 
+			std::cin>>nivel_seguranca; 
+			this->cadastrarTratador(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca);
+			std::cout<<"Funcionário cadastrado"<<std::endl;
+			this->run();
+			break;
+		case 2:
+			std::cout<<"Digite o CRMV: "; 
+			std::cin>>crmv; 
+			this->cadastrarVeterinario(matricula, nome, idade, celular, endereco, cpf, cargo, crmv);
+			std::cout<<"Funcionário cadastrado"<<std::endl;
+			this->run();
+			break;
+		case 3:
+			this->run();
+			break;
+		default:
+			std::cout<<"Parâmetro inválido"<<std::endl;
+			break;
+	}
+}
+void Programa::runAninal(){}

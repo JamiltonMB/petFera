@@ -26,6 +26,12 @@ public:
 	void alterarFuncionario(std::string matricula);
 	void listarFuncionario(std::string matricula);
 	void listarTodosFuncionarios();
+	
+	//Métodos para interação com o usuário
+	void run();
+	void runFuncionario();
+	void runAninal();
+	void runCadastrarFuncionario();
 
 private:
 	vector<Funcionario*> funcionarios;
