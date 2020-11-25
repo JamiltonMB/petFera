@@ -31,6 +31,7 @@ public:
            string tratadorResponsavel);
     ~Animal();
 
+    void setId(int id);
     int getId();
 
     string getNome() const;
