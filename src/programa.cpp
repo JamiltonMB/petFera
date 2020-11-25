@@ -246,7 +246,7 @@ Funcionario *Programa::editarFuncionario(Funcionario *funcionario)
 	return funcionario;
 }
 
-<<<<<<< HEAD
+
 void Programa::run(){
 	int escolha = 0;
 	std::cout<<"1-Módulo de cadastrado de funcionarios\n2-Módulo de cadastro e manejo de animais\n3-Sair"<<std::endl;
@@ -364,7 +364,7 @@ void Programa::runCadastrarFuncionario(){
 	}
 }
 void Programa::runAninal(){}
-=======
+
 Animal* Programa::editarAnimal(Animal* animal)
 {
 	using std::string;
@@ -486,4 +486,4 @@ Animal* Programa::editarAnimal(Animal* animal)
 
 	return animal;
 }
->>>>>>> 57131f330b84fafa5058fecb4a018c2de2fae2d8
+
