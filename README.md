@@ -1,4 +1,4 @@
-<h1>PetFera<h1>
+<h1>PetFera</h1>
   
 
 EQUIPE DESENVOLVEDORA:
