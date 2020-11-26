@@ -95,6 +95,24 @@ void Programa::alterarFuncionario(std::string matricula)
 	}
 }
 
+void Programa::alterarAnimal(int id)
+{
+	if (this->findAnimal(id) == nullptr)
+	{
+		std::cout << "Id inexistente" << std::endl;
+	}
+	else
+	{
+		for (auto &Animal : this->animais)
+		{
+			if (Animal->getId() == id)
+			{
+				editarAnimal(Animal);
+			}
+		}
+	}
+}
+
 void Programa::listarFuncionario(std::string matricula)
 {
 	if (this->findFuncionario(matricula) == nullptr)
@@ -142,6 +160,40 @@ void Programa::listarTodosFuncionarios()
 	}
 }
 
+void Programa::listarAnimal(int id)
+{
+	if (this->findAnimal(id) == nullptr)
+	{
+		std::cout << "Id inexistente" << std::endl;
+	}
+	else
+	{
+		for (auto &Animal : this->animais)
+		{
+			if (Animal->getId() == id)
+			{
+				std::cout << Animal << std::endl;
+			}
+		}
+	}
+}
+
+void Programa::listarTodosAnimais()
+{
+	if (this->animais.size() == 0)
+	{
+		std::cout << "Não há funcionários cadastrados." << std::endl;
+	}
+	else
+	{
+		for (auto &Animal : this->animais)
+		{
+			std::cout << Animal << std::endl;
+			std::cout << "====================================================" << std::endl;
+		}
+	}
+}
+
 Funcionario *Programa::findFuncionario(std::string matricula)
 {
 	for (auto &funcionario : this->funcionarios)
@@ -154,7 +206,7 @@ Funcionario *Programa::findFuncionario(std::string matricula)
 	return nullptr;
 }
 
-Animal* Programa::findAnimal(int id)
+Animal *Programa::findAnimal(int id)
 {
 	for (auto &animais : this->animais)
 	{
@@ -246,153 +298,260 @@ Funcionario *Programa::editarFuncionario(Funcionario *funcionario)
 	return funcionario;
 }
 
-
-void Programa::run(){
+void Programa::run()
+{
 	int escolha = 0;
-	std::cout<<"1-Módulo de cadastrado de funcionarios\n2-Módulo de cadastro e manejo de animais\n3-Sair"<<std::endl;
-	std::cout<<"Digite o número de uma das opções: ";
-	std::cin>>escolha;
-	switch(escolha){
-		case 1:
-			this->runFuncionario();
-			break;
-		case 2:
-			this->runAninal();
-		case 3:
-			break;
-		default:
-			std::cout<<"Parâmetro inválido"<<std::endl;
-			break;
+	std::cout << "1-Módulo de cadastrado de funcionarios\n2-Módulo de cadastro e manejo de animais\n3-Sair" << std::endl;
+	std::cout << "Digite o número de uma das opções: ";
+	std::cin >> escolha;
+	switch (escolha)
+	{
+	case 1:
+		this->runFuncionario();
+		break;
+	case 2:
+		this->runAnimal();
+	case 3:
+		break;
+	default:
+		std::cout << "Parâmetro inválido" << std::endl;
+		break;
 	}
 }
 
-void Programa::runFuncionario(){
+void Programa::runFuncionario()
+{
 	int escolha = 0;
 	std::string matricula;
-	std::cout<<"1-Cadastar funcionário\n2-Deletar funcionario\n3-Editar funcionário\n4-Listar funcionário\n5-Listar todos os Funcionários\n6-Voltar"<<std::endl;
-	std::cout<<"Digite o número de uma das opções: ";
-	std::cin>>escolha;
-	switch(escolha){
-		case 1:
-			this->runCadastrarFuncionario();
-			break;
-		case 2:
-			std::cout<<"Informe a matrícula: ";
-			std::cin>>matricula;
-			this->removerFuncionario(matricula);
-			std::cout<<"Funcionário removido"<<std::endl;
-			this->run();
-			break;
-		case 3:
-			std::cout<<"Informe a matrícula: ";
-			std::cin>>matricula;
-			this->alterarFuncionario(matricula);
-			std::cout<<"Funcionário Alterado"<<std::endl;
-			this->run();
-			break;
-		case 4:
-			std::cout<<"Informe a matrícula: ";
-			std::cin>>matricula;
-			this->listarFuncionario(matricula);
-			this->run();
-			break;
-		case 5:
-			this->listarTodosFuncionarios();
-			this->run();
-			break;
-		case 6:
-			this->run();
-			break;									
-		default:
-			std::cout<<"Parâmetro inválido"<<std::endl;
-			this->run();
-			break;
-	}	
+	std::cout << "1-Cadastar funcionário\n2-Deletar funcionario\n3-Editar funcionário\n4-Listar funcionário\n5-Listar todos os Funcionários\n6-Voltar" << std::endl;
+	std::cout << "Digite o número de uma das opções: ";
+	std::cin >> escolha;
+	switch (escolha)
+	{
+	case 1:
+		this->runCadastrarFuncionario();
+		break;
+	case 2:
+		std::cout << "Informe a matrícula: ";
+		std::cin >> matricula;
+		this->removerFuncionario(matricula);
+		std::cout << "Funcionário removido" << std::endl;
+		this->run();
+		break;
+	case 3:
+		std::cout << "Informe a matrícula: ";
+		std::cin >> matricula;
+		this->alterarFuncionario(matricula);
+		std::cout << "Funcionário Alterado" << std::endl;
+		this->run();
+		break;
+	case 4:
+		std::cout << "Informe a matrícula: ";
+		std::cin >> matricula;
+		this->listarFuncionario(matricula);
+		this->run();
+		break;
+	case 5:
+		this->listarTodosFuncionarios();
+		this->run();
+		break;
+	case 6:
+		this->run();
+		break;
+	default:
+		std::cout << "Parâmetro inválido" << std::endl;
+		this->run();
+		break;
+	}
 }
-void Programa::runCadastrarFuncionario(){
-	std::string matricula; 
+void Programa::runCadastrarFuncionario()
+{
+	std::string matricula;
 	std::string nome;
-	int idade; 
-	std::string celular; 
-	std::string endereco; 
-	std::string cpf; 
-	std::string cargo; 
+	int idade;
+	std::string celular;
+	std::string endereco;
+	std::string cpf;
+	std::string cargo;
 	std::string crmv;
 	std::string nivel_seguranca;
-	
+
 	int escolha = 0;
-	std::cout<<"1-Cadastrar tratador\n2-Cadastrar veterinário\n3-Sair"<<std::endl;
-	std::cout<<"Digite o número de uma das opções: ";
-	std::cin>>escolha;
-	if(escolha==1 || escolha==2){
-		std::cout<<"Digite a matricula: ";
-		std::cin>>matricula;
-		std::cout<<"Digite o nome: "; 
-		std::cin>>nome;
-		std::cout<<"Digite a idade: ";
-		std::cin>>idade;
-		std::cout<<"Digite o celular: "; 
-		std::cin>>celular;
-		std::cout<<"Digite o endereço: "; 
-		std::cin>>endereco;
-		std::cout<<"Digite o cpf: "; 
-		std::cin>>cpf;
-		std::cout<<"Digite o cargo: "; 
-		std::cin>>cargo; 		
+	std::cout << "1-Cadastrar tratador\n2-Cadastrar veterinário\n3-Sair" << std::endl;
+	std::cout << "Digite o número de uma das opções: ";
+	std::cin >> escolha;
+	if (escolha == 1 || escolha == 2)
+	{
+		std::cout << "Digite a matricula: ";
+		std::cin >> matricula;
+		std::cout << "Digite o nome: ";
+		std::cin >> nome;
+		std::cout << "Digite a idade: ";
+		std::cin >> idade;
+		std::cout << "Digite o celular: ";
+		std::cin >> celular;
+		std::cout << "Digite o endereço: ";
+		std::cin >> endereco;
+		std::cout << "Digite o cpf: ";
+		std::cin >> cpf;
+		std::cout << "Digite o cargo: ";
+		std::cin >> cargo;
 	}
-	switch(escolha){
-		case 1:
-			std::cout<<"Digite o nivel de seguranca: "; 
-			std::cin>>nivel_seguranca; 
-			this->cadastrarTratador(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca);
-			std::cout<<"Funcionário cadastrado"<<std::endl;
-			this->run();
-			break;
-		case 2:
-			std::cout<<"Digite o CRMV: "; 
-			std::cin>>crmv; 
-			this->cadastrarVeterinario(matricula, nome, idade, celular, endereco, cpf, cargo, crmv);
-			std::cout<<"Funcionário cadastrado"<<std::endl;
-			this->run();
-			break;
-		case 3:
-			this->run();
-			break;
-		default:
-			std::cout<<"Parâmetro inválido"<<std::endl;
-			break;
+	switch (escolha)
+	{
+	case 1:
+		std::cout << "Digite o nivel de seguranca: ";
+		std::cin >> nivel_seguranca;
+		this->cadastrarTratador(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca);
+		std::cout << "Funcionário cadastrado" << std::endl;
+		this->run();
+		break;
+	case 2:
+		std::cout << "Digite o CRMV: ";
+		std::cin >> crmv;
+		this->cadastrarVeterinario(matricula, nome, idade, celular, endereco, cpf, cargo, crmv);
+		std::cout << "Funcionário cadastrado" << std::endl;
+		this->run();
+		break;
+	case 3:
+		this->run();
+		break;
+	default:
+		std::cout << "Parâmetro inválido" << std::endl;
+		break;
 	}
 }
-void Programa::runAninal(){}
+void Programa::runAnimal()
+{
+	int escolha = 0;
+	int id;
+	std::cout << "1-Cadastar animal\n2-Deletar animal\n3-Editar animal\n4-Listar animal\n5-Listar todos os animais\n6-Voltar" << std::endl;
+	std::cout << "Digite o número de uma das opções: ";
+	std::cin >> escolha;
+	switch (escolha)
+	{
+	case 1:
+		this->runCadastrarFuncionario();
+		break;
+	case 2:
+		std::cout << "Informe o Id: ";
+		std::cin >> id;
 
-Animal* Programa::editarAnimal(Animal* animal)
+		this->removerAnimal(id);
+		std::cout << "Animal removido" << std::endl;
+		this->run();
+		break;
+	case 3:
+		std::cout << "Informe o Id: ";
+		std::cin >> id;
+		this->alterarAnimal(id);
+		std::cout << "Animal Alterado" << std::endl;
+		this->run();
+		break;
+	case 4:
+		std::cout << "Informe o Id: ";
+		std::cin >> id;
+		this->listarAnimal(id);
+		this->run();
+		break;
+	case 5:
+		this->listarTodosAnimais();
+		this->run();
+		break;
+	case 6:
+		this->run();
+		break;
+	default:
+		std::cout << "Parâmetro inválido" << std::endl;
+		this->run();
+		break;
+	}
+}
+
+void Programa::runCadastrarAnimal()
+{
+	using std::string;
+	int id;
+	string nome;
+	string sexo;
+	int idade;
+	float peso;
+	float comprimento;
+	string ambiente;
+	int patas;
+	string especie;
+	string tipo_pele;
+	string tipo_reproducao;
+	string alimento;
+	string ameacadoDeEx;
+	string silvestreOuExotico;
+	string vetResponsavel;
+	string tratadorResponsavel;
+	std::cout << "Digite o id: ";
+	std::cin >> id;
+	std::cout << "Digite o nome: ";
+	std::cin >> nome;
+	std::cout << "Digite a sexo: ";
+	std::cin >> sexo;
+	std::cout << "Digite o idade: ";
+	std::cin >> idade;
+	std::cout << "Digite o peso: ";
+	std::cin >> peso;
+	std::cout << "Digite o comprimento ";
+	std::cin >> comprimento;
+	std::cout << "Digite o ambiente: ";
+	std::cin >> ambiente;
+	std::cout << "Digite a quantidade de patas: ";
+	std::cin >> patas;
+	std::cout << "Digite a especie: ";
+	std::cin >> especie;
+	std::cout << "Digite o tipo de pele: ";
+	std::cin >> tipo_pele;
+	std::cout << "Digite o tipo de reprodução: ";
+	std::cin >> tipo_reproducao;
+	std::cout << "Digite o alimento: ";
+	std::cin >> alimento;
+	std::cout << "Digite se é ameaçado de extinção: ";
+	std::cin >> ameacadoDeEx;
+	std::cout << "Digite se é silvestre ou exótico: ";
+	std::cin >> silvestreOuExotico;
+	std::cout << "Digite o veterinario responsavél: ";
+	std::cin >> vetResponsavel;
+	std::cout << "Digite o tratador responsavél: ";
+	std::cin >> tratadorResponsavel;
+	cadastrarAnimal(id, nome,  sexo,  idade,  peso,  comprimento,  ambiente,
+                patas,  especie,  tipo_pele,  tipo_reproducao,  alimento,
+                ameacadoDeEx,  silvestreOuExotico,  vetResponsavel,  tratadorResponsavel);
+}
+
+Animal *Programa::editarAnimal(Animal *animal)
 {
 	using std::string;
 
 	int escolha = 0;
 	int id;
-    string nome;
-    string sexo;
-    int idade;
-    float peso;
-    float comprimento;
-    string ambiente; //habitat
-    int patas;
-    string especie;
-    string tipo_pele;
-    string tipo_reproducao;
-    string alimento;
-    string ameacadoDeEx;
-    string silvestreOuExotico;
-    string vetResponsavel;
-    string tratadorResponsavel;
+	string nome;
+	string sexo;
+	int idade;
+	float peso;
+	float comprimento;
+	string ambiente; //habitat
+	int patas;
+	string especie;
+	string tipo_pele;
+	string tipo_reproducao;
+	string alimento;
+	string ameacadoDeEx;
+	string silvestreOuExotico;
+	string vetResponsavel;
+	string tratadorResponsavel;
 
 	do
 	{
-		std::cout << "0-Sair | 1-Id | 2-Nome | 3-Sexo | 4-Idade | 5-Peso | 6-Comprimento | " 
-		<<"7-Ambiente | 8-Patas | 9-Especie | 10-Tipo de Pele | 11-Tipo de Rprodução | "
-		<<"12-Alimento | 13-Ameaçado de Extinção | 14-Silvestre ou Exótico | 15-Veterinario | "
-		<<"16-Tratador" << std::endl;
+		std::cout << "0-Sair | 1-Id | 2-Nome | 3-Sexo | 4-Idade | 5-Peso | 6-Comprimento | "
+				  << "7-Ambiente | 8-Patas | 9-Especie | 10-Tipo de Pele | 11-Tipo de Rprodução | "
+				  << "12-Alimento | 13-Ameaçado de Extinção | 14-Silvestre ou Exótico | 15-Veterinario | "
+				  << "16-Tratador" << std::endl;
 		std::cin >> escolha;
 		switch (escolha)
 		{
@@ -486,4 +645,3 @@ Animal* Programa::editarAnimal(Animal* animal)
 
 	return animal;
 }
-

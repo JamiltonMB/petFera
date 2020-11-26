@@ -30,8 +30,12 @@ public:
 	//Métodos para interação com o usuário
 	void run();
 	void runFuncionario();
-	void runAninal();
+	void runAnimal();
 	void runCadastrarFuncionario();
+	void alterarAnimal(int id);
+	void listarAnimal(int id);
+	void listarTodosAnimais();
+	void runCadastrarAnimal();
 
 private:
 	vector<Funcionario*> funcionarios;
