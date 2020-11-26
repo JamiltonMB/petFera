@@ -6,7 +6,13 @@ Programa::Programa()
 	animais.clear();
 }
 
-Programa::~Programa() {}
+Programa::~Programa() 
+{
+	funcionarios.clear();
+	funcionarios.shrink_to_fit();
+	animais.clear();
+	animais.shrink_to_fit();
+}
 
 void Programa::cadastrarVeterinario(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv)
 {
@@ -431,7 +437,7 @@ void Programa::runAnimal()
 	switch (escolha)
 	{
 	case 1:
-		this->runCadastrarFuncionario();
+		this->runCadastrarAnimal();
 		break;
 	case 2:
 		std::cout << "Informe o Id: ";
