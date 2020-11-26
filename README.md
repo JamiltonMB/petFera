@@ -1,4 +1,5 @@
-# EQUIPE DESENVOLVEDORA:
+#Pet Fera:
+
 1 - FERNANDO BRENO DOS SANTOS BARBOSA -> MAT.: 20190146817
 
 2 - JAMILTON MEDEIROS BARBOSA -> MAT.: 20190125325
@@ -15,7 +16,7 @@ TERMINAL, PORÉM FUTURAMENTE VAMOS IMPLEMENTAR UMA INTERFACE GRÁFICA. O PROGRAM
 DESSA CLASSE FAZEM USO DAS CLASSES ANIMAIS E FUNCIONÁRIOS.
 
 
-==============================================================================
+============================================================================
 
 
 COMO USAR O PROGRAMA:
@@ -33,7 +34,7 @@ O PROGRAMA DEVE-SE SEGUIR OS SEGUINTES PASSOS:
 
 
 
-==============================================================================
+============================================================================
 
 
 ENDEREÇO DO REPOSITÓRIO:
