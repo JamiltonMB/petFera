@@ -16,15 +16,16 @@ Programa::~Programa()
 
 void Programa::cadastrarVeterinario(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv)
 {
-	Veterinario *veterinario = new Veterinario(matricula, nome, idade, celular, endereco, cpf, cargo, crmv);
-	veterinario->setIsVeterinario(true);
-	this->funcionarios.push_back(veterinario);
+	//Veterinario *veterinario = new Veterinario(matricula, nome, idade, celular, endereco, cpf, cargo, crmv);
+	//veterinario->setIsVeterinario(true);
+	this->funcionarios.push_back(std::make_shared<Veterinario>(matricula, nome, idade, celular, endereco, cpf, cargo, crmv));
 }
 
 void Programa::cadastrarTratador(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo, std::string nivel_seguranca)
 {
-	Tratador *tratador = new Tratador(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca);
-	this->funcionarios.push_back(tratador);
+	//Tratador *tratador = new Tratador(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca);
+	//this->funcionarios.push_back(tratador);
+	this->funcionarios.push_back(std::make_shared<Tratador>(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca));
 }
 
 void Programa::cadastrarAnimal(int id, string nome, string sexo, int idade, float peso, float comprimento,
@@ -131,14 +132,7 @@ void Programa::listarFuncionario(std::string matricula)
 		{
 			if (funcionario->getMatricula() == matricula)
 			{
-				if (funcionario->getIsVeterinario())
-				{
-					std::cout << *(dynamic_cast<Veterinario *>(funcionario)) << std::endl;
-				}
-				else
-				{
-					std::cout << *(dynamic_cast<Tratador *>(funcionario)) << std::endl;
-				}
+				std::cout << *funcionario << std::endl;
 			}
 		}
 	}
@@ -154,14 +148,7 @@ void Programa::listarTodosFuncionarios()
 	{
 		for (auto &funcionario : this->funcionarios)
 		{
-			if (funcionario->getIsVeterinario())
-			{
-				std::cout << *(dynamic_cast<Veterinario *>(funcionario)) << std::endl;
-			}
-			else
-			{
-				std::cout << *(dynamic_cast<Tratador *>(funcionario)) << std::endl;
-			}
+			std::cout << *funcionario << std::endl;
 		}
 	}
 }
@@ -200,7 +187,7 @@ void Programa::listarTodosAnimais()
 	}
 }
 
-Funcionario *Programa::findFuncionario(std::string matricula)
+std::shared_ptr<Funcionario> Programa::findFuncionario(std::string matricula)
 {
 	for (auto &funcionario : this->funcionarios)
 	{
@@ -224,7 +211,7 @@ Animal *Programa::findAnimal(int id)
 	return nullptr;
 }
 
-Funcionario *Programa::editarFuncionario(Funcionario *funcionario)
+std::shared_ptr<Funcionario> Programa::editarFuncionario(std::shared_ptr<Funcionario> funcionario)
 {
 	int escolha = 0;
 	std::string matricula;
@@ -285,14 +272,18 @@ Funcionario *Programa::editarFuncionario(Funcionario *funcionario)
 			{
 				std::cout << "Insira um novo CRMV: ";
 				std::cin >> crmv;
-				dynamic_cast<Veterinario *>(funcionario)->setCrmv(crmv);
+				//dynamic_cast<Veterinario *>(funcionario)->setCrmv(crmv);
+				//std::shared_ptr<Veterinario> f = std::dynamic_pointer_cast<Veterinario>(funcionario);
+				std::dynamic_pointer_cast<Veterinario>(funcionario)->setCrmv(crmv);
 				break;
 			}
 			else
 			{
 				std::cout << "Insira um novo Nível de Segurança: ";
 				std::cin >> nivel_seguranca;
-				dynamic_cast<Tratador *>(funcionario)->setNivel_seguranca(nivel_seguranca);
+				//dynamic_cast<Tratador *>(funcionario)->setNivel_seguranca(nivel_seguranca);
+				//std::shared_ptr<Tratador> f = std::dynamic_pointer_cast<Tratador>(funcionario);
+				std::dynamic_pointer_cast<Tratador>(funcionario)->setNivel_seguranca(nivel_seguranca);
 				break;
 			}
 		default:
@@ -300,7 +291,6 @@ Funcionario *Programa::editarFuncionario(Funcionario *funcionario)
 			break;
 		}
 	} while (escolha != 0);
-
 	return funcionario;
 }
 

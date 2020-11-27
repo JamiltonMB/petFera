@@ -8,6 +8,7 @@
 #include "animal.hpp"
 #include <vector>
 #include <string>
+#include <memory>
 
 using std::vector;
 
@@ -68,11 +69,12 @@ public:
 	runCadastrarAnimal();
 
 private:
-	vector<Funcionario*> funcionarios; //vector de objetos da classe Funcionario
+	//vector<Funcionario*> funcionarios; //vector de objetos da classe Funcionario
+	vector<std::shared_ptr<Funcionario>> funcionarios;
 	vector<Animal*> animais; //vector de objetos da classe Animal
-	Funcionario* findFuncionario(std::string matricula); //Método para verificar se um objeto(funcionário) existe no vector de funcionários
+	std::shared_ptr<Funcionario> findFuncionario(std::string matricula); //Método para verificar se um objeto(funcionário) existe no vector de funcionários
 	Animal* findAnimal(int id); //Método para verificar se um objeto(anial) existe no vector de animais
-	Funcionario* editarFuncionario(Funcionario* funcionario); //Método chamado pelo método alterarFuncionario para fazer o set dos atributos e apresentar um menu de opções
+	std::shared_ptr<Funcionario> editarFuncionario(std::shared_ptr<Funcionario> funcionario); //Método chamado pelo método alterarFuncionario para fazer o set dos atributos e apresentar um menu de opções
 	Animal* editarAnimal(Animal* animal); //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
 };
 
