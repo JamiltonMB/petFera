@@ -6,6 +6,9 @@
 
 class AnfibioNativo : public Anfibios, public Nativo
 {
+public:
+    AnfibioNativo();
+    ~AnfibioNativo();
 };
 
 #endif
