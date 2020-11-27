@@ -1,6 +1,6 @@
-#include "aves.hpp"
+#include "ave.hpp"
 
-Aves::Aves(double tamanho_bico, double corPenas) : Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,
+Ave::Ave(double tamanho_bico, double corPenas) : Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,
                                                           tipo_pele, tipo_reproducao, alimento,
                                                           ameacadoDeEx, silvestreOuExotico, vetResponsavel,
                                                           tratadorResponsavel),
@@ -8,25 +8,25 @@ Aves::Aves(double tamanho_bico, double corPenas) : Animal(id, nome, sexo, idade,
 {
 }
 
-double Aves::getTamanhoBico() const
+double Ave::getTamanhoBico() const
 {
     return tamanho_bico;
 }
-void Aves::setTamanhoBico(double tamanho_bico)
+void Ave::setTamanhoBico(double tamanho_bico)
 {
     this->tamanho_bico = tamanho_bico;
 }
 
-double Aves::getCorPenas() const
+double Ave::getCorPenas() const
 {
     return corPenas;
 }
-void Aves::setCorPenas(double corPenas)
+void Ave::setCorPenas(double corPenas)
 {
     this->corPenas = corPenas;
 }
 
-std::ostream &Aves::imprimirAves(std::ostream &os) const
+std::ostream &Ave::imprimirAve(std::ostream &os) const
 {
     imprimirAnimal(os);
     os << " | Tamanho do Bico: " << tamanho_bico << std::endl

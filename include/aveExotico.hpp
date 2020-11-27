@@ -1,13 +1,13 @@
 #ifndef _AVE_EXOTICO_H_
 #define _AVE_EXOTICO_H_
 
-#include "aves.hpp"
+#include "ave.hpp"
 #include "exotico.hpp"
 
-class AveExotico : public Aves, public Exotico{
+class AveExotico : public Ave, public Exotico{
     public:
         AveExotico();
-        ~AveExotico();
+        //~AveExotico();
 };
 
 #endif
