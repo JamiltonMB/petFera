@@ -6,6 +6,9 @@
 
 class AveDomestica : public Aves , public Domestico
 {
+    public:
+    AveDomestica();
+    ~AveDomestica();
 };
 
 #endif

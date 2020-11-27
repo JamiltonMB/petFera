@@ -5,6 +5,9 @@
 
 class Anfibios : public Animal
 {
+public:
+    Anfibio();
+    ~Anfibio();
 };
 
 #endif
