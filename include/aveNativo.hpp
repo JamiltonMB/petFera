@@ -6,6 +6,9 @@
 
 class AveNativo : public Aves , public Nativo
 {
+    public:
+        AveNativo();
+        ~AveNativo();
 };
 
 #endif

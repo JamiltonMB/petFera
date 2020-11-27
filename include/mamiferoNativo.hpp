@@ -5,6 +5,9 @@
 #include "nativo.hpp"
 
 class MamiferoNativo : public Mamiferos , public Nativo{
+    public:
+        MamiferoNativo();
+        ~MamiferoNativo();
 };
 
 #endif

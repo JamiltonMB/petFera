@@ -2,7 +2,9 @@
 #define _DOMESTICO_H_
 
 class Domestico{
-    protected:
+    public :
+         Domestico();
+         ~Domestico();
 };
 
 

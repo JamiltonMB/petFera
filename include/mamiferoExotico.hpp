@@ -4,8 +4,10 @@
 #include "mamiferos.hpp"
 #include "exotico.hpp"
 
-class MamiferoExotico : public Mamiferos, public Exotico
-{
+class MamiferoExotico : public Mamiferos, public Exotico{
+    public:
+        MamiferoExotico();
+        ~MamiferoExotico();
 };
 
 #endif
