@@ -13,11 +13,13 @@ int main(int argc, char const *argv[]){
 	programa->listarTodosFuncionarios();
 	programa->listarFuncionario("342423");
 	*/
-	//programa->run();
+	programa->run();
+	/* Teste com ponteiros inteligentes
 	programa->cadastrarVeterinario("342423", "teste", 20, "33233", "casa", "010101", "veterinario", "3434");
 	programa->cadastrarTratador("342424", "teste2", 20, "33233", "casa", "010101", "tratador", "alto");
 	programa->listarTodosFuncionarios();
 	programa->cadastrarTratador("1111", "teste3", 20, "33233", "casa", "010101", "tratador", "baixo");
 	programa->listarFuncionario("1111");
+	*/
 	return 0;
 }
