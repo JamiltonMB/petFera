@@ -1,45 +1,44 @@
 <h1>PetFera</h1>
   
 
-EQUIPE DESENVOLVEDORA:
+Equipe Desenvolvedora:
 
-1 - FERNANDO BRENO DOS SANTOS BARBOSA -> MAT.: 20190146817
+1 - Fernando Breno dos Santos Barbosa -> MAT.: 20190146817
 
-2 - JAMILTON MEDEIROS BARBOSA -> MAT.: 20190125325
+2 - Jamilton Medeiros Barbosa -> MAT.: 20190125325
 
-3 - RAQUEL ALVES DE BRITO -> MAT.: 20190039595
-
-
-CONTEÚDO IMPLEMENTADO:
-FORAM IMPLEMENTADOS DOIS MÓDULOS DO PROGRAMA PETFERA: O MÓDULO DE CADASTRO DE
-FUNCIONÁRIOS E O MÓDULO DE CADASTRO DE ANIMAIS. CADA MÓDULO CONTA COM O SEU
-RESPECTIVO CRUD E UM CONJUNTO DE CLASSES. A INTERAÇÃO COM O USUÁRIO É FEITA VIA
-TERMINAL, PORÉM FUTURAMENTE VAMOS IMPLEMENTAR UMA INTERFACE GRÁFICA. O PROGRAMA
-É EXECUTADO ATRAVÉS DE UMA INSTÂNCIA DE UMA CLASSE CHAMADA "Programa", OS MÉTODOS
-DESSA CLASSE FAZEM USO DAS CLASSES ANIMAIS E FUNCIONÁRIOS.
+3 - Raquel Alves de Brito -> MAT.: 20190039595
 
 
-============================================================================
-
-
-COMO USAR O PROGRAMA:
-O PROCESSO DE COMPILAÇÃO FOI AUTOMATIZADO COM O CMAKE, PARA COMPILAR E EXECUTAR
-
-O PROGRAMA DEVE-SE SEGUIR OS SEGUINTES PASSOS:
-
-1 - NAVEGAR VIA TERMINAL ATÉ O DIRETÓRIO build
-
-2 - EXECUTAR O COMANDO: cmake ..
-
-3 - EXECUTAR O COMANDO: make
-
-4 - EXECUTAR O COMANDO: ./prog
-
+Conteúdo Implementado:
+Foram implementados dois módulos do programa PetFera: O módulo de cadastro de 
+funcionários e o módulo de cadastro de animais. Cada módulo conta com seu respectivo
+CRUD e uum conjunto de classes. A interação com o usuário é feita via
+terminal, porém futuramente vamos implementar uma interface gráfica. O programa
+é executado através de uma instância de uma classe chamada "Programa", os métodos
+dessa classe fazem o uso das classes animal e fuuncionário.
 
 
 ============================================================================
 
 
-ENDEREÇO DO REPOSITÓRIO:
+Como usar o programa:
+O processo de compilação foi automatizado com CMAKE, para compilar e executar
+o programa deve-se seguir os seguints passos:
+
+1 - Navegar via terminal até o diretório /build
+
+2 - Executar o comando: cmake ..
+
+3 - Executar o comando: make
+
+4 - Executar o comando: ./prog
+
+
+
+============================================================================
+
+
+Endereço do repositório:
 https://github.com/JamiltonMB/petFera
 
