@@ -4,8 +4,10 @@
 #include "repteis.hpp"
 #include "nativo.hpp"
 
-class RepteisNativo : public Repteis, public Nativo
-{
+class RepteisNativo : public Repteis, public Nativo{
+    public:
+        RepteisNativo();
+        ~RepteisNativo();
 };
 
 #endif

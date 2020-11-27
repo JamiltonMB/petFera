@@ -5,6 +5,9 @@
 #include "domestico.hpp"
 
 class RepteisDomestico : public Repteis,public Domestico{
+    public:
+        RepteisDomestico();
+        ~RepteisDomestico();
 };
 
 #endif

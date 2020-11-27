@@ -7,7 +7,9 @@ class Nativo{
     std::string licenca_IBAMA;
     std::string UF_origem;
 
-    _public : Nativo(std::string licenca_IBAMA, td::string UF_origem);
+    public:
+    Nativo(std::string licenca_IBAMA, td::string UF_origem);
+    ~Nativo();
 };
 
 

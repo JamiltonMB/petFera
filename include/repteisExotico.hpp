@@ -6,6 +6,9 @@
 
 class RepteisExotico : public Repteis, public Exotico
 {
+    public:
+        RepteisExotico();
+        ~RepteisExotico();
 };
 
 #endif
