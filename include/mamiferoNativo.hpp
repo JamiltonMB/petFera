@@ -1,8 +1,10 @@
-#pragma once
+#ifndef _MAMIFERO_NATIVO_H_
+#define _MAMIFERO_NATIVO_H_
 
-#include "mamifero.hpp"
+#include "mamiferos.hpp"
 #include "nativo.hpp"
 
+<<<<<<< HEAD
 class MamiferoNativo : public Mamifero, public Nativo
 {
 public:
@@ -13,4 +15,9 @@ public:
                           string licenca_IBAMA, string UF_origem, string ameacadoDeEx,
                           string habitat);
     virtual ~MamiferoNativo(){}
+=======
+class MamiferoNativo : public Mamiferos , public Nativo{
+>>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97
 };
+
+#endif

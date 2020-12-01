@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _FUNCIONARIO_H_
+#define _FUNCIONARIO_H_
 #include <iostream>
 
 class Funcionario
@@ -40,3 +41,5 @@ protected:
 	std::string cargo;
 	bool isVeterinario=false;
 };
+
+#endif
