@@ -635,7 +635,7 @@ void Programa::cadastrarReptilNativo(size_t id, string nome, string sexo, int id
 									 string tratadorResponsavel, bool troca_de_pele, string licenca_IBAMA, string UF_origem,
 									 string ameacadoDeEx, string habitat)
 {
-	this->animais.push_back(std::make_shared<RepteisNativo>(id, nome, sexo, idade, peso, comprimento,
+	this->animais.push_back(std::make_shared<ReptilNativo>(id, nome, sexo, idade, peso, comprimento,
 															patas, especie, tipo_pele,
 															alimento, silvestreOuExotico, vetResponsavel,
 															tratadorResponsavel, troca_de_pele, licenca_IBAMA, UF_origem,
@@ -748,3 +748,4 @@ std::shared_ptr<Animal> Programa::editarAnimal(std::shared_ptr<Animal> animal)
 
 	return animal;
 }
+;

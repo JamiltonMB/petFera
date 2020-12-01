@@ -7,7 +7,7 @@ Animal::Animal(size_t id, string nome, string sexo, int idade, float peso,
                                              especie(especie), tipo_pele(tipo_pele), alimento(alimento),
                                              silvestreOuExotico(silvestreOuExotico), vetResponsavel(vetResponsavel),
                                              tratadorResponsavel(tratadorResponsavel) {}
-Animal::~Animal() {}
+
 
 void Animal::setId(size_t id)
 {

@@ -1,4 +1,6 @@
 #include "exotico.hpp"
+
+
 std::string Exotico::getPais_origem() const
 {
     return pais_origem;

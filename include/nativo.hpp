@@ -13,7 +13,7 @@ public:
     Nativo(string licenca_IBAMA,string UF_origem, string ameacadoDeEx,
            string habitat) : licenca_IBAMA(licenca_IBAMA), UF_origem(UF_origem),
                                   ameacadoDeEx(ameacadoDeEx), habitat(habitat) {}
-    virtual ~Nativo();
+    virtual ~Nativo(){}
 
     string getLicenca_IBAMA();
     void setLicenca_IBAMA(string licenca_IBAMA);

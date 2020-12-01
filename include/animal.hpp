@@ -25,7 +25,7 @@ public:
            int patas, string especie, string tipo_pele,
            string alimento, string silvestreOuExotico, string vetResponsavel,
            string tratadorResponsavel);
-    virtual ~Animal();
+    virtual ~Animal(){}
 
     void setId(size_t id);
     size_t getId();

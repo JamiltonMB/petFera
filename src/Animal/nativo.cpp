@@ -1,6 +1,7 @@
 #include "nativo.hpp"
 
 
+
 string Nativo::getLicenca_IBAMA()
 {
     return licenca_IBAMA;

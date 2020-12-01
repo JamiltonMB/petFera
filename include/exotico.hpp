@@ -11,7 +11,7 @@ protected:
 
 public:
     inline Exotico(std::string pais_origem, std::string ameacadoDeEx, std::string habitat) : pais_origem(pais_origem), ameacadoDeEx(ameacadoDeEx), habitat(habitat) {}
-    virtual ~Exotico();
+    virtual ~Exotico(){}
 
     std::string getPais_origem() const;
     void setPais_origem(std::string pais_origem);
