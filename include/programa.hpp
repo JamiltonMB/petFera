@@ -23,12 +23,12 @@ public:
 	cadastrarTratador(std::string matricula, std::string nome, int idade, std::string, std::string endereco, std::string cpf, std::string cargo, std::string nivel_seguranca);
 	
 	void //Recebe os atributos necessários para instanciar um objeto da classe animal e adiciona o referido objeto no vector animal
-	cadastrarAnimal(int id, string nome, string sexo, int idade, float peso, float comprimento,
-           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+	cadastrarAnimal(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
+           int patas, string especie, string tipo_pele,
+           string alimento, string silvestreOuExotico, string vetResponsavel,
            string tratadorResponsavel);
 	void //Recebe um ID e verifica se existe algum objeto no vector de animais com esse ID, caso tenho o objeto será removido do vector
-	removerAnimal(int id);
+	removerAnimal(size_t id);
 	
 	void //Recebe uma matrícula e verifica se existe algum objeto no vector de funcionários com essa matrícula, caso tenho o objeto será removido do vector
 	removerFuncionario(std::string matricula);
@@ -71,11 +71,11 @@ public:
 private:
 	//vector<Funcionario*> funcionarios; //vector de objetos da classe Funcionario
 	vector<std::shared_ptr<Funcionario>> funcionarios;
-	vector<Animal*> animais; //vector de objetos da classe Animal
+	vector<std::shared_ptr<Animal>> animais; //vector de objetos da classe Animal
 	std::shared_ptr<Funcionario> findFuncionario(std::string matricula); //Método para verificar se um objeto(funcionário) existe no vector de funcionários
-	Animal* findAnimal(int id); //Método para verificar se um objeto(anial) existe no vector de animais
+	std::shared_ptr<Animal> findAnimal(int id); //Método para verificar se um objeto(anial) existe no vector de animais
 	std::shared_ptr<Funcionario> editarFuncionario(std::shared_ptr<Funcionario> funcionario); //Método chamado pelo método alterarFuncionario para fazer o set dos atributos e apresentar um menu de opções
-	Animal* editarAnimal(Animal* animal); //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
+	std::shared_ptr<Animal> editarAnimal(std::shared_ptr<Animal> animal); //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
 };
 
 #endif
