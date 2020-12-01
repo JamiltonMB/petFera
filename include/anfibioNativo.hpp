@@ -16,7 +16,7 @@ public:
                                                                  vetResponsavel, tratadorResponsavel, total_mudas),
                                                          Nativo(licenca_IBAMA, UF_origem,
                                                                 ameacadoDeEx, habitat) {}
-    virtual ~AnfibioNativo();
+    ~AnfibioNativo();
 };
 
 #endif

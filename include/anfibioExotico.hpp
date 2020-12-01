@@ -13,7 +13,7 @@ public:
                    string tratadorResponsavel,int total_mudas,string pais_origem, string ameacadoDeEx, string habitat)
         : Anfibio(id, nome, sexo, idade, peso, comprimento, patas, especie, tipo_pele, alimento, silvestreOuExotico, vetResponsavel, tratadorResponsavel, total_mudas),
           Exotico(pais_origem, ameacadoDeEx, habitat) {}
-    virtual ~AnfibioExotico();
+    ~AnfibioExotico();
 };
 
 #endif
