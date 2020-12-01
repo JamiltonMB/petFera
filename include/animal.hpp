@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _ANIMAL_H_
+#define _ANIMAL_H_
 
 #include <iostream>
 using std::string;
@@ -6,29 +7,32 @@ using std::string;
 class Animal
 {
 protected:
-    size_t id;
+    int id;
     string nome;
     string sexo;
     int idade;
     float peso;
     float comprimento;
+    string ambiente; //habitat
     int patas;
     string especie;
     string tipo_pele;
+    string tipo_reproducao;
     string alimento;
+    string ameacadoDeEx;
     string silvestreOuExotico;
     string vetResponsavel;
     string tratadorResponsavel;
 
 public:
-    Animal(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-           int patas, string especie, string tipo_pele,
-           string alimento, string silvestreOuExotico, string vetResponsavel,
+    Animal(int id, string nome, string sexo, int idade, float peso, float comprimento,
+           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
            string tratadorResponsavel);
-    virtual ~Animal();
+    ~Animal();
 
-    void setId(size_t id);
-    size_t getId();
+    void setId(int id);
+    int getId();
 
     string getNome() const;
     void setNome(string nome);
@@ -45,6 +49,9 @@ public:
     float getComprimento() const;
     void setComprimento(float comprimento);
 
+    string getAmbiente() const;
+    void setAmbiente(string ambiente);
+
     int getPatas() const;
     void setPatas(int patas);
 
@@ -54,8 +61,14 @@ public:
     string getTipo_pele() const;
     void setTipo_pele(string tipo_pele);
 
+    string getTipo_reproducao() const;
+    void setTipo_reproducao(string tipo_reproducao);
+
     string getAlimento() const;
     void setAlimento(string alimento);
+
+    string getAmeacadoDeEx() const;
+    void setAmeacadoDeEx(string ameacadoDeEx);
 
     string getSilvestreOuExotico() const;
     void setSilvestreOuExotico(string silvestreOuExtico);
@@ -68,3 +81,5 @@ public:
 
     std::ostream &imprimirAnimal(std::ostream &os) const;
 };
+
+#endif

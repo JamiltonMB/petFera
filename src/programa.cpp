@@ -6,7 +6,7 @@ Programa::Programa()
 	animais.clear();
 }
 
-Programa::~Programa()
+Programa::~Programa() 
 {
 	funcionarios.clear();
 	funcionarios.shrink_to_fit();
@@ -28,18 +28,17 @@ void Programa::cadastrarTratador(std::string matricula, std::string nome, int id
 	this->funcionarios.push_back(std::make_shared<Tratador>(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca));
 }
 
-void Programa::cadastrarAnimal(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-							   int patas, string especie, string tipo_pele,
-							   string alimento, string silvestreOuExotico, string vetResponsavel,
+void Programa::cadastrarAnimal(int id, string nome, string sexo, int idade, float peso, float comprimento,
+							   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+							   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
 							   string tratadorResponsavel)
 {
-	this->animais.push_back(std::make_shared<Animal>(id, nome, sexo, idade, peso, comprimento,
-													 patas, especie, tipo_pele,
-													 alimento, silvestreOuExotico, vetResponsavel,
-													 tratadorResponsavel));
+	Animal *animal = new Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele,
+								tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel);
+	this->animais.push_back(animal);
 }
 
-void Programa::removerAnimal(size_t id)
+void Programa::removerAnimal(int id)
 {
 	if (this->findAnimal(id) == nullptr)
 	{
@@ -103,7 +102,7 @@ void Programa::alterarFuncionario(std::string matricula)
 	}
 }
 
-void Programa::alterarAnimal(size_t id)
+void Programa::alterarAnimal(int id)
 {
 	if (this->findAnimal(id) == nullptr)
 	{
@@ -154,7 +153,7 @@ void Programa::listarTodosFuncionarios()
 	}
 }
 
-void Programa::listarAnimal(size_t id)
+void Programa::listarAnimal(int id)
 {
 	if (this->findAnimal(id) == nullptr)
 	{
@@ -176,7 +175,7 @@ void Programa::listarTodosAnimais()
 {
 	if (this->animais.size() == 0)
 	{
-		std::cout << "Não há animais cadastrados." << std::endl;
+		std::cout << "Não há funcionários cadastrados." << std::endl;
 	}
 	else
 	{
@@ -200,7 +199,7 @@ std::shared_ptr<Funcionario> Programa::findFuncionario(std::string matricula)
 	return nullptr;
 }
 
-std::shared_ptr<Animal> Programa::findAnimal(size_t id)
+Animal *Programa::findAnimal(int id)
 {
 	for (auto &animais : this->animais)
 	{
@@ -468,20 +467,22 @@ void Programa::runAnimal()
 void Programa::runCadastrarAnimal()
 {
 	using std::string;
-	size_t id;
+	int id;
 	string nome;
 	string sexo;
 	int idade;
 	float peso;
 	float comprimento;
+	string ambiente;
 	int patas;
 	string especie;
 	string tipo_pele;
+	string tipo_reproducao;
 	string alimento;
+	string ameacadoDeEx;
 	string silvestreOuExotico;
 	string vetResponsavel;
 	string tratadorResponsavel;
-
 	std::cout << "Digite o id: ";
 	std::cin >> id;
 	std::cout << "Digite o nome: ";
@@ -494,155 +495,32 @@ void Programa::runCadastrarAnimal()
 	std::cin >> peso;
 	std::cout << "Digite o comprimento ";
 	std::cin >> comprimento;
+	std::cout << "Digite o ambiente: ";
+	std::cin >> ambiente;
 	std::cout << "Digite a quantidade de patas: ";
 	std::cin >> patas;
 	std::cout << "Digite a especie: ";
 	std::cin >> especie;
 	std::cout << "Digite o tipo de pele: ";
 	std::cin >> tipo_pele;
+	std::cout << "Digite o tipo de reprodução: ";
+	std::cin >> tipo_reproducao;
 	std::cout << "Digite o alimento: ";
 	std::cin >> alimento;
-	std::cout << "Digite se é nativo ou exotico: ";
+	std::cout << "Digite se é ameaçado de extinção: ";
+	std::cin >> ameacadoDeEx;
+	std::cout << "Digite se é silvestre ou exótico: ";
 	std::cin >> silvestreOuExotico;
 	std::cout << "Digite o veterinario responsavél: ";
 	std::cin >> vetResponsavel;
 	std::cout << "Digite o tratador responsavél: ";
 	std::cin >> tratadorResponsavel;
-	if (silvestreOuExotico == "nativo")
-	{
-		string licenca_IBAMA;
-		string UF_origem;
-		string ameacadoDeEx;
-		string habitat;
-		std::cout << "Digite a licenca do IBAMA: ";
-		std::cin >> licenca_IBAMA;
-		std::cout << "Digite a UF de origem: ";
-		std::cin >> UF_origem;
-		std::cout << "Digite se é ameaçado de extinção: ";
-		std::cin >> ameacadoDeEx;
-		std::cout << "Digite o habitat: ";
-		std::cin >> habitat;
-		if (especie == "reptil")
-		{
-			bool troca_de_pele;
-			std::cout << "Digite 0 se ele não troca de pele ou 1 caso contrário: ";
-			std::cin >> troca_de_pele;
-			cadastrarReptilNativo(id, nome, sexo, idade, peso, comprimento,
-								  patas, especie, tipo_pele,
-								  alimento, silvestreOuExotico, vetResponsavel,
-								  tratadorResponsavel, troca_de_pele, licenca_IBAMA, UF_origem,
-								  ameacadoDeEx, habitat);
-		}
-
-		if (especie == "ave")
-		{
-			double tamanho_bico;
-			string corPenas;
-			std::cout << "Digite o tamanho do bico: ";
-			std::cin >> tamanho_bico;
-			std::cout << "Digite a cor das penas: ";
-			std::cin >> corPenas;
-			cadastrarAveNativo(id, nome, sexo, idade, peso,
-							   comprimento, patas, especie, tipo_pele,
-							   alimento, silvestreOuExotico, vetResponsavel,
-							   tratadorResponsavel, tamanho_bico, corPenas,
-							   licenca_IBAMA, UF_origem, ameacadoDeEx,
-							   habitat);
-		}
-
-		if (especie == "anfibio")
-		{
-			int total_mudas;
-			std::cout << "Digite o total de mudas: ";
-			std::cin >> total_mudas;
-			cadastrarAnfibioNativo(id, nome, sexo, idade, peso,
-								   comprimento, patas, especie, tipo_pele,
-								   alimento, silvestreOuExotico, vetResponsavel,
-								   tratadorResponsavel, total_mudas, licenca_IBAMA, UF_origem,
-								   ameacadoDeEx, habitat);
-		}
-
-		if (especie == "mamifero")
-		{
-			string cor_pelo;
-			string dentes;
-			std::cout << "Digite a cor do pelo: ";
-			std::cin >> cor_pelo;
-			std::cout << "Digite o tipo de dente: ";
-			std::cin >> dentes;
-			cadastrarMamiferoNativo(id, nome, sexo, idade, peso,
-									comprimento, patas, especie, tipo_pele,
-									alimento, silvestreOuExotico, vetResponsavel,
-									tratadorResponsavel, cor_pelo, dentes,
-									licenca_IBAMA, UF_origem, ameacadoDeEx,
-									habitat);
-		}
-	}
-	else if (silvestreOuExotico == "exotico")
-	{
-	}
-	else
-	{
-	}
+	cadastrarAnimal(id, nome,  sexo,  idade,  peso,  comprimento,  ambiente,
+                patas,  especie,  tipo_pele,  tipo_reproducao,  alimento,
+                ameacadoDeEx,  silvestreOuExotico,  vetResponsavel,  tratadorResponsavel);
 }
 
-void Programa::cadastrarMamiferoNativo(size_t id, string nome, string sexo, int idade, float peso,
-									   float comprimento, int patas, string especie, string tipo_pele,
-									   string alimento, string silvestreOuExotico, string vetResponsavel,
-									   string tratadorResponsavel, string cor_pelo, string dentes,
-									   string licenca_IBAMA, string UF_origem, string ameacadoDeEx,
-									   string habitat)
-{
-	this->animais.push_back(std::make_shared<MamiferoNativo>(id, nome, sexo, idade, peso,
-															 comprimento, patas, especie, tipo_pele,
-															 alimento, silvestreOuExotico, vetResponsavel,
-															 tratadorResponsavel, cor_pelo, dentes,
-															 licenca_IBAMA, UF_origem, ameacadoDeEx,
-															 habitat));
-}
-
-void Programa::cadastrarAnfibioNativo(size_t id, string nome, string sexo, int idade, float peso,
-									  float comprimento, int patas, string especie, string tipo_pele,
-									  string alimento, string silvestreOuExotico, string vetResponsavel,
-									  string tratadorResponsavel, int total_mudas, string licenca_IBAMA, string UF_origem,
-									  string ameacadoDeEx, string habitat)
-{
-	this->animais.push_back(std::make_shared<AnfibioNativo>(id, nome, sexo, idade, peso,
-															comprimento, patas, especie, tipo_pele,
-															alimento, silvestreOuExotico, vetResponsavel,
-															tratadorResponsavel, total_mudas, licenca_IBAMA, UF_origem,
-															ameacadoDeEx, habitat));
-}
-
-void Programa::cadastrarAveNativo(size_t id, string nome, string sexo, int idade, float peso,
-								  float comprimento, int patas, string especie, string tipo_pele,
-								  string alimento, string silvestreOuExotico, string vetResponsavel,
-								  string tratadorResponsavel, double tamanho_bico, string corPenas,
-								  string licenca_IBAMA, string UF_origem, string ameacadoDeEx,
-								  string habitat)
-{
-	this->animais.push_back(std::make_shared<AveNativo>(id, nome, sexo, idade, peso,
-														comprimento, patas, especie, tipo_pele,
-														alimento, silvestreOuExotico, vetResponsavel,
-														tratadorResponsavel, tamanho_bico, corPenas,
-														licenca_IBAMA, UF_origem, ameacadoDeEx,
-														habitat));
-}
-
-void Programa::cadastrarReptilNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-									 int patas, string especie, string tipo_pele,
-									 string alimento, string silvestreOuExotico, string vetResponsavel,
-									 string tratadorResponsavel, bool troca_de_pele, string licenca_IBAMA, string UF_origem,
-									 string ameacadoDeEx, string habitat)
-{
-	this->animais.push_back(std::make_shared<RepteisNativo>(id, nome, sexo, idade, peso, comprimento,
-															patas, especie, tipo_pele,
-															alimento, silvestreOuExotico, vetResponsavel,
-															tratadorResponsavel, troca_de_pele, licenca_IBAMA, UF_origem,
-															ameacadoDeEx, habitat));
-}
-
-std::shared_ptr<Animal> Programa::editarAnimal(std::shared_ptr<Animal> animal)
+Animal *Programa::editarAnimal(Animal *animal)
 {
 	using std::string;
 
@@ -706,36 +584,51 @@ std::shared_ptr<Animal> Programa::editarAnimal(std::shared_ptr<Animal> animal)
 			animal->setComprimento(comprimento);
 			break;
 		case 7:
+			std::cout << "Insira um novo Ambiente: ";
+			std::cin >> ambiente;
+			animal->setAmbiente(ambiente);
+			break;
+		case 8:
 			std::cout << "Insira um numero de Patas: ";
 			std::cin >> patas;
 			animal->setPatas(patas);
 			break;
-		case 8:
+		case 9:
 			std::cout << "Insira uma nova Especie: ";
 			std::cin >> especie;
 			animal->setEspecie(especie);
 			break;
-		case 9:
+		case 10:
 			std::cout << "Insira um novo Tipo de Pele: ";
 			std::cin >> tipo_pele;
 			animal->setTipo_pele(tipo_pele);
 			break;
-		case 10:
+		case 11:
+			std::cout << "Insira um novo Tipo de Reprodução: ";
+			std::cin >> tipo_reproducao;
+			animal->setTipo_reproducao(tipo_reproducao);
+			break;
+		case 12:
 			std::cout << "Insira um novo Alimento: ";
 			std::cin >> alimento;
 			animal->setAlimento(alimento);
 			break;
-		case 11:
+		case 13:
+			std::cout << "Insira se é Ameçado de Extinção: ";
+			std::cin >> ameacadoDeEx;
+			animal->setAmeacadoDeEx(ameacadoDeEx);
+			break;
+		case 14:
 			std::cout << "Insira se é Silvestre ou Exotico: ";
 			std::cin >> silvestreOuExotico;
 			animal->setSilvestreOuExotico(silvestreOuExotico);
 			break;
-		case 12:
+		case 15:
 			std::cout << "Insira Veterinário Responsavel: ";
 			std::cin >> vetResponsavel;
 			animal->setVetResponsavel(vetResponsavel);
 			break;
-		case 13:
+		case 16:
 			std::cout << "Insira Tratador Responsavel: ";
 			std::cin >> tratadorResponsavel;
 			animal->setTratadorResponsavel(tratadorResponsavel);

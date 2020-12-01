@@ -1,16 +1,14 @@
-#pragma once
+#ifndef _ANFIBIO_DOMESTICO_H_
+#define _ANFIBIO_DOMESTICO_H_
 
-#include "anfibio.hpp"
+#include "anfibios.hpp"
 #include "domestico.hpp"
 
-class AnfibioDomestico : public Domestico, public Anfibio
+class AnfibioDomestico : public Domestico, public Anfibios
 {
-public:
-   inline AnfibioDomestico(size_t id, string nome, string sexo, int idade, float peso,
-                     float comprimento, int patas, string especie, string tipo_pele,
-                     string alimento, string silvestreOuExotico, string vetResponsavel,
-                     string tratadorResponsavel, int total_mudas)
-        : Anfibio(id, nome, sexo, idade, peso, comprimento, patas, especie, tipo_pele, alimento,
-                  silvestreOuExotico, vetResponsavel, tratadorResponsavel, total_mudas) {}
+    public:
+    AnfibioDomestico();
     ~AnfibioDomestico();
 };
+
+#endif

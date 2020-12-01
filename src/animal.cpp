@@ -1,19 +1,17 @@
 #include "animal.hpp"
-Animal::Animal(size_t id, string nome, string sexo, int idade, float peso,
-               float comprimento, int patas, string especie, string tipo_pele,
-               string alimento, string silvestreOuExotico, string vetResponsavel,
-               string tratadorResponsavel) : id(id), nome(nome), idade(idade), peso(peso),
-                                             comprimento(comprimento), patas(patas),
-                                             especie(especie), tipo_pele(tipo_pele), alimento(alimento),
-                                             silvestreOuExotico(silvestreOuExotico), vetResponsavel(vetResponsavel),
-                                             tratadorResponsavel(tratadorResponsavel) {}
+Animal::Animal(int id, string nome, string sexo, int idade, float peso, float comprimento, string ambiente,
+               int patas, string especie, string tipo_pele, string tipo_reproducao, string alimento,
+               string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel, string tratadorResponsavel) : id(id), nome(nome), idade(idade), peso(peso), comprimento(comprimento), ambiente(ambiente), patas(patas),
+                                                                                                                    especie(especie), tipo_pele(tipo_pele), tipo_reproducao(tipo_reproducao), alimento(alimento),
+                                                                                                                    ameacadoDeEx(ameacadoDeEx), silvestreOuExotico(silvestreOuExotico), vetResponsavel(vetResponsavel),
+                                                                                                                    tratadorResponsavel(tratadorResponsavel) {}
 Animal::~Animal() {}
 
-void Animal::setId(size_t id)
+void Animal::setId(int id)
 {
     this->id = id;
 }
-size_t Animal::getId()
+int Animal::getId()
 {
     return id;
 }
@@ -63,6 +61,15 @@ void Animal::setComprimento(float comprimento)
     this->comprimento = comprimento;
 }
 
+string Animal::getAmbiente() const
+{
+    return ambiente;
+}
+void Animal::setAmbiente(string ambiente)
+{
+    this->ambiente = ambiente;
+}
+
 int Animal::getPatas() const
 {
     return patas;
@@ -90,6 +97,15 @@ void Animal::setTipo_pele(string tipo_pele)
     this->tipo_pele = tipo_pele;
 }
 
+string Animal::getTipo_reproducao() const
+{
+    return tipo_reproducao;
+}
+void Animal::setTipo_reproducao(string tipo_reproducao)
+{
+    this->tipo_reproducao = tipo_reproducao;
+}
+
 string Animal::getAlimento() const
 {
     return alimento;
@@ -97,6 +113,15 @@ string Animal::getAlimento() const
 void Animal::setAlimento(string alimento)
 {
     this->alimento = alimento;
+}
+
+string Animal::getAmeacadoDeEx() const
+{
+    return ameacadoDeEx;
+}
+void Animal::setAmeacadoDeEx(string ameacadoDeEx)
+{
+    this->ameacadoDeEx = ameacadoDeEx;
 }
 
 string Animal::getSilvestreOuExotico() const
@@ -128,19 +153,22 @@ void Animal::setTratadorResponsavel(string tratadorResponsavel)
 
 std::ostream &Animal::imprimirAnimal(std::ostream &os) const
 {
-    os << "| ID: " << this->id << std::endl
-       << " | Nome: " << this->nome << std::endl
-       << " | Sexo: " << this->sexo << std::endl
-       << " | Idade: " << this->idade << std::endl
-       << " | Peso: " << this->peso << std::endl
-       << " | Comprimento: " << this->comprimento << std::endl
-       << " | Patas: " << this->patas << std::endl
-       << " | Especie: " << this->especie << std::endl
-       << " | Tipo de Pele " << this->tipo_pele << std::endl
-       << " | Alimento: " << this->alimento << std::endl
-       << " | Silvestre ou Exotico:" << this->silvestreOuExotico << std::endl
-       << " | Veterinário Responsavél: " << this->vetResponsavel << std::endl
-       << " | Tratador Responsavél: " << this->tratadorResponsavel << std::endl;
+    os << "| ID: " << id << std::endl
+       << " | Nome: " << nome << std::endl
+       << " | Sexo: " << sexo << std::endl
+       << " | Idade: " << idade << std::endl
+       << " | Peso: " << peso << std::endl
+       << " | Comprimento: " << comprimento << std::endl
+       << " | Ambiente(Habitat): " << ambiente << std::endl
+       << " | Patas: " << patas << std::endl
+       << " | Especie: " << especie << std::endl
+       << " | Tipo de Pele " << tipo_pele << std::endl
+       << " | Tipo de Reprodução: " << tipo_reproducao << std::endl
+       << " | Alimento: " << alimento << std::endl
+       << " | Ameacado de Extinção: " << ameacadoDeEx << std::endl
+       << " | Silvestre ou Exotico:" << silvestreOuExotico << std::endl
+       << " | Veterinário Responsavél: " << vetResponsavel << std::endl
+       << " | Tratador Responsavél: " << tratadorResponsavel << std::endl;
 
     return os;
 }
