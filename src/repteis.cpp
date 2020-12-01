@@ -1,8 +1,8 @@
 #include "repteis.hpp"
 
-Repteis::Repteis(bool troca_de_pele) : Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,
-                                              tipo_pele, tipo_reproducao, alimento,
-                                              ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+Repteis::Repteis(bool troca_de_pele) : Animal(id, nome, sexo, idade, peso, comprimento, patas, especie,
+                                              tipo_pele, alimento,
+                                              silvestreOuExotico, vetResponsavel,
                                               tratadorResponsavel),
                                        troca_de_pele(troca_de_pele)
 {
