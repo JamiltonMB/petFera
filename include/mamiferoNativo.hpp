@@ -7,7 +7,7 @@
 class MamiferoNativo : public Mamifero , public Nativo{
     public:
         MamiferoNativo();
-        ~MamiferoNativo();
+        virtual ~MamiferoNativo();
 };
 
 #endif

@@ -1,14 +1,14 @@
 #ifndef _AVE_DOMESTICA_H_
 #define _AVE_DOMESTICA_H_
 
-#include "aves.hpp"
+#include "ave.hpp"
 #include "domestico.hpp"
 
-class AveDomestica : public Aves , public Domestico
+class AveDomestica : public Ave , public Domestico
 {
     public:
     AveDomestica();
-    ~AveDomestica();
+   virtual  ~AveDomestica();
 };
 
 #endif

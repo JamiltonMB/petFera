@@ -1,66 +1,66 @@
 #ifndef _NATIVO_H_
 #define _NATIVO_H_
 #include <iostream>
-
+using std::string;
 class Nativo
 {
 protected:
-    std::string licenca_IBAMA;
-    std::string UF_origem;
-    std::string ameacadoDeEx;
-    std::string habitat;
+    string licenca_IBAMA;
+    string UF_origem;
+    string ameacadoDeEx;
+    string habitat;
 
 public:
-    Nativo(std::string licenca_IBAMA, std::string UF_origem, std::string ameacadoDeEx,
-           std::string habitat) : licenca_IBAMA(licenca_IBAMA), UF_origem(UF_origem),
+    Nativo(string licenca_IBAMA,string UF_origem, string ameacadoDeEx,
+           string habitat) : licenca_IBAMA(licenca_IBAMA), UF_origem(UF_origem),
                                   ameacadoDeEx(ameacadoDeEx), habitat(habitat) {}
-    ~Nativo();
+    virtual ~Nativo();
 
-    std::string getLicenca_IBAMA();
-    void setLicenca_IBAMA(std::string licenca_IBAMA);
+    string getLicenca_IBAMA();
+    void setLicenca_IBAMA(string licenca_IBAMA);
 
-    std::string getUF_origem();
-    void setUF_origem(std::string UF_origem);
+    string getUF_origem();
+    void setUF_origem(string UF_origem);
 
-    std::string getAmeacadoDeEx() const;
-    void setAmeacadoDeEx(std::string ameacadoDeEx);
+    string getAmeacadoDeEx() const;
+    void setAmeacadoDeEx(string ameacadoDeEx);
 
-    std::string getHabitat() const;
-    void setHabitat(std::string habitat);
+    string getHabitat() const;
+    void setHabitat(string habitat);
 };
 
-std::string Nativo::getLicenca_IBAMA()
+string Nativo::getLicenca_IBAMA()
 {
     return licenca_IBAMA;
 }
-void Nativo::setLicenca_IBAMA(std::string licenca_IBAMA)
+void Nativo::setLicenca_IBAMA(string licenca_IBAMA)
 {
     this->licenca_IBAMA = licenca_IBAMA;
 }
 
-std::string Nativo::getUF_origem()
+string Nativo::getUF_origem()
 {
     return UF_origem;
 }
-void Nativo::setUF_origem(std::string UF_origem)
+void Nativo::setUF_origem(string UF_origem)
 {
     this->UF_origem = UF_origem;
 }
 
-std::string Nativo::getAmeacadoDeEx() const
+string Nativo::getAmeacadoDeEx() const
 {
     return ameacadoDeEx;
 }
-void Nativo::setAmeacadoDeEx(std::string ameacadoDeEx)
+void Nativo::setAmeacadoDeEx(string ameacadoDeEx)
 {
     this->ameacadoDeEx = ameacadoDeEx;
 }
 
-std::string Nativo::getHabitat() const
+string Nativo::getHabitat() const
 {
     return habitat;
 }
-void Nativo::setHabitat(std::string habitat)
+void Nativo::setHabitat(string habitat)
 {
     this->habitat = habitat;
 }

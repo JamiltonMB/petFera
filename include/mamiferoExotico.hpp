@@ -7,7 +7,7 @@
 class MamiferoExotico : public Mamifero, public Exotico{
     public:
         MamiferoExotico();
-        ~MamiferoExotico();
+        virtual ~MamiferoExotico();
 };
 
 #endif

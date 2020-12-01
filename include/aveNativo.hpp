@@ -8,7 +8,7 @@ class AveNativo : public Ave , public Nativo
 {
     public:
         AveNativo();
-        ~AveNativo();
+        virtual ~AveNativo();
 };
 
 #endif

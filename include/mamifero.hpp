@@ -13,7 +13,7 @@ protected:
 public:
     Mamifero(std::string cor_pelo, std::string dentes);
     Mamifero();
-    ~Mamifero();
+    virtual ~Mamifero();
 
     std::string getCorPelo();
     void setCorPelo(std::string cor_pelo);

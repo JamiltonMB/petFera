@@ -8,7 +8,7 @@ class RepteisExotico : public Repteis, public Exotico
 {
     public:
         RepteisExotico();
-        ~RepteisExotico();
+        virtual ~RepteisExotico();
 };
 
 #endif

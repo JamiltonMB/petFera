@@ -4,7 +4,7 @@
 class Domestico{
     public :
          Domestico();
-         ~Domestico();
+         virtual ~Domestico();
 };
 
 

@@ -1,14 +1,20 @@
 #ifndef _ANFIBIO_DOMESTICO_H_
 #define _ANFIBIO_DOMESTICO_H_
 
-#include "anfibios.hpp"
+#include "anfibio.hpp"
 #include "domestico.hpp"
 
-class AnfibioDomestico : public Domestico, public Anfibios
+class AnfibioDomestico : public Domestico, public Anfibio
 {
-    public:
-    AnfibioDomestico();
-    ~AnfibioDomestico();
+public:
+   inline AnfibioDomestico(size_t id, string nome, string sexo, int idade, float peso,
+                     float comprimento, int patas, string especie, string tipo_pele,
+                     string alimento, string silvestreOuExotico, string vetResponsavel,
+                     string tratadorResponsavel, int total_mudas, string pais_origem, string ameacadoDeEx,
+                     string habitat)
+        : Anfibio(id, nome, sexo, idade, peso, comprimento, patas, especie, tipo_pele, alimento,
+                  silvestreOuExotico, vetResponsavel, tratadorResponsavel, total_mudas) {}
+    virtual ~AnfibioDomestico();
 };
 
 #endif

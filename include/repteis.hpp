@@ -11,7 +11,7 @@ protected:
 public:
     Repteis(bool troca_de_pele);
     Repteis();
-    ~Repteis();
+    virtual ~Repteis();
     bool getTrocaDePele() const;
     void setTrocaDePele(bool troca_de_pele);
 

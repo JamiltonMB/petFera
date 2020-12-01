@@ -7,7 +7,7 @@
 class AveExotico : public Ave, public Exotico{
     public:
         AveExotico();
-        //~AveExotico();
+        virtual ~AveExotico();
 };
 
 #endif
