@@ -1,5 +1,4 @@
-#ifndef _ANFIBIO_NATIVO_H_
-#define _ANFIBIO_NATIV0_H_
+#pragma once
 
 #include "anfibio.hpp"
 #include "nativo.hpp"
@@ -18,5 +17,3 @@ public:
                                                                 ameacadoDeEx, habitat) {}
     ~AnfibioNativo();
 };
-
-#endif

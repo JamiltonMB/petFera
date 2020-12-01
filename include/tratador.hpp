@@ -1,5 +1,4 @@
-#ifndef _TRATADOR_H_
-#define _TRATADOR_H_
+#pragma once
 
 #include <iostream>
 #include "funcionario.hpp"
@@ -19,5 +18,3 @@ protected:
 	std::string nivel_seguranca;
 
 };
-
-#endif

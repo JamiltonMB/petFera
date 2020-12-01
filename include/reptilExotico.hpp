@@ -1,5 +1,4 @@
-#ifndef _REPTEIS_EXOTICO_H_
-#define __REPTEIS_EXOTICO_H_
+#pragma once
 
 #include "reptil.hpp"
 #include "exotico.hpp"
@@ -16,5 +15,3 @@ class RepteisExotico : public Reptil, public Exotico
                    Exotico(pais_origem, ameacadoDeEx, habitat) {}
         virtual ~RepteisExotico();
 };
-
-#endif

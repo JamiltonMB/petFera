@@ -1,11 +1,5 @@
 #include "mamifero.hpp"
 
-Mamifero::Mamifero(std::string cor_pelo, std::string dentes) : Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,
-                                                                        tipo_pele, tipo_reproducao, alimento,
-                                                                        ameacadoDeEx, silvestreOuExotico, vetResponsavel,
-                                                                        tratadorResponsavel),
-                                                                 cor_pelo(cor_pelo), dentes(dentes) {}
-
 std::string Mamifero::getCorPelo()
 {
     return cor_pelo;

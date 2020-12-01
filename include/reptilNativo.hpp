@@ -1,5 +1,4 @@
-#ifndef _REPTEIS_NATIVO_H_
-#define _REPTEIS_NATIVO_H_
+#pragma once
 
 #include "reptil.hpp"
 #include "nativo.hpp"
@@ -18,5 +17,3 @@ public:
                                                                        ameacadoDeEx, habitat) {}
     ~RepteisNativo();
 };
-
-#endif

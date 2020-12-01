@@ -1,5 +1,4 @@
-#ifndef _ANFIBIO_DOMESTICO_H_
-#define _ANFIBIO_DOMESTICO_H_
+#pragma once
 
 #include "anfibio.hpp"
 #include "domestico.hpp"
@@ -15,5 +14,3 @@ public:
                   silvestreOuExotico, vetResponsavel, tratadorResponsavel, total_mudas) {}
     ~AnfibioDomestico();
 };
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef _AVE_NATIVO_H_
-#define _AVE_NATIVO_H_
+#pragma once
 
 #include "ave.hpp"
 #include "nativo.hpp"
@@ -21,5 +20,3 @@ public:
                  habitat) {}
     virtual ~AveNativo();
 };
-
-#endif

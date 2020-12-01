@@ -1,5 +1,4 @@
-#ifndef _MAMIFERO_DOMESTICO_H_
-#define _MAMIFERO_DOMESTICO_H_
+#pragma once
 
 #include "mamifero.hpp"
 #include "domestico.hpp"
@@ -13,5 +12,3 @@ public:
                              string tratadorResponsavel, string cor_pelo, string dentes) {}
     ~MamiferoDomestico();
 };
-
-#endif

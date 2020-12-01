@@ -1,5 +1,4 @@
-#ifndef _NATIVO_H_
-#define _NATIVO_H_
+#pragma once
 #include <iostream>
 using std::string;
 class Nativo
@@ -64,5 +63,3 @@ void Nativo::setHabitat(string habitat)
 {
     this->habitat = habitat;
 }
-
-#endif

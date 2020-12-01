@@ -1,5 +1,4 @@
-#ifndef _MAMIFERO_H_
-#define _MAMIFERO_H_
+#pragma once
 
 #include <iostream>
 #include "animal.hpp"
@@ -30,5 +29,3 @@ public:
 
     std::ostream &imprimirMamifero(std::ostream &os) const;
 };
-
-#endif

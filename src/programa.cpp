@@ -103,7 +103,7 @@ void Programa::alterarFuncionario(std::string matricula)
 	}
 }
 
-void Programa::alterarAnimal(int id)
+void Programa::alterarAnimal(size_t id)
 {
 	if (this->findAnimal(id) == nullptr)
 	{
@@ -154,7 +154,7 @@ void Programa::listarTodosFuncionarios()
 	}
 }
 
-void Programa::listarAnimal(int id)
+void Programa::listarAnimal(size_t id)
 {
 	if (this->findAnimal(id) == nullptr)
 	{
@@ -200,7 +200,7 @@ std::shared_ptr<Funcionario> Programa::findFuncionario(std::string matricula)
 	return nullptr;
 }
 
-std::shared_ptr<Animal> Programa::findAnimal(int id)
+std::shared_ptr<Animal> Programa::findAnimal(size_t id)
 {
 	for (auto &animais : this->animais)
 	{

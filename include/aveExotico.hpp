@@ -1,5 +1,4 @@
-#ifndef _AVE_EXOTICO_H_
-#define _AVE_EXOTICO_H_
+#pragma once
 
 #include "ave.hpp"
 #include "exotico.hpp"
@@ -20,4 +19,3 @@ public:
     virtual ~AveExotico();
 };
 
-#endif

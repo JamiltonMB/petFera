@@ -1,5 +1,4 @@
-#ifndef _ANIMAL_H_
-#define _ANIMAL_H_
+#pragma once
 
 #include <iostream>
 using std::string;
@@ -69,5 +68,3 @@ public:
 
     std::ostream &imprimirAnimal(std::ostream &os) const;
 };
-
-#endif

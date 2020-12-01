@@ -1,5 +1,4 @@
-#ifndef _MAMIFERO_EXOTICO_H_
-#define _MAMIFERO_EXOTICO_H_
+#pragma once
 
 #include "mamifero.hpp"
 #include "exotico.hpp"
@@ -18,5 +17,3 @@ public:
                                                                                       Exotico(pais_origem, ameacadoDeEx, habitat) {}
     ~MamiferoExotico();
 };
-
-#endif

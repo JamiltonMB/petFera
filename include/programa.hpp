@@ -1,5 +1,4 @@
-#ifndef _PROGRAMA_H_
-#define _PROGRAMA_H_
+#pragma once
 
 #include <iostream>
 #include "funcionario.hpp"
@@ -98,10 +97,10 @@ public:
 	runCadastrarFuncionario();
 
 	void //Recebe um ID e verifica se existe algum objeto no vector de animais com esse ID, caso tenha será mostrado um menu de opções para edição do animal
-	alterarAnimal(int id);
+	alterarAnimal(size_t id);
 
 	void //Recebe um ID e verifica se existe algum objeto no vector de animais com esse ID, caso tenha o animal será impresso no terminal
-	listarAnimal(int id);
+	listarAnimal(size_t id);
 
 	void //Lista todos os objetos do vector de animais
 	listarTodosAnimais();
@@ -114,9 +113,7 @@ private:
 	vector<std::shared_ptr<Funcionario>> funcionarios;
 	vector<std::shared_ptr<Animal>> animais; //vector de objetos da classe Animal
 	std::shared_ptr<Funcionario> findFuncionario(std::string matricula); //Método para verificar se um objeto(funcionário) existe no vector de funcionários
-	std::shared_ptr<Animal> findAnimal(int id); //Método para verificar se um objeto(anial) existe no vector de animais
+	std::shared_ptr<Animal> findAnimal(size_t id); //Método para verificar se um objeto(anial) existe no vector de animais
 	std::shared_ptr<Funcionario> editarFuncionario(std::shared_ptr<Funcionario> funcionario); //Método chamado pelo método alterarFuncionario para fazer o set dos atributos e apresentar um menu de opções
 	std::shared_ptr<Animal> editarAnimal(std::shared_ptr<Animal> animal); //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
 };
-
-#endif

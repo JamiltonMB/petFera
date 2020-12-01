@@ -1,5 +1,4 @@
-#ifndef _REPTEIS_H_
-#define _REPTEIS_H_
+#pragma once
 #include <iostream>
 #include "animal.hpp"
 
@@ -19,7 +18,5 @@ public:
     bool getTrocaDePele() const;
     void setTrocaDePele(bool troca_de_pele);
 
-    std::ostream &imprimirRepil(std::ostream &os) const;
+    std::ostream &imprimirReptil(std::ostream &os) const;
 };
-
-#endif

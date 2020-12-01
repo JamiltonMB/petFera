@@ -1,5 +1,4 @@
-#ifndef _VETERINARIO_H_
-#define _VETERINARIO_H_
+#pragma once
 
 #include <iostream>
 #include "funcionario.hpp"
@@ -17,5 +16,3 @@ class Veterinario : public Funcionario{
 	protected:
 		std::string crmv;
 };
-
-#endif

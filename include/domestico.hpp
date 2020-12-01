@@ -1,5 +1,4 @@
-#ifndef _DOMESTICO_H_
-#define _DOMESTICO_H_
+#pragma once
 
 class Domestico{
     public :
@@ -9,5 +8,3 @@ class Domestico{
 
 
 
-
-#endif

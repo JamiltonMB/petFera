@@ -1,5 +1,4 @@
-#ifndef _MAMIFERO_NATIVO_H_
-#define _MAMIFERO_NATIVO_H_
+#pragma once
 
 #include "mamifero.hpp"
 #include "nativo.hpp"
@@ -18,5 +17,3 @@ public:
                                      Nativo(licenca_IBAMA, UF_origem, ameacadoDeEx, habitat) {}
     ~MamiferoNativo();
 };
-
-#endif

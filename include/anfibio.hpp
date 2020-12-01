@@ -1,5 +1,4 @@
-#ifndef _ANFIBIOS_H_
-#define _ANFIBIOS_H_
+#pragma once
 
 #include "animal.hpp"
 
@@ -18,8 +17,6 @@ public:
                                                                          tratadorResponsavel),
                                                                   total_mudas(total_mudas) {}
     virtual ~Anfibio();
-    inline int Anfibio::getMudas() { return total_mudas; }
-    inline void Anfibio::setMudas(int total_mudas) { this->total_mudas = total_mudas; }
+    inline int getMudas() { return total_mudas; }
+    inline void setMudas(int total_mudas) { this->total_mudas = total_mudas; }
 };
-
-#endif

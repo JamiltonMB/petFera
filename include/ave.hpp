@@ -1,5 +1,4 @@
-#ifndef _Ave_H_
-#define _Ave_H_
+#pragma once
 
 #include "animal.hpp"
 #include <iostream>
@@ -30,5 +29,3 @@ public:
 
     std::ostream &imprimirAve(std::ostream &os) const;
 };
-
-#endif

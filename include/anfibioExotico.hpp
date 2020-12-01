@@ -1,5 +1,4 @@
-#ifndef _ANFIBIO_EXOTICO_H_
-#define __ANFIBIO_EXOTICO_H_
+#pragma once
 
 #include "anfibio.hpp"
 #include "exotico.hpp"
@@ -16,4 +15,3 @@ public:
     ~AnfibioExotico();
 };
 
-#endif

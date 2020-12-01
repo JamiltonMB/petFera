@@ -1,5 +1,4 @@
-#ifndef _AVE_DOMESTICA_H_
-#define _AVE_DOMESTICA_H_
+#pragma once
 
 #include "ave.hpp"
 #include "domestico.hpp"
@@ -18,4 +17,3 @@ public:
     ~AveDomestica();
 };
 
-#endif

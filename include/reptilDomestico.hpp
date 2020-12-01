@@ -1,5 +1,4 @@
-#ifndef _REPTEIS_DOMESTICO_H_
-#define _REPTEIS_DOMESTICO_H_
+#pragma once
 
 #include "reptil.hpp"
 #include "domestico.hpp"
@@ -14,5 +13,3 @@ class ReptilDomestico : public Reptil,public Domestico{
                    silvestreOuExotico, vetResponsavel, tratadorResponsavel,troca_de_pele) {}
         virtual ~ReptilDomestico();
 };
-
-#endif
