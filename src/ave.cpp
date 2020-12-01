@@ -9,11 +9,11 @@ void Ave::setTamanhoBico(double tamanho_bico)
     this->tamanho_bico = tamanho_bico;
 }
 
-double Ave::getCorPenas() const
+string Ave::getCorPenas() const
 {
     return corPenas;
 }
-void Ave::setCorPenas(double corPenas)
+void Ave::setCorPenas(string corPenas)
 {
     this->corPenas = corPenas;
 }

@@ -6,6 +6,21 @@
 #include "tratador.hpp"
 #include "veterinario.hpp"
 #include "animal.hpp"
+#include "anfibio.hpp"
+#include "anfibioNativo.hpp"
+#include "anfibioExotico.hpp"
+#include "anfibioDomestico.hpp"
+#include "reptil.hpp"
+#include "reptilDomestico.hpp"
+#include "reptilExotico.hpp"
+#include "reptilNativo.hpp"
+#include "aveNativo.hpp"
+#include "aveDomestica.hpp"
+#include "aveExotico.hpp"
+#include "mamifero.hpp"
+#include "mamiferoNativo.hpp"
+#include "mamiferoExotico.hpp"
+#include "mamiferoDomestico.hpp"
 #include <vector>
 #include <string>
 #include <memory>
@@ -29,6 +44,32 @@ public:
            string tratadorResponsavel);
 	void //Recebe um ID e verifica se existe algum objeto no vector de animais com esse ID, caso tenho o objeto será removido do vector
 	removerAnimal(size_t id);
+
+	void cadastrarMamiferoNativo(size_t id, string nome, string sexo, int idade, float peso,
+                   float comprimento, int patas, string especie, string tipo_pele,
+                   string alimento, string silvestreOuExotico, string vetResponsavel,
+                   string tratadorResponsavel, string cor_pelo, string dentes,
+                   string licenca_IBAMA, string UF_origem, string ameacadoDeEx,
+                   string habitat);
+
+	void cadastrarAnfibioNativo(size_t id, string nome, string sexo, int idade, float peso,
+                  float comprimento, int patas, string especie, string tipo_pele,
+                  string alimento, string silvestreOuExotico, string vetResponsavel,
+                  string tratadorResponsavel, int total_mudas, string licenca_IBAMA, string UF_origem,
+                  string ameacadoDeEx, string habitat);
+
+	void cadastrarReptilNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
+                         int patas, string especie, string tipo_pele,
+                         string alimento, string silvestreOuExotico, string vetResponsavel,
+                         string tratadorResponsavel, bool troca_de_pele, string licenca_IBAMA, string UF_origem,
+                         string ameacadoDeEx, string habitat);
+
+	void cadastrarAveNativo(size_t id, string nome, string sexo, int idade, float peso,
+                     float comprimento, int patas, string especie, string tipo_pele,
+                     string alimento, string silvestreOuExotico, string vetResponsavel,
+                     string tratadorResponsavel, double tamanho_bico, string corPenas,
+                     string licenca_IBAMA, string UF_origem, string ameacadoDeEx,
+                     string habitat);
 	
 	void //Recebe uma matrícula e verifica se existe algum objeto no vector de funcionários com essa matrícula, caso tenho o objeto será removido do vector
 	removerFuncionario(std::string matricula);

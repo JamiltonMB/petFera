@@ -8,13 +8,13 @@ class Ave : public Animal
 {
 protected:
     double tamanho_bico;
-    double corPenas;
+    string corPenas;
 
 public:
     inline Ave(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
                int patas, string especie, string tipo_pele,
                string alimento, string silvestreOuExotico, string vetResponsavel,
-               string tratadorResponsavel, double tamanho_bico, double corPenas)
+               string tratadorResponsavel, double tamanho_bico, string corPenas)
         : Animal(id, nome, sexo, idade, peso, comprimento,
                  patas, especie, tipo_pele,
                  alimento, silvestreOuExotico, vetResponsavel,
@@ -25,8 +25,8 @@ public:
     double getTamanhoBico() const;
     void setTamanhoBico(double tamanho_bico);
 
-    double getCorPenas() const;
-    void setCorPenas(double corPenas);
+    string getCorPenas() const;
+    void setCorPenas(string corPenas);
 
     std::ostream &imprimirAve(std::ostream &os) const;
 };
