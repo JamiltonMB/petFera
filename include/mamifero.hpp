@@ -10,10 +10,10 @@ protected:
     string dentes; //se possui dentes desenvolvidos
     //string tipo_mamifero;
 public:
-    Mamifero(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-                    int patas, string especie, string tipo_pele,
-                    string alimento, string silvestreOuExotico, string vetResponsavel,
-                    string tratadorResponsavel, string cor_pelo, string dentes);
+    Mamifero(int id, string nome, string sexo, int idade, float peso, float comprimento,
+           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+           string tratadorResponsavel, string cor_pelo, string dentes);
     virtual ~Mamifero(){}
 
     std::string getCorPelo();
