@@ -6,6 +6,7 @@
 #include "tratador.hpp"
 #include "veterinario.hpp"
 #include "animal.hpp"
+#include "reptilNativo.hpp"
 #include <vector>
 #include <string>
 #include <memory>
@@ -68,14 +69,21 @@ public:
 	void //Método para o usúario informar os valores dos atributos para instanciar e adicionar um objeto de tipo animal no vector de animais
 	runCadastrarAnimal();
 
+	//métodos dos animais que faltavam:
+	void cadastrarReptilNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento, int patas, string especie, string tipo_pele, string alimento, string silvestreOuExotico, string vetResponsavel, string tratadorResponsavel, bool troca_de_pele, string licenca_IBAMA, string UF_origem, string ameacadoDeEx, string habitat);
+
+
 private:
 	//vector<Funcionario*> funcionarios; //vector de objetos da classe Funcionario
 	vector<std::shared_ptr<Funcionario>> funcionarios;
-	vector<Animal*> animais; //vector de objetos da classe Animal
+	vector<std::shared_ptr<Animal>> animais; //vector de objetos da classe Animal
+	//vector<Animal*> animais; //vector de objetos da classe Animal
 	std::shared_ptr<Funcionario> findFuncionario(std::string matricula); //Método para verificar se um objeto(funcionário) existe no vector de funcionários
-	Animal* findAnimal(int id); //Método para verificar se um objeto(anial) existe no vector de animais
+	//Animal* findAnimal(int id); //Método para verificar se um objeto(anial) existe no vector de animais
+	std::shared_ptr<Animal> findAnimal(int id); //Método para verificar se um objeto(anial) existe no vector de animais
 	std::shared_ptr<Funcionario> editarFuncionario(std::shared_ptr<Funcionario> funcionario); //Método chamado pelo método alterarFuncionario para fazer o set dos atributos e apresentar um menu de opções
-	Animal* editarAnimal(Animal* animal); //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
+	std::shared_ptr<Animal> editarAnimal(std::shared_ptr<Animal> animal); //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
+	//Animal* editarAnimal(Animal* animal); //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
 };
 
 #endif

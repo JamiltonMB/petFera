@@ -1,5 +1,6 @@
 #include "animal.hpp"
-<<<<<<< HEAD:src/Animal/animal.cpp
+//<<<<<<< HEAD:src/Animal/animal.cpp
+/*
 Animal::Animal(size_t id, string nome, string sexo, int idade, float peso,
                float comprimento, int patas, string especie, string tipo_pele,
                string alimento, string silvestreOuExotico, string vetResponsavel,
@@ -8,16 +9,27 @@ Animal::Animal(size_t id, string nome, string sexo, int idade, float peso,
                                              especie(especie), tipo_pele(tipo_pele), alimento(alimento),
                                              silvestreOuExotico(silvestreOuExotico), vetResponsavel(vetResponsavel),
                                              tratadorResponsavel(tratadorResponsavel) {}
+*/
+Animal::Animal(int id, string nome, string sexo, int idade, float peso, float comprimento,
+           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+           string tratadorResponsavel) : id(id), nome(nome), sexo(sexo), idade(idade), peso(peso), comprimento(comprimento),
+           ambiente(ambiente), patas(patas), especie(especie), tipo_pele(tipo_pele), tipo_reproducao(tipo_reproducao),
+           alimento(alimento), ameacadoDeEx(ameacadoDeEx), silvestreOuExotico(silvestreOuExotico), vetResponsavel(vetResponsavel),
+           tratadorResponsavel(tratadorResponsavel) {}
 
-=======
+
+//=======
+/*
 Animal::Animal(int id, string nome, string sexo, int idade, float peso, float comprimento, string ambiente,
                int patas, string especie, string tipo_pele, string tipo_reproducao, string alimento,
                string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel, string tratadorResponsavel) : id(id), nome(nome), idade(idade), peso(peso), comprimento(comprimento), ambiente(ambiente), patas(patas),
                                                                                                                     especie(especie), tipo_pele(tipo_pele), tipo_reproducao(tipo_reproducao), alimento(alimento),
                                                                                                                     ameacadoDeEx(ameacadoDeEx), silvestreOuExotico(silvestreOuExotico), vetResponsavel(vetResponsavel),
                                                                                                                     tratadorResponsavel(tratadorResponsavel) {}
+*/
 Animal::~Animal() {}
->>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97:src/animal.cpp
+//>>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97:src/animal.cpp
 
 void Animal::setId(int id)
 {

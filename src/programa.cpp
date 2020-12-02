@@ -33,9 +33,9 @@ void Programa::cadastrarAnimal(int id, string nome, string sexo, int idade, floa
 							   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
 							   string tratadorResponsavel)
 {
-	Animal *animal = new Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele,
-								tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel);
-	this->animais.push_back(animal);
+	//Animal *animal = new Animal(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel);
+	//this->animais.push_back(animal);
+	this->animais.push_back(std::make_shared<Animal>(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel));
 }
 
 void Programa::removerAnimal(int id)
@@ -199,7 +199,20 @@ std::shared_ptr<Funcionario> Programa::findFuncionario(std::string matricula)
 	return nullptr;
 }
 
+/* //versão antiga, quem resivar por favor apague antes de enviar.
 Animal *Programa::findAnimal(int id)
+{
+	for (auto &animais : this->animais)
+	{
+		if (animais->getId() == id)
+		{
+			return animais;
+		}
+	}
+	return nullptr;
+}
+*/
+std::shared_ptr<Animal> Programa::findAnimal(int id)
 {
 	for (auto &animais : this->animais)
 	{
@@ -520,7 +533,7 @@ void Programa::runCadastrarAnimal()
                 ameacadoDeEx,  silvestreOuExotico,  vetResponsavel,  tratadorResponsavel);
 }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 void Programa::cadastrarReptilNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
 									 int patas, string especie, string tipo_pele,
 									 string alimento, string silvestreOuExotico, string vetResponsavel,
@@ -535,9 +548,9 @@ void Programa::cadastrarReptilNativo(size_t id, string nome, string sexo, int id
 }
 
 std::shared_ptr<Animal> Programa::editarAnimal(std::shared_ptr<Animal> animal)
-=======
-Animal *Programa::editarAnimal(Animal *animal)
->>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97
+//=======
+//Animal *Programa::editarAnimal(Animal *animal)
+//>>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97
 {
 	using std::string;
 
@@ -658,4 +671,3 @@ Animal *Programa::editarAnimal(Animal *animal)
 
 	return animal;
 }
-;

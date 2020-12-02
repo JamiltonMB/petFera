@@ -29,11 +29,11 @@ public:
            string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
            string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
            string tratadorResponsavel);
-<<<<<<< HEAD
-    virtual ~Animal(){}
-=======
-    ~Animal();
->>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97
+
+    //virtual ~Animal(){}
+
+    virtual ~Animal();
+
 
     void setId(int id);
     int getId();
