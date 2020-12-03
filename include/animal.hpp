@@ -83,7 +83,9 @@ public:
     string getTratadorResponsavel() const;
     void setTratadorResponsavel(string tratadorResponsavel);
 
-    std::ostream &imprimirAnimal(std::ostream &os) const;
+    friend std::ostream& operator<< (std::ostream& o, Animal const &func);
+    
+    virtual std::ostream& imprimeDados(std::ostream& o) const = 0;
 };
 
 #endif

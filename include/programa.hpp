@@ -44,11 +44,27 @@ public:
 					string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
 					string tratadorResponsavel);
 
-	void cadastrarMamiferoNativo(int id, string nome, string sexo, int idade, float peso, float comprimento,
-								 string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-								 string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-								 string tratadorResponsavel, string cor_pelo, string dentes, string licenca_IBAMA,
-								 string UF_origem);
+	void cadastrarMamiferoDomestico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+										string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+										string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+										string tratadorResponsavel, string cor_pelo, string dentes);
+
+
+	void cadastrarAnfibioDomestico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+									   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+									   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+									   string tratadorResponsavel, int total_mudas);
+
+
+	void cadastrarAveDomestico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+								   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+								   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+								   string tratadorResponsavel, double tamanho_bico,string corPenas);
+
+	void cadastrarReptilDomestico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+								  string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+								  string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+								  string tratadorResponsavel, bool troca_de_pele);
 
 	void cadastrarAnfibioNativo(int id, string nome, string sexo, int idade, float peso, float comprimento,
 								string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
@@ -60,6 +76,12 @@ public:
 							string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
 							string tratadorResponsavel, double tamanho_bico, string corPenas,
 							string licenca_IBAMA, string UF_origem);
+
+	void cadastrarMamiferoNativo(int id, string nome, string sexo, int idade, float peso, float comprimento,
+								 string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+								 string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+								 string tratadorResponsavel, string cor_pelo, string dentes, string licenca_IBAMA,
+								 string UF_origem);
 
 	void cadastrarReptilNativo(int id, string nome, string sexo, int idade, float peso, float comprimento, string ambiente,
 							   int patas, string especie, string tipo_pele,
@@ -79,17 +101,14 @@ public:
 	void cadastrarAnfibioExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
 								 string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
 								 string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-								 string tratadorResponsavel, int total_mudas, 
+								 string tratadorResponsavel, int total_mudas,
 								 string pais_origem);
 
-	void Programa::cadastrarAveExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
-								   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-								   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-								   string tratadorResponsavel, double tamanho_bico, string corPenas,
-								   string pais_origem);
-
-	
-
+	void cadastrarAveExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+							 string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+							 string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+							 string tratadorResponsavel, double tamanho_bico, string corPenas,
+							 string pais_origem);
 
 	void //Recebe um ID e verifica se existe algum objeto no vector de animais com esse ID, caso tenho o objeto será removido do vector
 	removerAnimal(int id);

@@ -12,6 +12,7 @@ public:
            string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
            string tratadorResponsavel, int total_mudas);
     virtual ~AnfibioDomestico(){}
+    std::ostream& imprimeDados(std::ostream& o);
 /*    
     public:
     AnfibioDomestico();

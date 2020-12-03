@@ -175,6 +175,11 @@ void Animal::setTratadorResponsavel(string tratadorResponsavel)
     this->tratadorResponsavel = tratadorResponsavel;
 }
 
+std::ostream& operator<< (std::ostream& o, Animal const &func)
+    {
+	    return func.imprimeDados(o);
+    }
+/*
 std::ostream &Animal::imprimirAnimal(std::ostream &os) const
 {
     os << "| ID: " << id << std::endl
@@ -195,4 +200,4 @@ std::ostream &Animal::imprimirAnimal(std::ostream &os) const
        << " | Tratador Responsavél: " << tratadorResponsavel << std::endl;
 
     return os;
-}
+}*/

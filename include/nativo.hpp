@@ -18,8 +18,7 @@ public:
     void setLicenca_IBAMA(std::string licenca_IBAMA);
     std::string getUF_origem();
     void setUF_origem(std::string UF_origem);
-    std::string getAmeacadoDeEx() const;
-    void setAmeacadoDeEx(std::string ameacadoDeEx);
+    
 
 protected:
     std::string licenca_IBAMA;
