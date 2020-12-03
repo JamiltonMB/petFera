@@ -14,6 +14,8 @@ public:
            string tratadorResponsavel, string cor_pelo, string dentes);
     virtual ~MamiferoDomestico(){}
 
+    std::ostream&imprimeDados(std::ostream &o);
+
 };
 
 #endif

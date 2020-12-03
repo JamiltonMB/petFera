@@ -13,11 +13,6 @@ public:
            string tratadorResponsavel, int total_mudas);
     virtual ~AnfibioDomestico(){}
     std::ostream& imprimeDados(std::ostream& o);
-/*    
-    public:
-    AnfibioDomestico();
-    ~AnfibioDomestico();
-    */
 };
 
 #endif

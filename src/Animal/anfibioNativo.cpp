@@ -10,24 +10,24 @@ AnfibioNativo::AnfibioNativo(int id, string nome, string sexo, int idade, float 
 
 std::ostream&AnfibioNativo::imprimeDados(std::ostream &o)
 {
-      o << "| ID: " << id << std::endl
-      << " | Nome: " << nome << std::endl
-      << " | Sexo: " << sexo << std::endl
-      << " | Idade: " << idade << std::endl
-      << " | Peso: " << peso << std::endl
-      << " | Comprimento: " << comprimento << std::endl
-      << " | Ambiente(Habitat): " << ambiente << std::endl
-      << " | Patas: " << patas << std::endl
-      << " | Especie: " << especie << std::endl
-      << " | Tipo de Pele " << tipo_pele << std::endl
-      << " | Tipo de Reprodução: " << tipo_reproducao << std::endl
-      << " | Alimento: " << alimento << std::endl
-      << " | Ameacado de Extinção: " << ameacadoDeEx << std::endl
-      << " | Silvestre ou Exotico:" << silvestreOuExotico << std::endl
-      << " | Veterinário Responsavél: " << vetResponsavel << std::endl
-      << " | Tratador Responsavél: " << tratadorResponsavel << std::endl
-      << " | Total de mudas: "<<total_mudas<<std::endl
-      << " | Licenca IBAMA: " << licenca_IBAMA << std::endl
-      << " | Unidade Federativa de Origem: " << UF_origem << std::endl;
+      o << "| ID: " << this->id << std::endl
+      << " | Nome: " << this->nome << std::endl
+      << " | Sexo: " << this->sexo << std::endl
+      << " | Idade: " << this->idade << std::endl
+      << " | Peso: " << this->peso << std::endl
+      << " | Comprimento: " << this->comprimento << std::endl
+      << " | Ambiente(Habitat): " << this->ambiente << std::endl
+      << " | Patas: " << this->patas << std::endl
+      << " | Especie: " << this->especie << std::endl
+      << " | Tipo de Pele " << this->tipo_pele << std::endl
+      << " | Tipo de Reprodução: " << this->tipo_reproducao << std::endl
+      << " | Alimento: " << this->alimento << std::endl
+      << " | Ameacado de Extinção: " << this->ameacadoDeEx << std::endl
+      << " | Silvestre ou Exotico:" << this->silvestreOuExotico << std::endl
+      << " | Veterinário Responsavél: " << this->vetResponsavel << std::endl
+      << " | Tratador Responsavél: " << this->tratadorResponsavel << std::endl
+      << " | Total de mudas: "<<this->total_mudas<<std::endl
+      << " | Licenca IBAMA: " << this->licenca_IBAMA << std::endl
+      << " | Unidade Federativa de Origem: " << this->UF_origem << std::endl;
    return o;
 }

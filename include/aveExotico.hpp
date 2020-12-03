@@ -14,6 +14,8 @@ public:
            string pais_origem);
     virtual ~AveExotico(){}
 
+    std::ostream&imprimeDados(std::ostream &o);
+
 
 };
 

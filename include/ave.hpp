@@ -10,12 +10,6 @@ protected:
     string corPenas;
 
 public:
-    /*
-    Ave(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-               int patas, string especie, string tipo_pele,
-               string alimento, string silvestreOuExotico, string vetResponsavel,
-               string tratadorResponsavel, double tamanho_bico, string corPenas);
-    */
     Ave(int id, string nome, string sexo, int idade, float peso, float comprimento,
            string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
            string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
@@ -30,3 +24,4 @@ public:
     void setCorPenas(string corPenas);
     virtual std::ostream& imprimeDados(std::ostream& o, Animal const &func)=0;
 };
+std::ostream&imprimeDados(std::ostream &o);

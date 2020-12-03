@@ -179,25 +179,3 @@ std::ostream& operator<< (std::ostream& o, Animal const &func)
     {
 	    return func.imprimeDados(o);
     }
-/*
-std::ostream &Animal::imprimirAnimal(std::ostream &os) const
-{
-    os << "| ID: " << id << std::endl
-       << " | Nome: " << nome << std::endl
-       << " | Sexo: " << sexo << std::endl
-       << " | Idade: " << idade << std::endl
-       << " | Peso: " << peso << std::endl
-       << " | Comprimento: " << comprimento << std::endl
-       << " | Ambiente(Habitat): " << ambiente << std::endl
-       << " | Patas: " << patas << std::endl
-       << " | Especie: " << especie << std::endl
-       << " | Tipo de Pele " << tipo_pele << std::endl
-       << " | Tipo de Reprodução: " << tipo_reproducao << std::endl
-       << " | Alimento: " << alimento << std::endl
-       << " | Ameacado de Extinção: " << ameacadoDeEx << std::endl
-       << " | Silvestre ou Exotico:" << silvestreOuExotico << std::endl
-       << " | Veterinário Responsavél: " << vetResponsavel << std::endl
-       << " | Tratador Responsavél: " << tratadorResponsavel << std::endl;
-
-    return os;
-}*/
