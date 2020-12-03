@@ -12,7 +12,7 @@ AnfibioExotico::AnfibioExotico(int id, string nome, string sexo, int idade,
         silvestreOuExotico, vetResponsavel, tratadorResponsavel, total_mudas),
           Exotico(pais_origem) {}
 
-std::ostream& AnfibioExotico::imprimeDados(std::ostream &o)
+/*std::ostream& AnfibioExotico::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -35,4 +35,4 @@ std::ostream& AnfibioExotico::imprimeDados(std::ostream &o)
 
 
    return o;
-}
+}*/

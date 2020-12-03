@@ -85,7 +85,7 @@ public:
 
     friend std::ostream& operator<< (std::ostream& o, Animal const &func);
     
-    virtual std::ostream& imprimeDados(std::ostream& o) const = 0;
+    virtual std::ostream& imprimeDados(std::ostream& o) const;
 };
 
 #endif

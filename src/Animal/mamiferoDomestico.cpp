@@ -7,7 +7,7 @@ MamiferoDomestico::MamiferoDomestico(int id, string nome, string sexo, int idade
            ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
            tratadorResponsavel, cor_pelo, dentes){}
 
-std::ostream& MamiferoDomestico::imprimeDados(std::ostream &o)
+/*std::ostream& MamiferoDomestico::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -29,4 +29,4 @@ std::ostream& MamiferoDomestico::imprimeDados(std::ostream &o)
       << " | Tipo dentário: " << this->dentes << std::endl;
       
    return o;
-}
+}*/

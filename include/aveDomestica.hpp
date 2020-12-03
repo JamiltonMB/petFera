@@ -13,7 +13,7 @@ public:
            string tratadorResponsavel, double tamanho_bico, string corPenas);
     virtual ~AveDomestica(){}
 
-    std::ostream&imprimeDados(std::ostream &o);
+    //std::ostream&imprimeDados(std::ostream &o);
 
 };
 

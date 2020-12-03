@@ -14,7 +14,7 @@ public:
            string tratadorResponsavel, int total_mudas, string pais_origem);
     virtual ~AnfibioExotico(){}
     
-    std::ostream& imprimeDados(std::ostream& o);
+    //std::ostream& imprimeDados(std::ostream& o);
 
 };
 

@@ -8,7 +8,7 @@ Reptil(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_
 	ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, troca_de_pele), 
 Nativo(licenca_IBAMA, UF_origem){}
 
-std::ostream& ReptilNativo::imprimeDados(std::ostream &o)
+/*std::ostream& ReptilNativo::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -31,4 +31,4 @@ std::ostream& ReptilNativo::imprimeDados(std::ostream &o)
       << " | Unidade Federativa de origem: " << this->UF_origem << std::endl;
       
    return o;
-}
+}*/

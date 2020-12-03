@@ -14,7 +14,7 @@ public:
                    string UF_origem);
     virtual ~MamiferoNativo() {}
 
-    std::ostream &imprimeDados(std::ostream &o);
+    //std::ostream &imprimeDados(std::ostream &o);
 };
 
 #endif

@@ -7,7 +7,7 @@ AnfibioDomestico::AnfibioDomestico(int id, string nome, string sexo, int idade, 
     : Anfibio(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento,
               ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, total_mudas) {}
 
-std::ostream& AnfibioDomestico::imprimeDados(std::ostream &o)
+/*std::ostream& AnfibioDomestico::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -27,4 +27,4 @@ std::ostream& AnfibioDomestico::imprimeDados(std::ostream &o)
       << " | Tratador Responsavél: " << this->tratadorResponsavel << std::endl
       << " | Total de mudas: "<<this->total_mudas<<std::endl;
    return o;
-}
+}*/

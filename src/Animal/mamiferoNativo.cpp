@@ -7,7 +7,7 @@ MamiferoNativo::MamiferoNativo(int id, string nome, string sexo, int idade, floa
                                                                                                                                               alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, cor_pelo, dentes),
                                                                                                                                      Nativo(licenca_IBAMA, UF_origem) {}
 
-std::ostream &MamiferoNativo::imprimeDados(std::ostream &o)
+/*std::ostream &MamiferoNativo::imprimeDados(std::ostream &o)
 {
     o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -31,4 +31,4 @@ std::ostream &MamiferoNativo::imprimeDados(std::ostream &o)
       << " | Unidade Federativa de origem: " << this->UF_origem << std::endl;
 
         return o;
-}
+}*/

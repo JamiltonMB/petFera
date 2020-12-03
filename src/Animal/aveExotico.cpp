@@ -9,7 +9,7 @@ AveExotico::AveExotico(int id, string nome, string sexo, int idade, float peso, 
         	ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, tamanho_bico, corPenas),
           Exotico(pais_origem) {}
 
-std::ostream& AveExotico::imprimeDados(std::ostream &o)
+/*std::ostream& AveExotico::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -32,4 +32,4 @@ std::ostream& AveExotico::imprimeDados(std::ostream &o)
       << " | Pais de origem: " << this->pais_origem << std::endl;
       
    return o;
-}
+}*/

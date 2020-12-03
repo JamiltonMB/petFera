@@ -7,7 +7,7 @@ ReptilDomestico::ReptilDomestico(int id, string nome, string sexo, int idade, fl
            ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
            tratadorResponsavel, troca_de_pele) {}
 
-std::ostream& ReptilDomestico::imprimeDados(std::ostream &o)
+/*std::ostream& ReptilDomestico::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -28,4 +28,4 @@ std::ostream& ReptilDomestico::imprimeDados(std::ostream &o)
       << " | Troca de pele: " << this->troca_de_pele << std::endl;
       
    return o;
-}
+}*/

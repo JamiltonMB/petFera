@@ -9,7 +9,7 @@ AveNativo::AveNativo(int id, string nome, string sexo, int idade, float peso, fl
           ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, tamanho_bico, corPenas),
           Nativo(licenca_IBAMA, UF_origem) {}
 
-std::ostream& AveNativo::imprimeDados(std::ostream &o)
+/*std::ostream& AveNativo::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -33,4 +33,4 @@ std::ostream& AveNativo::imprimeDados(std::ostream &o)
       << " | Unidade Federativa de origem: " << this->UF_origem << std::endl;
 
    return o;
-}
+}*/

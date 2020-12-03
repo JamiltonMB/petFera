@@ -179,3 +179,5 @@ std::ostream& operator<< (std::ostream& o, Animal const &func)
     {
 	    return func.imprimeDados(o);
     }
+
+std::ostream& Animal::imprimeDados(std::ostream& o) const{return o;}

@@ -12,5 +12,5 @@ public:
                     string tratadorResponsavel, string cor_pelo, string dentes, string pais_origem);
     virtual ~MamiferoExotico() {}
 
-    std::ostream &imprimeDados(std::ostream &o);
+    //std::ostream &imprimeDados(std::ostream &o);
 };

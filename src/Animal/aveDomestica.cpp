@@ -7,7 +7,7 @@ AveDomestica::AveDomestica(int id, string nome, string sexo, int idade, float pe
         : Ave(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, 
         	ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, tamanho_bico, corPenas) {}
 
-std::ostream& AveDomestica::imprimeDados(std::ostream &o)
+/*std::ostream& AveDomestica::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -29,4 +29,4 @@ std::ostream& AveDomestica::imprimeDados(std::ostream &o)
       << " | Cor das penas: " << this->corPenas << std::endl;
       
    return o;
-}
+}*/

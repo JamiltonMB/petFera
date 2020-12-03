@@ -8,7 +8,7 @@ AnfibioNativo::AnfibioNativo(int id, string nome, string sexo, int idade, float 
         								ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, total_mudas),
                                 Nativo(licenca_IBAMA, UF_origem) {}
 
-std::ostream&AnfibioNativo::imprimeDados(std::ostream &o)
+/*std::ostream&AnfibioNativo::imprimeDados(std::ostream &o)
 {
       o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -30,4 +30,4 @@ std::ostream&AnfibioNativo::imprimeDados(std::ostream &o)
       << " | Licenca IBAMA: " << this->licenca_IBAMA << std::endl
       << " | Unidade Federativa de Origem: " << this->UF_origem << std::endl;
    return o;
-}
+}*/

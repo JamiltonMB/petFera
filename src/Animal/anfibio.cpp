@@ -10,3 +10,25 @@ Anfibio::Anfibio(int id, string nome, string sexo, int idade, float peso, float 
 int Anfibio::getMudas() { return total_mudas; }
 
 void Anfibio::setMudas(int total_mudas) { this->total_mudas = total_mudas; }
+
+std::ostream& Anfibio::imprimeDados(std::ostream &o) const
+{
+   o << "| ID: " << this->id << std::endl
+      << " | Nome: " << this->nome << std::endl
+      << " | Sexo: " << this->sexo << std::endl
+      << " | Idade: " << this->idade << std::endl
+      << " | Peso: " << this->peso << std::endl
+      << " | Comprimento: " << this->comprimento << std::endl
+      << " | Ambiente(Habitat): " << ambiente << std::endl
+      << " | Patas: " << this->patas << std::endl
+      << " | Especie: " << this->especie << std::endl
+      << " | Tipo de Pele " << this->tipo_pele << std::endl
+      << " | Tipo de Reprodução: " << this->tipo_reproducao << std::endl
+      << " | Alimento: " << this->alimento << std::endl
+      << " | Ameacado de Extinção: " << this->ameacadoDeEx << std::endl
+      << " | Silvestre ou Exotico:" << this->silvestreOuExotico << std::endl
+      << " | Veterinário Responsavél: " << this->vetResponsavel << std::endl
+      << " | Tratador Responsavél: " << this->tratadorResponsavel << std::endl
+      << " | Total de mudas: "<<this->total_mudas<<std::endl;
+   return o;
+}

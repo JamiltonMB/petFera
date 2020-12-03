@@ -7,7 +7,7 @@ ReptilExotico::ReptilExotico(int id, string nome, string sexo, int idade, float 
 	ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, troca_de_pele),
                    Exotico(pais_origem) {}
 
-std::ostream& ReptilExotico::imprimeDados(std::ostream &o)
+/*std::ostream& ReptilExotico::imprimeDados(std::ostream &o)
 {
    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -29,4 +29,4 @@ std::ostream& ReptilExotico::imprimeDados(std::ostream &o)
       << " | País de origem: " << this->pais_origem << std::endl;
       
    return o;
-}
+}*/

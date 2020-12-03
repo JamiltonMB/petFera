@@ -7,7 +7,7 @@ MamiferoExotico::MamiferoExotico(int id, string nome, string sexo, int idade, fl
                                                                                                                             alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, cor_pelo, dentes),
                                                                                                                    Exotico(pais_origem) {}
 
-std::ostream &MamiferoExotico::imprimeDados(std::ostream &o)
+/*std::ostream &MamiferoExotico::imprimeDados(std::ostream &o)
 {
     o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
@@ -30,4 +30,4 @@ std::ostream &MamiferoExotico::imprimeDados(std::ostream &o)
       << " | País de origem: " << this->pais_origem << std::endl;
 
     return o;
-}
+}*/

@@ -13,7 +13,7 @@ public:
                   string tratadorResponsavel, int total_mudas, string licenca_IBAMA, string UF_origem);
     virtual ~AnfibioNativo() {}
 
-    std::ostream&imprimeDados(std::ostream &o);
+    //std::ostream&imprimeDados(std::ostream &o);
 };
 
 #endif

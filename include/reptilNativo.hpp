@@ -12,5 +12,5 @@ public:
 				 string licenca_IBAMA, string UF_origem);
 	virtual ~ReptilNativo() {}
 
-	std::ostream &imprimeDados(std::ostream &o);
+	//std::ostream &imprimeDados(std::ostream &o);
 };

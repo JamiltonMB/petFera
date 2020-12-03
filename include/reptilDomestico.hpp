@@ -12,5 +12,5 @@ public:
                     string tratadorResponsavel, bool troca_de_pele);
     virtual ~ReptilDomestico() {}
 
-    std::ostream &imprimeDados(std::ostream &o);
+    //std::ostream &imprimeDados(std::ostream &o);
 };
