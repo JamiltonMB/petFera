@@ -1,22 +1,20 @@
 #ifndef _AVE_NATIVO_H_
 #define _AVE_NATIVO_H_
 
-#include "aves.hpp"
+#include "ave.hpp"
 #include "nativo.hpp"
 
-class AveNativo : public Aves , public Nativo
+class AveNativo : public Ave , public Nativo
 {
-<<<<<<< HEAD
+
 public:
-    AveNativo(size_t id, string nome, string sexo, int idade, float peso,
-                     float comprimento, int patas, string especie, string tipo_pele,
-                     string alimento, string silvestreOuExotico, string vetResponsavel,
-                     string tratadorResponsavel, double tamanho_bico, string corPenas,
-                     string licenca_IBAMA, string UF_origem, string ameacadoDeEx,
-                     string habitat);
+    AveNativo(int id, string nome, string sexo, int idade, float peso, float comprimento,
+           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+           string tratadorResponsavel, double tamanho_bico, string corPenas,
+                     string licenca_IBAMA, string UF_origem, string habitat);
     virtual ~AveNativo(){}
-=======
->>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97
+
 };
 
 #endif

@@ -1,21 +1,19 @@
 #ifndef _MAMIFERO_EXOTICO_H_
 #define _MAMIFERO_EXOTICO_H_
 
-#include "mamiferos.hpp"
+#include "mamifero.hpp"
 #include "exotico.hpp"
 
-class MamiferoExotico : public Mamiferos, public Exotico
+class MamiferoExotico : public Mamifero, public Exotico
 {
-<<<<<<< HEAD
+
 public:
-    MamiferoExotico(size_t id, string nome, string sexo, int idade, float peso,
-                    float comprimento, int patas, string especie, string tipo_pele,
-                    string alimento, string silvestreOuExotico, string vetResponsavel,
-                    string tratadorResponsavel, string cor_pelo, string dentes,
-                    string pais_origem, string ameacadoDeEx, string habitat);
+    MamiferoExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+           string tratadorResponsavel, string cor_pelo, string dentes, string pais_origem, string habitat);
     virtual ~MamiferoExotico(){}
-=======
->>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97
+
 };
 
 #endif

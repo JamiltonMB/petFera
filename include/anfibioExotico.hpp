@@ -1,23 +1,19 @@
 #ifndef _ANFIBIO_EXOTICO_H_
 #define __ANFIBIO_EXOTICO_H_
 
-#include "anfibios.hpp"
+#include "anfibio.hpp"
 #include "exotico.hpp"
 
-class AnfibioExotico : public Anfibios, public Exotico
+class AnfibioExotico : public Anfibio, public Exotico
 {
 public:
-<<<<<<< HEAD
-    AnfibioExotico(size_t id, string nome, string sexo, int idade, float peso,
-                  float comprimento, int patas, string especie, string tipo_pele,
-                  string alimento, string silvestreOuExotico, string vetResponsavel,
-                  string tratadorResponsavel,int total_mudas,string pais_origem, 
-                  string ameacadoDeEx, string habitat);
+
+    AnfibioExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+           string tratadorResponsavel, int total_mudas, string pais_origem, string habitat);
     virtual ~AnfibioExotico(){}
-=======
-    AnfibioExotico();
-    ~AnfibioExotico();
->>>>>>> ddf01113e284a47dcff2ab94ff98f7d87ffaaf97
+
 };
 
 #endif

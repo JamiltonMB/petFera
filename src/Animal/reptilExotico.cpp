@@ -1,9 +1,9 @@
 #include "reptilExotico.hpp"
-ReptilExotico::ReptilExotico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-                   int patas, string especie, string tipo_pele,string alimento, string silvestreOuExotico,
-                   string vetResponsavel,string tratadorResponsavel, bool troca_de_pele,
-                   string pais_origem,string ameacadoDeEx,string habitat) 
-                   :Reptil(id, nome, sexo, idade, peso, comprimento, patas, especie, tipo_pele, alimento, 
-                   silvestreOuExotico, vetResponsavel, tratadorResponsavel,troca_de_pele),
+ReptilExotico::ReptilExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+           string tratadorResponsavel, bool troca_de_pele, string pais_origem, string habitat) 
+                   :Reptil(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, 
+	ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, troca_de_pele),
                    Exotico(pais_origem, ameacadoDeEx, habitat) {}
 

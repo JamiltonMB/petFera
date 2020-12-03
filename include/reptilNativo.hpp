@@ -6,10 +6,9 @@
 class ReptilNativo : public Reptil, public Nativo
 {
 public:
-    ReptilNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-                  int patas, string especie, string tipo_pele,
-                  string alimento, string silvestreOuExotico, string vetResponsavel,
-                  string tratadorResponsavel, bool troca_de_pele, string licenca_IBAMA, string UF_origem,
-                  string ameacadoDeEx, string habitat);
+    ReptilNativo(int id, string nome, string sexo, int idade, float peso, float comprimento, string ambiente, int patas, 
+    	string especie, string tipo_pele, string tipo_reproducao, string alimento, string ameacadoDeEx, 
+    	string silvestreOuExotico, string vetResponsavel, string tratadorResponsavel, bool troca_de_pele, 
+    	string licenca_IBAMA, string UF_origem, string habitat);
     virtual ~ReptilNativo(){}
 };
