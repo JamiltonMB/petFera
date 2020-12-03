@@ -1,17 +1,16 @@
 #ifndef _EXOTICO_H_
 #define __EXOTICO_H_
-#include<iostream>
-class Exotico{      
-    protected:
+#include <iostream>
+class Exotico
+{
+protected:
     std::string pais_origem;
-    std::string ameacadoDeEx;
-    std::string habitat;
 
 public:
-    inline Exotico(std::string pais_origem, std::string ameacadoDeEx, std::string habitat) : pais_origem(pais_origem), ameacadoDeEx(ameacadoDeEx), habitat(habitat) {}
-    virtual ~Exotico(){}
-
+    inline Exotico(std::string pais_origem) : pais_origem(pais_origem) {}
+    virtual ~Exotico() {}
+    std::string getPais_origem() const;
+    void setPais_origem(std::string pais_origem);
 };
-
 
 #endif

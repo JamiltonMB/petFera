@@ -11,7 +11,7 @@ public:
            string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
            string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
            string tratadorResponsavel, double tamanho_bico, string corPenas,
-           string pais_origem, string habitat);
+           string pais_origem);
     virtual ~AveExotico(){}
 
 

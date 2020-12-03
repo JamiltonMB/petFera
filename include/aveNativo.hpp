@@ -12,7 +12,7 @@ public:
            string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
            string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
            string tratadorResponsavel, double tamanho_bico, string corPenas,
-                     string licenca_IBAMA, string UF_origem, string habitat);
+                     string licenca_IBAMA, string UF_origem);
     virtual ~AveNativo(){}
 
 };

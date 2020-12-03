@@ -1,6 +1,4 @@
-#ifndef _MAMIFERO_EXOTICO_H_
-#define _MAMIFERO_EXOTICO_H_
-
+#pragma once
 #include "mamifero.hpp"
 #include "exotico.hpp"
 
@@ -11,9 +9,7 @@ public:
     MamiferoExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
            string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
            string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel, string cor_pelo, string dentes, string pais_origem, string habitat);
+           string tratadorResponsavel, string cor_pelo, string dentes, string pais_origem);
     virtual ~MamiferoExotico(){}
 
 };
-
-#endif

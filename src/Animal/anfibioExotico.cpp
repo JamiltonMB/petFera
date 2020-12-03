@@ -7,5 +7,5 @@ AnfibioExotico::AnfibioExotico(int id, string nome, string sexo, int idade, floa
            string tratadorResponsavel, int total_mudas, string pais_origem, string habitat)
         : Anfibio(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, 
         								ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, total_mudas),
-          Exotico(pais_origem, ameacadoDeEx, habitat) {}
+          Exotico(pais_origem) {}
 

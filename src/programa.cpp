@@ -6,7 +6,7 @@ Programa::Programa()
 	animais.clear();
 }
 
-Programa::~Programa() 
+Programa::~Programa()
 {
 	funcionarios.clear();
 	funcionarios.shrink_to_fit();
@@ -528,19 +528,291 @@ void Programa::runCadastrarAnimal()
 	std::cin >> vetResponsavel;
 	std::cout << "Digite o tratador responsavél: ";
 	std::cin >> tratadorResponsavel;
-	cadastrarAnimal(id, nome,  sexo,  idade,  peso,  comprimento,  ambiente,
-                patas,  especie,  tipo_pele,  tipo_reproducao,  alimento,
-                ameacadoDeEx,  silvestreOuExotico,  vetResponsavel,  tratadorResponsavel);
+	if (silvestreOuExotico == "nativo")
+	{
+		string licenca_IBAMA;
+		string UF_origem;
+		std::cout << "Digite a licenca do IBAMA: ";
+		std::cin >> licenca_IBAMA;
+		std::cout << "Digite a UF de origem: ";
+		std::cin >> UF_origem;
+		if (especie == "reptil")
+		{
+			bool troca_de_pele;
+			std::cout << "Digite 0 se ele não troca de pele ou 1 caso contrário: ";
+			std::cin >> troca_de_pele;
+			cadastrarReptilNativo(id, nome, sexo, idade, peso, comprimento, ambiente,
+								  patas, especie, tipo_pele,
+								  alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+								  tratadorResponsavel, troca_de_pele,
+								  tipo_reproducao, licenca_IBAMA, UF_origem);
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "ave")
+		{
+			double tamanho_bico;
+			string corPenas;
+			std::cout << "Digite o tamanho do bico: ";
+			std::cin >> tamanho_bico;
+			std::cout << "Digite a cor das penas: ";
+			std::cin >> corPenas;
+			cadastrarAveNativo(id, nome, sexo, idade, peso,
+							   comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao,
+							   alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+							   tratadorResponsavel, tamanho_bico, corPenas,
+							   licenca_IBAMA, UF_origem);
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "anfibio")
+		{
+			int total_mudas;
+			std::cout << "Digite o total de mudas: ";
+			std::cin >> total_mudas;
+			cadastrarAnfibioNativo(id, nome, sexo, idade, peso, comprimento,
+								   ambiente, patas, especie, tipo_pele, tipo_reproducao,
+								   alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+								   tratadorResponsavel, total_mudas, licenca_IBAMA, UF_origem);
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "mamifero")
+		{
+			string cor_pelo;
+			string dentes;
+			std::cout << "Digite a cor do pelo: ";
+			std::cin >> cor_pelo;
+			std::cout << "Digite o tipo de dente: ";
+			std::cin >> dentes;
+			cadastrarMamiferoNativo(id, nome, sexo, idade, peso, comprimento,
+									ambiente, patas, especie, tipo_pele, tipo_reproducao,
+									alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+									tratadorResponsavel, cor_pelo, dentes, licenca_IBAMA,
+									UF_origem);
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+		std::cout << "Algo deu errado." << std::endl;
+		this->run();
+	}
+	else if (silvestreOuExotico == "exotico")
+	{
+		std::string pais_origem;
+		std::cout << "Digite o pais de origem: ";
+		std::cin >> pais_origem;
+		if (especie == "reptil")
+		{
+			bool troca_de_pele;
+			std::cout << "Digite 0 se ele não troca de pele ou 1 caso contrário: ";
+			std::cin >> troca_de_pele;
+			cadastrarReptilExotico(id, nome, sexo, idade, peso, comprimento,
+								   ambiente, patas, especie, tipo_pele, tipo_reproducao,
+								   alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+								   tratadorResponsavel, troca_de_pele, pais_origem);
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "ave")
+		{
+			double tamanho_bico;
+			string corPenas;
+			std::cout << "Digite o tamanho do bico: ";
+			std::cin >> tamanho_bico;
+			std::cout << "Digite a cor das penas: ";
+			std::cin >> corPenas;
+			//cadastrarAve;
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "anfibio")
+		{
+			int total_mudas;
+			std::cout << "Digite o total de mudas: ";
+			std::cin >> total_mudas;
+			//cadastrarAnfibio;
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "mamifero")
+		{
+			string cor_pelo;
+			string dentes;
+			std::cout << "Digite a cor do pelo: ";
+			std::cin >> cor_pelo;
+			std::cout << "Digite o tipo de dente: ";
+			std::cin >> dentes;
+			//cadastrarMamifero;
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+		std::cout << "Algo deu errado." << std::endl;
+		this->run();
+	}
+	else
+	{
+		if (especie == "reptil")
+		{
+			bool troca_de_pele;
+			std::cout << "Digite 0 se ele não troca de pele ou 1 caso contrário: ";
+			std::cin >> troca_de_pele;
+			//cadastrarReptilDomestico();
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "ave")
+		{
+			double tamanho_bico;
+			string corPenas;
+			std::cout << "Digite o tamanho do bico: ";
+			std::cin >> tamanho_bico;
+			std::cout << "Digite a cor das penas: ";
+			std::cin >> corPenas;
+			//cadastrarAveDomestico();
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "anfibio")
+		{
+			int total_mudas;
+			std::cout << "Digite o total de mudas: ";
+			std::cin >> total_mudas;
+			//cadastrarAnfibioDomestico();
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+
+		if (especie == "mamifero")
+		{
+			string cor_pelo;
+			string dentes;
+			std::cout << "Digite a cor do pelo: ";
+			std::cin >> cor_pelo;
+			std::cout << "Digite o tipo de dente: ";
+			std::cin >> dentes;
+			//cadastrarMamiferoDomestico();
+			std::cout << "Animal cadastrado." << std::endl;
+			this->run();
+		}
+		std::cout << "Algo deu errado." << std::endl;
+		this->run();
+	}
 }
 
-//<<<<<<< HEAD
-void Programa::cadastrarReptilNativo(int id, string nome, string sexo, int idade, float peso, float comprimento,
-           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel, bool troca_de_pele, string licenca_IBAMA, string UF_origem, string habitat)
+void Programa::cadastrarAveExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+								   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+								   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+								   string tratadorResponsavel, double tamanho_bico, string corPenas,
+								   string pais_origem)
 {
-	this->animais.push_back(std::make_shared<ReptilNativo>(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, 
-	ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, troca_de_pele, licenca_IBAMA, UF_origem, habitat));
+	this->animais.push_back(std::make_shared<AveExotico>(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie,
+														 tipo_pele, tipo_reproducao, alimento, ameacadoDeEx,
+														 silvestreOuExotico, vetResponsavel, tratadorResponsavel, tamanho_bico, corPenas,
+														 pais_origem));
+}
+
+void Programa::cadastrarAnfibioExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+									   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+									   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+									   string tratadorResponsavel, int total_mudas, string pais_origem)
+{
+	this->animais.push_back(std::make_shared<AnfibioExotico>(id, nome, sexo, idade, peso, comprimento,
+															 ambiente, patas, especie, tipo_pele, tipo_reproducao,
+															 alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+															 tratadorResponsavel, total_mudas, pais_origem));
+}
+
+void Programa::cadastrarMamiferoExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+										string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+										string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+										string tratadorResponsavel, string cor_pelo, string dentes, string pais_origem)
+{
+	this->animais.push_back(std::make_shared<MamiferoExotico>(id, nome, sexo, idade, peso, comprimento,
+															  ambiente, patas, especie, tipo_pele, tipo_reproducao,
+															  alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+															  tratadorResponsavel, cor_pelo, dentes, pais_origem));
+}
+
+void Programa::cadastrarReptilExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
+									  string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+									  string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+									  string tratadorResponsavel, bool troca_de_pele, string pais_origem)
+{
+	this->animais.push_back(std::make_shared<ReptilExotico>(id, nome, sexo, idade, peso,
+															comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao,
+															alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+															tratadorResponsavel, troca_de_pele,
+															pais_origem));
+}
+
+void Programa::cadastrarMamiferoNativo(int id, string nome, string sexo, int idade, float peso, float comprimento,
+									   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+									   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+									   string tratadorResponsavel, string cor_pelo, string dentes, string licenca_IBAMA,
+									   string UF_origem)
+{
+	this->animais.push_back(std::make_shared<MamiferoNativo>(id, nome, sexo, idade, peso, comprimento,
+															 ambiente, patas, especie, tipo_pele, tipo_reproducao,
+															 alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+															 tratadorResponsavel, cor_pelo, dentes, licenca_IBAMA,
+															 UF_origemm));
+}
+
+void Programa::cadastrarAnfibioNativo(int id, string nome, string sexo, int idade, float peso, float comprimento,
+									  string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+									  string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+									  string tratadorResponsavel, int total_mudas, string licenca_IBAMA, string UF_origem)
+{
+	this->animais.push_back(std::make_shared<AnfibioNativo>(id, nome, sexo, idade, peso,
+															comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao,
+															alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+															tratadorResponsavel, total_mudas, licenca_IBAMA, UF_origem));
+}
+
+void Programa::cadastrarAveNativo(int id, string nome, string sexo, int idade, float peso,
+								  float comprimento, string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
+								  string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+								  string tratadorResponsavel, double tamanho_bico, string corPenas,
+								  string licenca_IBAMA, string UF_origem)
+{
+	this->animais.push_back(std::make_shared<AveNativo>(id, nome, sexo, idade, peso,
+														comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao,
+														alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+														tratadorResponsavel, tamanho_bico, corPenas,
+														licenca_IBAMA, UF_origem));
+}
+
+void Programa::cadastrarReptilNativo(int id, string nome, string sexo, int idade, float peso, float comprimento, string ambiente,
+									 int patas, string especie, string tipo_pele,
+									 string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
+									 string tratadorResponsavel, bool troca_de_pele, string tipo_reproducao, string licenca_IBAMA, string UF_origem)
+{
+	this->animais.push_back(std::make_shared<ReptilNativo>(id, nome, sexo, idade, peso, comprimento,
+														   ambiente, patas, especie, tipo_pele, tipo_reproducao,
+														   alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
+														   tratadorResponsavel, troca_de_pele, licenca_IBAMA, UF_origem));
+}
+/*cadastrarAnimal(id, nome,  sexo,  idade,  peso,  comprimento,  ambiente,
+                patas,  especie,  tipo_pele,  tipo_reproducao,  alimento,
+                ameacadoDeEx,  silvestreOuExotico,  vetResponsavel,  tratadorResponsavel);*/
+
+//<<<<<<< HEAD
+void Programa::cadastrarReptilNativo(int id, string nome, string sexo, int idade, float peso, float comprimento, string ambiente,
+									 int patas, string especie, string tipo_pele,
+									 string alimento, string ameacadoDeEx, string silvestreOuExotico,
+									 string vetResponsavel, string tratadorResponsavel, bool troca_de_pele,
+									 string tipo_reproducao, string licenca_IBAMA, string UF_origem)
+{
+	this->animais.push_back(std::make_shared<ReptilNativo>(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento,
+														   ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel, troca_de_pele, licenca_IBAMA, UF_origem));
 }
 
 std::shared_ptr<Animal> Programa::editarAnimal(std::shared_ptr<Animal> animal)

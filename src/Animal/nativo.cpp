@@ -19,21 +19,3 @@ void Nativo::setUF_origem(std::string UF_origem)
 {
     this->UF_origem = UF_origem;
 }
-
-std::string Nativo::getAmeacadoDeEx() const
-{
-    return ameacadoDeEx;
-}
-void Nativo::setAmeacadoDeEx(std::string ameacadoDeEx)
-{
-    this->ameacadoDeEx = ameacadoDeEx;
-}
-
-std::string Nativo::getHabitat() const
-{
-    return habitat;
-}
-void Nativo::setHabitat(std::string habitat)
-{
-    this->habitat = habitat;
-}
