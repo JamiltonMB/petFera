@@ -16,5 +16,5 @@ public:
     bool getTrocaDePele() const;
     void setTrocaDePele(bool troca_de_pele);
 
-    virtual std::ostream& imprimeDados(std::ostream& o) const = 0;
+    std::ostream& imprimeDados(std::ostream& o);
 };

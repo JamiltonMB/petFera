@@ -22,6 +22,5 @@ public:
 
     string getCorPenas() const;
     void setCorPenas(string corPenas);
-    virtual std::ostream& imprimeDados(std::ostream& o, Animal const &func)=0;
+    std::ostream& imprimeDados(std::ostream& o);
 };
-std::ostream&imprimeDados(std::ostream &o);

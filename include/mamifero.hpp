@@ -22,5 +22,5 @@ public:
     std::string getDentes();
     void setDentes(std::string dentes);
 
-    virtual std::ostream& imprimeDados(std::ostream& o) const = 0;
+    std::ostream& imprimeDados(std::ostream& o);
 };

@@ -15,5 +15,5 @@ public:
     virtual ~Anfibio(){}
     int getMudas();
     void setMudas(int total_mudas);
-    virtual std::ostream& imprimeDados(std::ostream& o, Animal const &func)=0;
+    std::ostream& imprimeDados(std::ostream& o);
 };
