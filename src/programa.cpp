@@ -28,12 +28,12 @@ void Programa::cadastrarTratador(std::string matricula, std::string nome, int id
 	this->funcionarios.push_back(std::make_shared<Tratador>(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca));
 }
 
-void Programa::cadastrarAnimal(int id, string nome, string sexo, int idade, float peso, float comprimento,
-							   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-							   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-							   string tratadorResponsavel)
+void Programa::cadastrarAnimal(size_t id,string nome, string sexo, int idade, float peso, float comprimento,
+           string habitat, int patas, string especie, string tipo_pele, 
+           string tipo_reproducao,string alimento, bool ameacadoDeEx,
+           string vetResponsavel,string tratadorResponsavel,tpAnimal tipo)
 {
-	this->animais.push_back(std::make_shared<Animal>(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel, tratadorResponsavel));
+	this->animais.push_back(std::make_shared<Animal>(id, nome, sexo, idade, peso, comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx,  vetResponsavel, tratadorResponsavel,tipo));
 }
 
 void Programa::removerAnimal(int id)

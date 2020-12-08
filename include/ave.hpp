@@ -6,19 +6,20 @@
 class Ave : public Animal
 {
 protected:
-    double tamanho_bico;
+    float tamanho_bico;
     string corPenas;
 
 public:
-    Ave(int id, string nome, string sexo, int idade, float peso, float comprimento,
-           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel, double tamanho_bico, string corPenas);
+    Ave(size_t id,string nome, string sexo, int idade, float peso, 
+           float comprimento, string habitat, int patas, string especie,
+           string tipo_pele, string tipo_reproducao, 
+           string alimento, bool ameacadoDeEx, string vetResponsavel, 
+           string tratadorResponsavel, tpAnimal tipo, float tamanho_bico, string corPenas);
 
     virtual ~Ave(){}
 
-    double getTamanhoBico() const;
-    void setTamanhoBico(double tamanho_bico);
+    float getTamanhoBico() const;
+    void setTamanhoBico(float tamanho_bico);
 
     string getCorPenas() const;
     void setCorPenas(string corPenas);

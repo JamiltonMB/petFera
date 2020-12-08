@@ -1,12 +1,12 @@
 #include "mamifero.hpp"
 
-Mamifero::Mamifero(int id, string nome, string sexo, int idade, float peso, float comprimento,
-           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel, string cor_pelo, string dentes) : Animal(id, nome, sexo, idade, peso, comprimento,
-           ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
-           tratadorResponsavel), cor_pelo(cor_pelo), dentes(dentes) {}
-    
+Mamifero::Mamifero(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
+                   string habitat, int patas, string especie, string tipo_pele,
+                   string tipo_reproducao, string alimento, bool ameacadoDeEx,
+                   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, string cor_pelo, string dentes) : Animal(id, nome, sexo, idade, peso, comprimento,
+                                                                                                                              habitat, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, vetResponsavel,
+                                                                                                                              tratadorResponsavel, tipo),
+                                                                                                                       cor_pelo(cor_pelo), dentes(dentes) {}
 
 std::string Mamifero::getCorPelo()
 {
@@ -28,7 +28,7 @@ void Mamifero::setDentes(std::string dentes)
 
 std::ostream& Mamifero::imprimeDados(std::ostream &o) const
 {
-   o << "| ID: " << this->id << std::endl
+    o << "| ID: " << this->id << std::endl
       << " | Nome: " << this->nome << std::endl
       << " | Sexo: " << this->sexo << std::endl
       << " | Idade: " << this->idade << std::endl
@@ -41,11 +41,12 @@ std::ostream& Mamifero::imprimeDados(std::ostream &o) const
       << " | Tipo de Reprodução: " << this->tipo_reproducao << std::endl
       << " | Alimento: " << this->alimento << std::endl
       << " | Ameacado de Extinção: " << this->ameacadoDeEx << std::endl
-      << " | Silvestre ou Exotico:" << this->silvestreOuExotico << std::endl
+     << " | Tipo: " << this->tipo << std::endl
       << " | Veterinário Responsavél: " << this->vetResponsavel << std::endl
       << " | Tratador Responsavél: " << this->tratadorResponsavel << std::endl
+      << " | Tipo: " << this->tipo << std::endl
       << " | Cor do pelo: " << this->cor_pelo << std::endl
       << " | Tipo dentário: " << this->dentes << std::endl;
-      
-   return o;
+
+    return o;
 }

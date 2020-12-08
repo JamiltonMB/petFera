@@ -1,11 +1,12 @@
 #include "mamiferoDomestico.hpp"
 
-MamiferoDomestico::MamiferoDomestico(int id, string nome, string sexo, int idade, float peso, float comprimento,
-           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel, string cor_pelo, string dentes): Mamifero(id, nome, sexo, idade, peso, comprimento,
-           ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
-           tratadorResponsavel, cor_pelo, dentes){}
+MamiferoDomestico::MamiferoDomestico(size_t id,string nome, string sexo, int idade, float peso, float comprimento,
+           string habitat, int patas, string especie, string tipo_pele,
+           string tipo_reproducao, string alimento, bool ameacadoDeEx,
+           string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, string cor_pelo, string dentes): Mamifero( id, nome,  sexo,  idade,  peso,  comprimento,
+            habitat,  patas,  especie,  tipo_pele,
+            tipo_reproducao,  alimento,  ameacadoDeEx,
+            vetResponsavel,  tratadorResponsavel,  tipo,  cor_pelo,  dentes){}
 
 /*std::ostream& MamiferoDomestico::imprimeDados(std::ostream &o)
 {
@@ -22,7 +23,7 @@ MamiferoDomestico::MamiferoDomestico(int id, string nome, string sexo, int idade
       << " | Tipo de Reprodução: " << this->tipo_reproducao << std::endl
       << " | Alimento: " << this->alimento << std::endl
       << " | Ameacado de Extinção: " << this->ameacadoDeEx << std::endl
-      << " | Silvestre ou Exotico:" << this->silvestreOuExotico << std::endl
+      << " | Tipo: " << this->tipo << std::endl
       << " | Veterinário Responsavél: " << this->vetResponsavel << std::endl
       << " | Tratador Responsavél: " << this->tratadorResponsavel << std::endl
       << " | Cor do pelo: " << this->cor_pelo << std::endl

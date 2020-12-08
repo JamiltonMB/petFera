@@ -4,39 +4,52 @@
 #include <iostream>
 using std::string;
 
+enum tpAnimal
+{
+	anfibioExotico,
+	anfibioNativo,
+    anfibioDomestico,
+	mamiferoExotico,
+	mamiferoNativo,
+    mamiferoDomestico,
+    aveExotico,
+    aveNativo,
+    aveDomestico,
+    reptilExotico,
+    reptilNativo,
+    reptilDomestico
+};
+
 class Animal
 {
 protected:
-    int id;
+    size_t id;
     string nome;
     string sexo;
     int idade;
     float peso;
     float comprimento;
-    string ambiente; //habitat
+    string habitat;
     int patas;
     string especie;
     string tipo_pele;
     string tipo_reproducao;
     string alimento;
-    string ameacadoDeEx;
-    string silvestreOuExotico;
+    bool ameacadoDeEx;
     string vetResponsavel;
     string tratadorResponsavel;
+    tpAnimal tipo;
 
 public:
-    Animal(int id, string nome, string sexo, int idade, float peso, float comprimento,
-           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel);
-
-    //virtual ~Animal(){}
+    Animal(size_t id,string nome, string sexo, int idade, float peso, float comprimento,
+           string habitat, int patas, string especie, string tipo_pele,
+           string tipo_reproducao, string alimento, bool ameacadoDeEx,
+           string vetResponsavel, string tratadorResponsavel, tpAnimal tipo);
 
     virtual ~Animal();
 
-
-    void setId(int id);
-    int getId();
+    size_t getId() const;
+    void setId(size_t id);
 
     string getNome() const;
     void setNome(string nome);
@@ -53,8 +66,8 @@ public:
     float getComprimento() const;
     void setComprimento(float comprimento);
 
-    string getAmbiente() const;
-    void setAmbiente(string ambiente);
+    string getHabitat() const;
+    void setHabitat(string habitat);
 
     int getPatas() const;
     void setPatas(int patas);
@@ -71,17 +84,17 @@ public:
     string getAlimento() const;
     void setAlimento(string alimento);
 
-    string getAmeacadoDeEx() const;
-    void setAmeacadoDeEx(string ameacadoDeEx);
-
-    string getSilvestreOuExotico() const;
-    void setSilvestreOuExotico(string silvestreOuExtico);
+    bool getAmeacadoDeEx() const;
+    void setAmeacadoDeEx(bool ameacadoDeEx);
 
     string getVetResposavel() const;
     void setVetResponsavel(string vetResponsavel);
 
     string getTratadorResponsavel() const;
     void setTratadorResponsavel(string tratadorResponsavel);
+
+    tpAnimal getTpAnimal() const;
+    void setTpAnimal(tpAnimal tipo);
 
     friend std::ostream& operator<< (std::ostream& o, Animal const &func);
     

@@ -1,12 +1,12 @@
 #include "reptil.hpp"
 
-Reptil::Reptil(int id, string nome, string sexo, int idade, float peso, float comprimento,
-           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel, bool troca_de_pele) 
+Reptil::Reptil(size_t id,string nome, string sexo, int idade, float peso, float comprimento,
+           string habitat, int patas, string especie, string tipo_pele,
+           string tipo_reproducao, string alimento, bool ameacadoDeEx,
+           string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele) 
                    :Animal(id, nome, sexo, idade, peso, comprimento,
-           ambiente, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, silvestreOuExotico, vetResponsavel,
-           tratadorResponsavel),troca_de_pele(troca_de_pele) {}
+           habitat, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, vetResponsavel,
+           tratadorResponsavel, tipo),troca_de_pele(troca_de_pele) {}
 
 
 bool Reptil::getTrocaDePele() const
@@ -26,14 +26,14 @@ std::ostream& Reptil::imprimeDados(std::ostream &o) const
       << " | Idade: " << this->idade << std::endl
       << " | Peso: " << this->peso << std::endl
       << " | Comprimento: " << this->comprimento << std::endl
-      << " | Ambiente(Habitat): " << ambiente << std::endl
+      << " | Ambiente(Habitat): " << habitat<< std::endl
       << " | Patas: " << this->patas << std::endl
       << " | Especie: " << this->especie << std::endl
       << " | Tipo de Pele " << this->tipo_pele << std::endl
       << " | Tipo de Reprodução: " << this->tipo_reproducao << std::endl
       << " | Alimento: " << this->alimento << std::endl
       << " | Ameacado de Extinção: " << this->ameacadoDeEx << std::endl
-      << " | Silvestre ou Exotico:" << this->silvestreOuExotico << std::endl
+      
       << " | Veterinário Responsavél: " << this->vetResponsavel << std::endl
       << " | Tratador Responsavél: " << this->tratadorResponsavel << std::endl
       << " | Troca de pele: " << this->troca_de_pele << std::endl;

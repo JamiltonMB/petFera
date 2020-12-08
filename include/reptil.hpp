@@ -8,10 +8,10 @@ protected:
     bool troca_de_pele;
 
 public:
-    Reptil(int id, string nome, string sexo, int idade, float peso, float comprimento,
-           string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-           string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-           string tratadorResponsavel, bool troca_de_pele);
+    Reptil(size_t id,string nome, string sexo, int idade, float peso, float comprimento,
+           string habitat, int patas, string especie, string tipo_pele,
+           string tipo_reproducao, string alimento, bool ameacadoDeEx,
+           string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele);
     virtual ~Reptil(){}
     bool getTrocaDePele() const;
     void setTrocaDePele(bool troca_de_pele);

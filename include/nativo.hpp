@@ -2,9 +2,6 @@
 #define _NATIVO_H_
 #include <iostream>
 
-//<<<<<<< HEAD
-
-//=======
 class Nativo
 {
 public:
