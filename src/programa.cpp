@@ -768,10 +768,10 @@ void Programa::cadastrarMamiferoExotico(size_t id, string nome, string sexo, int
 															  tratadorResponsavel, cor_pelo, dentes, pais_origem));
 }
 
-void Programa::cadastrarReptilExotico(int id, string nome, string sexo, int idade, float peso, float comprimento,
-									  string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-									  string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-									  string tratadorResponsavel, bool troca_de_pele, string pais_origem)
+void Programa::cadastrarReptilExotico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
+									  string habitat, int patas, string especie, string tipo_pele,
+									  string tipo_reproducao, string alimento, bool ameacadoDeEx,
+									  string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele, string pais_origem)
 {
 	this->animais.push_back(std::make_shared<ReptilExotico>(id, nome, sexo, idade, peso,
 															comprimento, ambiente, patas, especie, tipo_pele, tipo_reproducao,
@@ -780,10 +780,10 @@ void Programa::cadastrarReptilExotico(int id, string nome, string sexo, int idad
 															pais_origem));
 }
 
-void Programa::cadastrarMamiferoNativo(int id, string nome, string sexo, int idade, float peso, float comprimento,
-									   string ambiente, int patas, string especie, string tipo_pele, string tipo_reproducao,
-									   string alimento, string ameacadoDeEx, string silvestreOuExotico, string vetResponsavel,
-									   string tratadorResponsavel, string cor_pelo, string dentes, string licenca_IBAMA,
+void Programa::cadastrarMamiferoNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
+									   string habitat, int patas, string especie, string tipo_pele,
+									   string tipo_reproducao, string alimento, bool ameacadoDeEx,
+									   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, string cor_pelo, string dentes, string licenca_IBAMA,
 									   string UF_origem)
 {
 	this->animais.push_back(std::make_shared<MamiferoNativo>(id, nome, sexo, idade, peso, comprimento,
