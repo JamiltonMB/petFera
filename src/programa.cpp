@@ -515,7 +515,7 @@ void Programa::runCadastrarAnimal()
 	std::cin >> tratadorResponsavel;
 	std::cout << "Digite se é silvestre ou exótico ou nativo: ";
 	std::cin >> tipo;
-	if (silvestreOuExotico == "nativo")
+	if (tipo == "nativo")
 	{
 		string licenca_IBAMA;
 		string UF_origem;
@@ -904,13 +904,13 @@ std::shared_ptr<Animal> Programa::editarAnimal(std::shared_ptr<Animal> animal)
 			break;
 		case 13:
 			std::cout << "Insira se é Ameçado de Extinção: ";
-			std::cin >> ameacadoDeEx;
-			animal->setAmeacadoDeEx(ameacadoDeEx);
+			//std::cin >> ameacadoDeEx;
+			//animal->setAmeacadoDeEx(ameacadoDeEx);
 			break;
 		case 14:
 			std::cout << "Insira se é Silvestre ou Exotico: ";
-			std::cin >> silvestreOuExotico;
-			animal->setSilvestreOuExotico(silvestreOuExotico);
+			std::cin >> tipo;
+
 			break;
 		case 15:
 			std::cout << "Insira Veterinário Responsavel: ";

@@ -150,11 +150,7 @@ public:
 	void //Método para o usúario informar os valores dos atributos para instanciar e adicionar um objeto de tipo animal no vector de animais
 	runCadastrarAnimal();
 
-	//métodos dos animais que faltavam:
-	void cadastrarReptilNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-							   string habitat, int patas, string especie, string tipo_pele,
-							   string tipo_reproducao, string alimento, bool ameacadoDeEx,
-							   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele, string licenca_IBAMA, string UF_origem);
+
 
 private:
 	//vector<Funcionario*> funcionarios; //vector de objetos da classe Funcionario
