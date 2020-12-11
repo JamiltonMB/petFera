@@ -26,10 +26,6 @@ Animal::Animal(string nome, string sexo, int idade, float peso,
 
 Animal::~Animal() {}
 
-void Animal::setId(size_t id)
-{
-    this->id = id;
-}
 size_t Animal::getId() const
 {
     return this->id;
