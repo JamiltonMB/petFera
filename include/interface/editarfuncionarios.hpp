@@ -24,9 +24,12 @@ static int callback_editarFuncionario(void *NotUsed, int argc, char **argv, char
 }
 
 
-
 static void fecharJanelaEditar(GtkWidget *widget, gpointer data)
 {
+	tratador_recebido=nullptr;
+	veterinario_recebido=nullptr;
+	delete tratador_recebido;
+	delete veterinario_recebido;
     atualizarLista();
 }
 
@@ -77,6 +80,31 @@ void prepararEdicao(std::string id_editar){
 	}
 
    	sqlite3_close(db);
+
+}
+
+void setTextos(){
+	if(veterinario_recebido!=nullptr){
+   		gtk_entry_set_text(GTK_ENTRY(entry_matricula), veterinario_recebido->getMatricula().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_nome), veterinario_recebido->getNome().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_idade), veterinario_recebido->getIdade().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_celular), veterinario_recebido->getCelular().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_endereco), veterinario_recebido->getEndereco().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_cpf), veterinario_recebido->getCpf().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_cargo), veterinario_recebido->getCargo().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_crmv), veterinario_recebido->getCrmv().c_str());
+
+   	}
+   	else if (tratador_recebido!=nullptr){
+   		gtk_entry_set_text(GTK_ENTRY(entry_matricula), tratador_recebido->getMatricula().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_nome), tratador_recebido->getNome().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_idade), tratador_recebido->getIdade().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_celular), tratador_recebido->getCelular().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_endereco), tratador_recebido->getEndereco().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_cpf), tratador_recebido->getCpf().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_cargo), tratador_recebido->getCargo().c_str());
+   		gtk_entry_set_text(GTK_ENTRY(entry_nivel_seguranca), tratador_recebido->getNivel_seguranca().c_str());
+   	}
 }
 
 void janelaCadastroEditar(std::string idEditar)
@@ -195,6 +223,8 @@ void janelaCadastroEditar(std::string idEditar)
 	g_signal_connect(button, "clicked", G_CALLBACK(editar), NULL);
 	gtk_grid_attach(GTK_GRID(grid), button, 1, 12, 1, 1);
 	gtk_widget_show(button);
+
+	setTextos();
 
 	box_base = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
 	
