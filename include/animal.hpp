@@ -54,7 +54,6 @@ public:
     virtual ~Animal();
 
     size_t getId() const;
-    void setId(size_t id);
 
     string getNome() const;
     void setNome(string nome);
