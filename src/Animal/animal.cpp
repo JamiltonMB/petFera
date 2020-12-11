@@ -12,6 +12,18 @@ Animal::Animal(size_t id, string nome, string sexo, int idade, float peso,
                ameacadoDeEx(ameacadoDeEx), vetResponsavel(vetResponsavel),
                tratadorResponsavel(tratadorResponsavel), tipo(tipo) {}
 
+Animal::Animal(string nome, string sexo, int idade, float peso,
+               float comprimento, string habitat, int patas, string especie,
+               string tipo_pele, string tipo_reproducao, string alimento,
+               bool ameacadoDeEx, string vetResponsavel,
+               string tratadorResponsavel, tpAnimal tipo) : 
+               nome(nome), sexo(sexo), idade(idade), 
+               peso(peso), comprimento(comprimento), habitat(habitat),
+               patas(patas), especie(especie), tipo_pele(tipo_pele),
+               tipo_reproducao(tipo_reproducao), alimento(alimento),
+               ameacadoDeEx(ameacadoDeEx), vetResponsavel(vetResponsavel),
+               tratadorResponsavel(tratadorResponsavel), tipo(tipo) {}
+
 Animal::~Animal() {}
 
 void Animal::setId(size_t id)
