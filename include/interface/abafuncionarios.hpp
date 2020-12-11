@@ -64,8 +64,6 @@ void pegarDados(){
    	if(rc){
       	std::cout<<sqlite3_errmsg(db)<<std::endl;
       	return;
-   	} else {
-      	//std::cout<<"Banco de dados aberto com sucesso!"<<std::endl;
    	}
 
    	rc = sqlite3_exec(db, sql.c_str(), callback2, 0, &zErrMsg);
@@ -73,15 +71,10 @@ void pegarDados(){
 	if(rc != SQLITE_OK){
 		std::cout<<"Erro ao buscar dados"<<std::endl;
 		sqlite3_free(zErrMsg);
-	} else {
-		//std::cout<<"Dados abertos com sucesso"<<std::endl;
 	}
-
    	sqlite3_close(db);
    	
 }
-
-
 
 enum {
 	LIST_ID,
@@ -98,13 +91,10 @@ enum {
 	N_COLUMNS
 };
 
-
    GtkTreeViewColumn *column;
    GtkListStore* store; 
    GtkWidget *list;
    GtkWidget *scrolled_window;
-
-
 
 void listar(){
 
@@ -146,8 +136,6 @@ void deletarPorId(std::string idDel){
    	if(rc){
       	std::cout<<sqlite3_errmsg(db)<<std::endl;
       	return;
-   	} else {
-      	//std::cout<<"Banco de dados aberto com sucesso!"<<std::endl;
    	}
 
    	rc = sqlite3_exec(db, sql.c_str(), NULL, 0, &zErrMsg);
@@ -155,12 +143,8 @@ void deletarPorId(std::string idDel){
 	if(rc != SQLITE_OK){
 		std::cout<<"Erro ao buscar dados"<<std::endl;
 		sqlite3_free(zErrMsg);
-	} else {
-		//std::cout<<"Dados abertos com sucesso"<<std::endl;
 	}
-
-   	sqlite3_close(db);
-   	
+   	sqlite3_close(db); 	
 }
 
 static void atualizar(gpointer data)
