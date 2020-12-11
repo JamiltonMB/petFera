@@ -14,26 +14,30 @@ Programa::~Programa()
 	animais.shrink_to_fit();
 }
 
-void Programa::cadastrarVeterinario(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo, std::string crmv)
+void Programa::cadastrarVeterinario(std::string matricula, std::string nome, int idade, 
+std::string celular, std::string endereco, std::string cpf, 
+std::string cargo, std::string crmv)
 {
-	//Veterinario *veterinario = new Veterinario(matricula, nome, idade, celular, endereco, cpf, cargo, crmv);
-	//veterinario->setIsVeterinario(true);
-	this->funcionarios.push_back(std::make_shared<Veterinario>(matricula, nome, idade, celular, endereco, cpf, cargo, crmv));
+	this->funcionarios.push_back(std::make_shared<Veterinario>(matricula,
+	nome, idade, celular, endereco, cpf, cargo, crmv));
 }
 
-void Programa::cadastrarTratador(std::string matricula, std::string nome, int idade, std::string celular, std::string endereco, std::string cpf, std::string cargo, std::string nivel_seguranca)
+void Programa::cadastrarTratador(std::string matricula, std::string nome, 
+int idade, std::string celular, std::string endereco, std::string cpf, 
+std::string cargo, std::string nivel_seguranca)
 {
-	//Tratador *tratador = new Tratador(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca);
-	//this->funcionarios.push_back(tratador);
-	this->funcionarios.push_back(std::make_shared<Tratador>(matricula, nome, idade, celular, endereco, cpf, cargo, nivel_seguranca));
+	this->funcionarios.push_back(std::make_shared<Tratador>(matricula, nome, 
+	idade, celular, endereco, cpf, cargo, nivel_seguranca));
 }
 
-void Programa::cadastrarAnimal(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-							   string habitat, int patas, string especie, string tipo_pele,
-							   string tipo_reproducao, string alimento, bool ameacadoDeEx,
-							   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo)
+void Programa::cadastrarAnimal(size_t id, string nome, string sexo, int idade,
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo)
 {
-	this->animais.push_back(std::make_shared<Animal>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento, ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo));
+	this->animais.push_back(std::make_shared<Animal>(id, nome, sexo, idade, peso,
+	comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento, 
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo));
 }
 
 void Programa::removerAnimal(size_t id)
@@ -209,7 +213,8 @@ std::shared_ptr<Animal> Programa::findAnimal(size_t id)
 	return nullptr;
 }
 
-std::shared_ptr<Funcionario> Programa::editarFuncionario(std::shared_ptr<Funcionario> funcionario)
+std::shared_ptr<Funcionario> Programa::editarFuncionario(std::shared_ptr<Funcionario>
+ funcionario)
 {
 	int escolha = 0;
 	std::string matricula;
@@ -224,7 +229,8 @@ std::shared_ptr<Funcionario> Programa::editarFuncionario(std::shared_ptr<Funcion
 
 	do
 	{
-		std::cout << "0-Sair | 1-Matricula | 2-Nome | 3-Idade | 4-Celular | 5-Endereço | 6-CPF | 7-Cargo | 8-CRVM/Nível de Segurança" << std::endl;
+		std::cout << "0-Sair | 1-Matricula | 2-Nome | 3-Idade | 4-Celular | 5-Endereço";
+		std::cout << " | 6-CPF | 7-Cargo | 8-CRVM/Nível de Segurança" << std::endl;
 		std::cin >> escolha;
 		switch (escolha)
 		{
@@ -270,8 +276,6 @@ std::shared_ptr<Funcionario> Programa::editarFuncionario(std::shared_ptr<Funcion
 			{
 				std::cout << "Insira um novo CRMV: ";
 				std::cin >> crmv;
-				//dynamic_cast<Veterinario *>(funcionario)->setCrmv(crmv);
-				//std::shared_ptr<Veterinario> f = std::dynamic_pointer_cast<Veterinario>(funcionario);
 				std::dynamic_pointer_cast<Veterinario>(funcionario)->setCrmv(crmv);
 				break;
 			}
@@ -279,9 +283,8 @@ std::shared_ptr<Funcionario> Programa::editarFuncionario(std::shared_ptr<Funcion
 			{
 				std::cout << "Insira um novo Nível de Segurança: ";
 				std::cin >> nivel_seguranca;
-				//dynamic_cast<Tratador *>(funcionario)->setNivel_seguranca(nivel_seguranca);
-				//std::shared_ptr<Tratador> f = std::dynamic_pointer_cast<Tratador>(funcionario);
-				std::dynamic_pointer_cast<Tratador>(funcionario)->setNivel_seguranca(nivel_seguranca);
+				std::dynamic_pointer_cast<Tratador>(funcionario)->setNivel_seguranca
+				(nivel_seguranca);
 				break;
 			}
 		default:
@@ -295,7 +298,8 @@ std::shared_ptr<Funcionario> Programa::editarFuncionario(std::shared_ptr<Funcion
 void Programa::run()
 {
 	int escolha = 0;
-	std::cout << "1-Módulo de cadastrado de funcionarios\n2-Módulo de cadastro e manejo de animais\n3-Sair" << std::endl;
+	std::cout << "1-Módulo de cadastrado de funcionarios\n2-Módulo de cadastro e manejo";
+	 std::cout<<" de animais\n3-Sair" << std::endl;
 	std::cout << "Digite o número de uma das opções: ";
 	std::cin >> escolha;
 	switch (escolha)
@@ -317,7 +321,8 @@ void Programa::runFuncionario()
 {
 	int escolha = 0;
 	std::string matricula;
-	std::cout << "1-Cadastar funcionário\n2-Deletar funcionario\n3-Editar funcionário\n4-Listar funcionário\n5-Listar todos os Funcionários\n6-Voltar" << std::endl;
+	std::cout << "1-Cadastar funcionário\n2-Deletar funcionario\n3-Editar funcionário";
+	std::cout <<"\n4-Listar funcionário\n5-Listar todos os Funcionários\n6-Voltar"<<std::endl;
 	std::cout << "Digite o número de uma das opções: ";
 	std::cin >> escolha;
 	switch (escolha)
@@ -421,7 +426,8 @@ void Programa::runAnimal()
 {
 	int escolha = 0;
 	int id;
-	std::cout << "1-Cadastar animal\n2-Deletar animal\n3-Editar animal\n4-Listar animal\n5-Listar todos os animais\n6-Voltar" << std::endl;
+	std::cout << "1-Cadastar animal\n2-Deletar animal\n3-Editar animal\n4-Listar animal";
+	std::cout << "\n5-Listar todos os animais\n6-Voltar" << std::endl;
 	std::cout << "Digite o número de uma das opções: ";
 	std::cin >> escolha;
 	switch (escolha)
@@ -516,121 +522,141 @@ void Programa::runCadastrarAnimal()
 
 }
 
-void Programa::cadastrarMamiferoDomestico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-										  string habitat, int patas, string especie, string tipo_pele,
-										  string tipo_reproducao, string alimento, bool ameacadoDeEx,
-										  string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, string cor_pelo, string dentes)
+void Programa::cadastrarMamiferoDomestico(size_t id, string nome, string sexo, int idade, 
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo,
+	string cor_pelo, string dentes)
 {
-	this->animais.push_back(std::make_shared<MamiferoDomestico>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-																ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, cor_pelo, dentes));
+	this->animais.push_back(std::make_shared<MamiferoDomestico>(id, nome, sexo, idade,
+	peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, cor_pelo, dentes));
 }
 
-void Programa::cadastrarAnfibioDomestico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-										 string habitat, int patas, string especie, string tipo_pele,
-										 string tipo_reproducao, string alimento, bool ameacadoDeEx,
-										 string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, int total_mudas)
+void Programa::cadastrarAnfibioDomestico(size_t id, string nome, string sexo, int idade,
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, int total_mudas)
 {
-	this->animais.push_back(std::make_shared<AnfibioDomestico>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-															   ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, total_mudas));
+	this->animais.push_back(std::make_shared<AnfibioDomestico>(id, nome, sexo, idade, peso,
+	comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, total_mudas));
 }
 
-void Programa::cadastrarAveDomestico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-									 string habitat, int patas, string especie, string tipo_pele,
-									 string tipo_reproducao, string alimento, bool ameacadoDeEx,
-									 string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, double tamanho_bico, string corPenas)
+void Programa::cadastrarAveDomestico(size_t id, string nome, string sexo, int idade, 
+	float peso, float comprimento, string habitat, int patas, string especie,
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, 
+	float tamanho_bico, string corPenas)
 {
-	this->animais.push_back(std::make_shared<AveDomestica>(id, nome, sexo, idade, peso, comprimento,
-														   habitat, patas, especie, tipo_pele, tipo_reproducao,
-														   alimento, ameacadoDeEx, vetResponsavel,
-														   tratadorResponsavel, tipo, tamanho_bico, corPenas));
+	this->animais.push_back(std::make_shared<AveDomestica>(id, nome, sexo, idade, 
+	peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, 
+	alimento, ameacadoDeEx, vetResponsavel, 
+	tratadorResponsavel, tipo, tamanho_bico, corPenas));
 }
 
-void Programa::cadastrarReptilDomestico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-										string habitat, int patas, string especie, string tipo_pele,
-										string tipo_reproducao, string alimento, bool ameacadoDeEx,
-										string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele)
+void Programa::cadastrarReptilDomestico(size_t id, string nome, string sexo, int idade,
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele)
 {
-	this->animais.push_back(std::make_shared<ReptilDomestico>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-															  ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, troca_de_pele));
+	this->animais.push_back(std::make_shared<ReptilDomestico>(id, nome, sexo, idade,
+	peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, troca_de_pele));
 }
 
-void Programa::cadastrarAveExotico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-								   string habitat, int patas, string especie, string tipo_pele,
-								   string tipo_reproducao, string alimento, bool ameacadoDeEx,
-								   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, double tamanho_bico, string corPenas,
-								   string pais_origem)
+void Programa::cadastrarAveExotico(size_t id, string nome, string sexo, int idade, 
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, 
+	float tamanho_bico, string corPenas, string pais_origem)
 {
-	this->animais.push_back(std::make_shared<AveExotico>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-														 ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, tamanho_bico, corPenas,
-														 pais_origem));
+	this->animais.push_back(std::make_shared<AveExotico>(id, nome, sexo, idade, peso, 
+	comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, tamanho_bico, corPenas,
+	pais_origem));
 }
 
-void Programa::cadastrarAnfibioExotico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-									   string habitat, int patas, string especie, string tipo_pele,
-									   string tipo_reproducao, string alimento, bool ameacadoDeEx,
-									   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, int total_mudas, string pais_origem)
+void Programa::cadastrarAnfibioExotico(size_t id, string nome, string sexo, int idade,
+	float peso, float comprimento, string habitat, int patas, string especie,
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, int total_mudas,
+	string pais_origem)
 {
-	this->animais.push_back(std::make_shared<AnfibioExotico>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-															 ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, total_mudas, pais_origem));
+	this->animais.push_back(std::make_shared<AnfibioExotico>(id, nome, sexo, idade, peso,
+	comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, total_mudas, pais_origem));
 }
 
-void Programa::cadastrarMamiferoExotico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-										string habitat, int patas, string especie, string tipo_pele,
-										string tipo_reproducao, string alimento, bool ameacadoDeEx,
-										string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, string cor_pelo, string dentes, string pais_origem)
+void Programa::cadastrarMamiferoExotico(size_t id, string nome, string sexo, int idade, 
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, string cor_pelo, 
+	string dentes, string pais_origem)
 {
-	this->animais.push_back(std::make_shared<MamiferoExotico>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-															  ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, cor_pelo, dentes, pais_origem));
+	this->animais.push_back(std::make_shared<MamiferoExotico>(id, nome, sexo, idade, peso,
+	comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, cor_pelo, dentes, pais_origem));
 }
 
-void Programa::cadastrarReptilExotico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-									  string habitat, int patas, string especie, string tipo_pele,
-									  string tipo_reproducao, string alimento, bool ameacadoDeEx,
-									  string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele, string pais_origem)
+void Programa::cadastrarReptilExotico(size_t id, string nome, string sexo, int idade, 
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, 
+	bool troca_de_pele, string pais_origem)
 {
-	this->animais.push_back(std::make_shared<ReptilExotico>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-															ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, troca_de_pele,
-															pais_origem));
+	this->animais.push_back(std::make_shared<ReptilExotico>(id, nome, sexo, idade, peso,
+	comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, troca_de_pele,
+	pais_origem));
 }
 
-void Programa::cadastrarMamiferoNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-									   string habitat, int patas, string especie, string tipo_pele,
-									   string tipo_reproducao, string alimento, bool ameacadoDeEx,
-									   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, string cor_pelo, string dentes, string licenca_IBAMA,
-									   string UF_origem)
+void Programa::cadastrarMamiferoNativo(size_t id, string nome, string sexo, int idade,
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, string cor_pelo,
+	string dentes, string licenca_IBAMA, string UF_origem)
 {
-	this->animais.push_back(std::make_shared<MamiferoNativo>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-															 ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, cor_pelo, dentes, licenca_IBAMA,
-															 UF_origem));
+	this->animais.push_back(std::make_shared<MamiferoNativo>(id, nome, sexo, idade, peso,
+	comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento, 
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, cor_pelo, 
+	dentes, licenca_IBAMA, UF_origem));
 }
 
-void Programa::cadastrarAnfibioNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-									  string habitat, int patas, string especie, string tipo_pele,
-									  string tipo_reproducao, string alimento, bool ameacadoDeEx,
-									  string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, int total_mudas, string licenca_IBAMA, string UF_origem)
+void Programa::cadastrarAnfibioNativo(size_t id, string nome, string sexo, int idade,
+	float peso, float comprimento, string habitat, int patas, string especie,
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, 
+	int total_mudas, string licenca_IBAMA, string UF_origem)
 {
-	this->animais.push_back(std::make_shared<AnfibioNativo>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-															ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, total_mudas, licenca_IBAMA, UF_origem));
+	this->animais.push_back(std::make_shared<AnfibioNativo>(id, nome, sexo, idade, 
+	peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+ 	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, total_mudas, 
+	licenca_IBAMA, UF_origem));
 }
 
-void Programa::cadastrarAveNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-								  string habitat, int patas, string especie, string tipo_pele,
-								  string tipo_reproducao, string alimento, bool ameacadoDeEx,
-								  string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, double tamanho_bico, string corPenas,
-								  string licenca_IBAMA, string UF_origem)
+void Programa::cadastrarAveNativo(size_t id, string nome, string sexo, int idade, 
+	float peso, float comprimento, string habitat, int patas, string especie, 
+	string tipo_pele, string tipo_reproducao, string alimento, bool ameacadoDeEx,
+	string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, 
+	float tamanho_bico, string corPenas, string licenca_IBAMA, string UF_origem)
 {
-	this->animais.push_back(std::make_shared<AveNativo>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-														ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, tamanho_bico, corPenas,
-														licenca_IBAMA, UF_origem));
+	this->animais.push_back(std::make_shared<AveNativo>(id, nome, sexo, idade, peso,
+	comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, tamanho_bico, corPenas,
+	licenca_IBAMA, UF_origem));
 }
 
-void Programa::cadastrarReptilNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
-									 string habitat, int patas, string especie, string tipo_pele,
-									 string tipo_reproducao, string alimento, bool ameacadoDeEx,
-									 string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele, string licenca_IBAMA, string UF_origem)
+void Programa::cadastrarReptilNativo(size_t id, string nome, string sexo,
+	int idade, float peso, float comprimento, string habitat, int patas, 
+	string especie, string tipo_pele, string tipo_reproducao, string alimento, 
+	bool ameacadoDeEx, string vetResponsavel, string tratadorResponsavel, 
+	tpAnimal tipo, bool troca_de_pele, string licenca_IBAMA, string UF_origem)
 {
-	this->animais.push_back(std::make_shared<ReptilNativo>(id, nome, sexo, idade, peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
-														   ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, troca_de_pele, licenca_IBAMA, UF_origem));
+	this->animais.push_back(std::make_shared<ReptilNativo>(id, nome, sexo, idade, 
+	peso, comprimento, habitat, patas, especie, tipo_pele, tipo_reproducao, alimento,
+	ameacadoDeEx, vetResponsavel, tratadorResponsavel, tipo, troca_de_pele,
+	 licenca_IBAMA, UF_origem));
 }
 
 /*void imprimir(){

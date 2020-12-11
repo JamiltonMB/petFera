@@ -79,19 +79,19 @@ public:
 	void cadastrarAveNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
 							string habitat, int patas, string especie, string tipo_pele,
 							string tipo_reproducao, string alimento, bool ameacadoDeEx,
-							string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, double tamanho_bico, string corPenas,
+							string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, float tamanho_bico, string corPenas,
 							string licenca_IBAMA, string UF_origem);
 
 	void cadastrarAveExotico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
 							 string habitat, int patas, string especie, string tipo_pele,
 							 string tipo_reproducao, string alimento, bool ameacadoDeEx,
-							 string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, double tamanho_bico, string corPenas,
+							 string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, float tamanho_bico, string corPenas,
 							 string pais_origem);
 
 	void cadastrarAveDomestico(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
 							   string habitat, int patas, string especie, string tipo_pele,
 							   string tipo_reproducao, string alimento, bool ameacadoDeEx,
-							   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, double tamanho_bico, string corPenas);
+							   string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, float tamanho_bico, string corPenas);
 
 	void cadastrarMamiferoNativo(size_t id, string nome, string sexo, int idade, float peso, float comprimento,
 								 string habitat, int patas, string especie, string tipo_pele,
