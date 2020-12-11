@@ -200,7 +200,7 @@ static void editarFuncionario(){
 		delete name;
 		janelaCadastroEditar(idEditar);
 	}else{
-    g_print ("no row selected.\n");
+    show_error(window);
 	}
 }
 
