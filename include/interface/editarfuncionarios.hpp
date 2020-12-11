@@ -85,6 +85,8 @@ void prepararEdicao(std::string id_editar){
 
 void setTextos(){
 	if(veterinario_recebido!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(id_funcionario), std::to_string(veterinario_recebido->getId()).c_str());
+		gtk_widget_set_sensitive(id_funcionario, FALSE);
    		gtk_entry_set_text(GTK_ENTRY(entry_matricula), veterinario_recebido->getMatricula().c_str());
    		gtk_entry_set_text(GTK_ENTRY(entry_nome), veterinario_recebido->getNome().c_str());
    		gtk_entry_set_text(GTK_ENTRY(entry_idade), veterinario_recebido->getIdade().c_str());
@@ -96,6 +98,8 @@ void setTextos(){
 
    	}
    	else if (tratador_recebido!=nullptr){
+   		gtk_entry_set_text(GTK_ENTRY(id_funcionario), std::to_string(tratador_recebido->getId()).c_str());
+		gtk_widget_set_sensitive(id_funcionario, FALSE);
    		gtk_entry_set_text(GTK_ENTRY(entry_matricula), tratador_recebido->getMatricula().c_str());
    		gtk_entry_set_text(GTK_ENTRY(entry_nome), tratador_recebido->getNome().c_str());
    		gtk_entry_set_text(GTK_ENTRY(entry_idade), tratador_recebido->getIdade().c_str());
