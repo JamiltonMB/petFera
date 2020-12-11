@@ -16,7 +16,6 @@ public:
            string licenca_IBAMA, string UF_origem);
     virtual ~AveNativo() {}
 
-    //std::ostream &imprimeDados(std::ostream &o);
 };
 
 #endif

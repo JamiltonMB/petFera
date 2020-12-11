@@ -23,5 +23,4 @@ public:
 
     string getCorPenas() const;
     void setCorPenas(string corPenas);
-    std::ostream& imprimeDados(std::ostream& o) const;
 };

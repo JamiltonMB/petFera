@@ -198,7 +198,7 @@ void Programa::listarTodosAnimais()
 	{
 		std::cout << "Não há animais cadastrados." << std::endl;
 	}
-	else
+	else2
 	{
 		for (auto &Animal : this->animais)
 		{
@@ -458,9 +458,7 @@ void Programa::runAnimal()
 	case 2:
 		std::cout << "Informe o Id: ";
 		std::cin >> id;
-
 		this->removerAnimal(id);
-		std::cout << "Animal removido" << std::endl;
 		this->run();
 		break;
 	case 3:

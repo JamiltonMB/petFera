@@ -12,6 +12,4 @@ public:
            string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele,
 				 string licenca_IBAMA, string UF_origem);
 	virtual ~ReptilNativo() {}
-
-	//std::ostream &imprimeDados(std::ostream &o);
 };

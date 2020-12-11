@@ -14,8 +14,6 @@ public:
            string tratadorResponsavel, tpAnimal tipo, double tamanho_bico, string corPenas);
     virtual ~AveDomestica(){}
 
-    //std::ostream&imprimeDados(std::ostream &o);
-
 };
 
 #endif

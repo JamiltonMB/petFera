@@ -161,7 +161,7 @@ private:
 	//Animal* findAnimal(int id); //Método para verificar se um objeto(anial) existe no vector de animais
 	std::shared_ptr<Animal> findAnimal(size_t id);												  //Método para verificar se um objeto(anial) existe no vector de animais
 	std::shared_ptr<Funcionario> editarFuncionario(std::shared_ptr<Funcionario> funcionario); //Método chamado pelo método alterarFuncionario para fazer o set dos atributos e apresentar um menu de opções
-	std::shared_ptr<Animal> editarAnimal(std::shared_ptr<Animal> animal);					  //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
+	//std::shared_ptr<Animal> editarAnimal(std::shared_ptr<Animal> animal);					  //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
 																							  //Animal* editarAnimal(Animal* animal); //Método chamado pelo método alterarAninal para fazer o set dos atributos e apresentar um menu de opções
 };
 

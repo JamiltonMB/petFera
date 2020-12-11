@@ -12,5 +12,4 @@ public:
            string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, bool troca_de_pele);
     virtual ~ReptilDomestico() {}
 
-    //std::ostream &imprimeDados(std::ostream &o);
 };

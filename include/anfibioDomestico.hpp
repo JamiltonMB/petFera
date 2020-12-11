@@ -12,7 +12,6 @@ public:
            string tipo_reproducao, string alimento, bool ameacadoDeEx,
            string vetResponsavel, string tratadorResponsavel, tpAnimal tipo, int total_mudas);
     virtual ~AnfibioDomestico() {}
-    //std::ostream& imprimeDados(std::ostream& o);
 };
 
 #endif
