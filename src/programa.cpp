@@ -198,7 +198,7 @@ void Programa::listarTodosAnimais()
 	{
 		std::cout << "Não há animais cadastrados." << std::endl;
 	}
-	else2
+	else
 	{
 		for (auto &Animal : this->animais)
 		{
