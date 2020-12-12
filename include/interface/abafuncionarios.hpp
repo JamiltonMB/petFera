@@ -11,10 +11,7 @@ std::vector<std::shared_ptr<Funcionario>> funcionarios;
 
 std::vector<std::string> v;
 
-
-static int callback2(void *NotUsed, int argc, char **argv, char **azColName)
-{
-
+static int callback2(void *NotUsed, int argc, char **argv, char **azColName){
 	if(std::stoi(argv[10])==1){
 		funcionarios.push_back(std::make_shared<Veterinario>(std::stoi(argv[0]),argv[1],argv[2],argv[3],argv[4],
 			argv[5],argv[6],argv[7],argv[8]));
@@ -25,8 +22,7 @@ static int callback2(void *NotUsed, int argc, char **argv, char **azColName)
 	return 0;
 }
 
-void show_error(gpointer window) {
-    
+void show_error(gpointer window){    
   GtkWidget *dialog;
   dialog = gtk_message_dialog_new(GTK_WINDOW(window),
             GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -38,8 +34,7 @@ void show_error(gpointer window) {
   gtk_widget_destroy(dialog);
 }
 
-void show_ok(gpointer window) {
-    
+void show_ok(gpointer window){  
   GtkWidget *dialog;
   dialog = gtk_message_dialog_new(GTK_WINDOW(window),
             GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -51,9 +46,7 @@ void show_ok(gpointer window) {
   gtk_widget_destroy(dialog);
 }
 
-
-void pegarDados(){
-	
+void pegarDados(){	
 	sqlite3 *db;
 	char *zErrMsg = 0;
 	int rc;
@@ -72,8 +65,7 @@ void pegarDados(){
 		std::cout<<"Erro ao buscar dados"<<std::endl;
 		sqlite3_free(zErrMsg);
 	}
-   	sqlite3_close(db);
-   	
+   	sqlite3_close(db); 	
 }
 
 enum {
@@ -97,7 +89,6 @@ enum {
    GtkWidget *scrolled_window;
 
 void listar(){
-
 	for(auto &funcionario : funcionarios){
 		gtk_list_store_insert_with_values(store, NULL, -1,
 											LIST_ID, std::to_string(funcionario->getId()).c_str(),
@@ -113,7 +104,6 @@ void listar(){
 											LIST_ISVETERINARIO, (funcionario->getIsVeterinario() ? "SIM" : "NÃO"),
 											-1);					
 	}
-
 }
 
 void atualizarLista(){
@@ -124,7 +114,6 @@ void atualizarLista(){
 }
 
 void deletarPorId(std::string idDel){
-	
 	sqlite3 *db;
 	char *zErrMsg = 0;
 	int rc;
@@ -147,8 +136,7 @@ void deletarPorId(std::string idDel){
    	sqlite3_close(db); 	
 }
 
-static void atualizar(gpointer data)
-{
+static void atualizar(gpointer data){
 	atualizarLista();
 }
 
@@ -156,8 +144,7 @@ static void deletarFuncionario(){
 	GtkTreeSelection *selection;
 	GtkTreeModel     *model;
 	GtkTreeIter       iter;
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(list));
-	
+	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(list));	
 	if (gtk_tree_selection_get_selected(selection, &model, &iter)){
 		char *name;
 		gtk_tree_model_get(model, &iter, LIST_ID, &name, -1);
@@ -175,8 +162,7 @@ static void editarFuncionario(){
 	GtkTreeSelection *selection;
 	GtkTreeModel     *model;
 	GtkTreeIter       iter;
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(list));
-	
+	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(list));	
 	if (gtk_tree_selection_get_selected(selection, &model, &iter)){
 		char *name;
 		gtk_tree_model_get(model, &iter, LIST_ID, &name, -1);
@@ -192,9 +178,7 @@ static void inserirNovoFuncionario(){
 	janelaCadastro();
 }
 
-
-void exibir_funcionarios()
-{
+void exibir_funcionarios(){
 	pegarDados();
 	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
 	gtk_container_set_border_width(GTK_CONTAINER(scrolled_window), 10);
@@ -217,12 +201,12 @@ void exibir_funcionarios()
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
 
 	column = gtk_tree_view_column_new_with_attributes("MATRICULA", gtk_cell_renderer_text_new(), "text", LIST_MATRICULA, NULL);
-	gtk_tree_view_column_set_min_width(column, 10);
+	gtk_tree_view_column_set_min_width(column, 100);
 	gtk_tree_view_column_set_alignment(column, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);	
 	
 	column = gtk_tree_view_column_new_with_attributes("NOME", gtk_cell_renderer_text_new(), "text", LIST_NOME, NULL);
-	gtk_tree_view_column_set_min_width(column, 200);
+	gtk_tree_view_column_set_min_width(column, 250);
 	gtk_tree_view_column_set_alignment(column, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
 
@@ -232,32 +216,32 @@ void exibir_funcionarios()
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
 
 	column = gtk_tree_view_column_new_with_attributes("CELUAR", gtk_cell_renderer_text_new(), "text", LIST_CELULAR, NULL);
-	gtk_tree_view_column_set_min_width(column, 100);
+	gtk_tree_view_column_set_min_width(column, 120);
 	gtk_tree_view_column_set_alignment(column, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
 
 	column = gtk_tree_view_column_new_with_attributes("ENDEREÇO", gtk_cell_renderer_text_new(), "text", LIST_ENDERECO, NULL);
-	gtk_tree_view_column_set_min_width(column, 200);
+	gtk_tree_view_column_set_min_width(column, 250);
 	gtk_tree_view_column_set_alignment(column, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
 	
 	column = gtk_tree_view_column_new_with_attributes("CPF", gtk_cell_renderer_text_new(), "text", LIST_CPF, NULL);
-	gtk_tree_view_column_set_min_width(column, 100);
+	gtk_tree_view_column_set_min_width(column, 120);
 	gtk_tree_view_column_set_alignment(column, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);	
 
 	column = gtk_tree_view_column_new_with_attributes("CARGO", gtk_cell_renderer_text_new(), "text", LIST_CARGO, NULL);
-	gtk_tree_view_column_set_min_width(column, 10);
+	gtk_tree_view_column_set_min_width(column, 100);
 	gtk_tree_view_column_set_alignment(column, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
 
 	column = gtk_tree_view_column_new_with_attributes("CRMV", gtk_cell_renderer_text_new(), "text", LIST_CRMV, NULL);
-	gtk_tree_view_column_set_min_width(column, 10);
+	gtk_tree_view_column_set_min_width(column, 100);
 	gtk_tree_view_column_set_alignment(column, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
 
 	column = gtk_tree_view_column_new_with_attributes("NÍVEL SEG.", gtk_cell_renderer_text_new(), "text", LIST_SEGURANCA, NULL);
-	gtk_tree_view_column_set_min_width(column, 10);
+	gtk_tree_view_column_set_min_width(column, 100);
 	gtk_tree_view_column_set_alignment(column, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list), column);
 	
@@ -270,36 +254,42 @@ void exibir_funcionarios()
 	box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
 	gtk_box_pack_start(GTK_BOX(box), list, TRUE, TRUE, 5);
 
-	label = gtk_label_new("\nMÓDUDO DE CONSULTA DE FUNCIONÁRIOS\n");
+	label = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(label), "<b>MÓDUDO DE CONSULTA E CADASTRO DE FUNCIONÁRIOS</b>");
 	gtk_container_add(GTK_CONTAINER(box_head), label);
 	
 	box_base = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
+
+	box_buttons = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
+	gtk_widget_set_halign(box_buttons, GTK_ALIGN_CENTER);
+	gtk_widget_set_valign (box_buttons, GTK_ALIGN_CENTER);
 	
-	grid = gtk_grid_new();
 	button = gtk_button_new_with_label("ATUALIZAR LISTA");
 	g_signal_connect(button, "clicked", G_CALLBACK(atualizar), NULL);
-	gtk_grid_attach(GTK_GRID(grid), button, 0, 0, 1, 1);
+	gtk_box_pack_start(GTK_BOX(box_buttons), button, FALSE, FALSE, 1);
+	
 	button = gtk_button_new_with_label("DELETAR FUNCIONÁRIO");
 	g_signal_connect(button, "clicked", G_CALLBACK(deletarFuncionario), NULL);
-	gtk_grid_attach(GTK_GRID(grid), button, 1, 0, 1, 1);
+	gtk_widget_set_halign(button, GTK_ALIGN_CENTER);
+	gtk_box_pack_start(GTK_BOX(box_buttons), button, FALSE, FALSE, 1);
+	
 	button = gtk_button_new_with_label("EDITAR FUNCIONÁRIO");
 	g_signal_connect(button, "clicked", G_CALLBACK(editarFuncionario), NULL);
-	gtk_grid_attach(GTK_GRID(grid), button, 2, 0, 1, 1);
+	gtk_box_pack_start(GTK_BOX(box_buttons), button, FALSE, FALSE, 1);
+	
 	button = gtk_button_new_with_label("INSERIR NOVO FUNCIONÁRIO");
 	g_signal_connect(button, "clicked", G_CALLBACK(inserirNovoFuncionario), NULL);
-	gtk_grid_attach(GTK_GRID(grid), button, 3, 0, 1, 1);
-
+	gtk_box_pack_start(GTK_BOX(box_buttons), button, FALSE, FALSE, 1);
 
 	cabecalho = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
 	image = gtk_image_new_from_file(nome_image.c_str());
 	gtk_container_add(GTK_CONTAINER(cabecalho), image);
 	gtk_container_add(GTK_CONTAINER(box_base), cabecalho);
 
-
 	gtk_container_add(GTK_CONTAINER(box_base), box_head);
 	gtk_container_add(GTK_CONTAINER(scrolled_window), box);
 	gtk_container_add(GTK_CONTAINER(box_base), scrolled_window);
-	gtk_container_add(GTK_CONTAINER(box_base), grid);
+	gtk_box_pack_start(GTK_BOX(box_base), box_buttons, TRUE, TRUE, 1);
 	gtk_container_add(GTK_CONTAINER(notebook), box_base);
 	gtk_notebook_set_tab_label_text (GTK_NOTEBOOK (notebook), box_base, "CONSULTAR FUNCIONÁRIOS");
 	gtk_widget_show(notebook);

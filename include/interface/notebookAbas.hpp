@@ -9,6 +9,7 @@
 
 GtkWidget *cabecalho, *image;
 GtkWidget *window, *notebook;
+GtkWidget *box_buttons;
 GtkWidget *button, *grid, *frame, *box, *label, *box_head, *box_base;
 GtkWidget *radio1, *radio2;
 //GtkWidget *entry_prod, *entry_cb, *entry_medida, *entry_qtd, *entry_preco;
