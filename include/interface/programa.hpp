@@ -15,6 +15,7 @@ void chamarPrograma(int argc, char *argv[]){
 	gtk_window_set_default_size(GTK_WINDOW(window), 1200, 600);
 	gtk_container_set_border_width(GTK_CONTAINER(window), 10);
 	gtk_window_set_title(GTK_WINDOW(window), "PET FERA");
+	gtk_window_maximize(GTK_WINDOW(window));
 	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(destroy), NULL);
 
 	notebook = gtk_notebook_new();
