@@ -51,10 +51,94 @@ static void radioTratadorEditar(gpointer data)
     isVeterinarioEditar=false;
 }
 
-static void editar(gpointer data)
-{
-    //inserir();
-    //limparCampos();
+static void editar(gpointer data){
+	std::string isVet;
+	if(isVeterinarioEditar){
+		isVet="1";
+	}else{
+		isVet="0";
+	}
+
+	std::string virgula = ", ";
+	std::string pontovirgula = ";";
+	std::string coluna;
+	std::string aspas = "'";
+	
+	std::string id = gtk_entry_get_text(GTK_ENTRY(id_funcionario));
+	coluna = " where id=";
+	id = coluna+id+pontovirgula;
+	
+	std::string matricula = gtk_entry_get_text(GTK_ENTRY(entry_matricula));
+	coluna = "matricula = ";
+	matricula = coluna+aspas+matricula+aspas+virgula;
+	
+	std::string	nome = gtk_entry_get_text(GTK_ENTRY(entry_nome));
+	coluna = "nome = ";
+	nome = coluna+aspas+nome+aspas+virgula;
+	
+	std::string idade = gtk_entry_get_text(GTK_ENTRY(entry_idade));
+	coluna = "idade = ";
+	idade = coluna+aspas+idade+aspas+virgula;
+	
+	std::string celular = gtk_entry_get_text(GTK_ENTRY(entry_celular));
+	coluna = "celular = ";
+	celular = coluna+aspas+celular+aspas+virgula;
+	
+	std::string	enderco = gtk_entry_get_text(GTK_ENTRY(entry_endereco));
+	coluna = "endereco = ";
+	enderco = coluna+aspas+enderco+aspas+virgula;
+	
+	std::string	cpf = gtk_entry_get_text(GTK_ENTRY(entry_cpf));
+	coluna = "cpf = ";
+	cpf = coluna+aspas+cpf+aspas+virgula;
+	
+	std::string	cargo = gtk_entry_get_text(GTK_ENTRY(entry_cargo));
+	coluna = "cargo = ";
+	cargo = coluna+aspas+cargo+aspas+virgula;
+	
+	std::string	crmv = gtk_entry_get_text(GTK_ENTRY(entry_crmv));
+	coluna = "crmv = ";
+	crmv = coluna+aspas+crmv+aspas+virgula;
+	
+	std::string	nivel_seguranca = gtk_entry_get_text(GTK_ENTRY(entry_nivel_seguranca));
+	coluna = "nivel_seguranca = ";
+	nivel_seguranca = coluna+aspas+nivel_seguranca+aspas+virgula;
+
+	coluna = "isVeterinario = ";
+	isVet = coluna+isVet;
+
+	std::string sqlInicio = "UPDATE funcionarios set ";
+	std::string sqlVeterinario = sqlInicio+matricula+nome+idade+celular+enderco+cpf+cargo+crmv+isVet+id;
+	std::string sqlTratador = sqlInicio+matricula+nome+idade+celular+enderco+cpf+cargo+nivel_seguranca+isVet+id;
+
+	//std::string sqlTeste = "UPDATE funcionarios set nome = 'jamilton' where ID=2;";
+	//std::string sqlTeste = "UPDATE funcionarios set matricula = '12', nome = 'jamilton medeiros', idade = '12', celular = '12', endereco = '12', cpf = '12', cargo = '12', crmv = '12', isVeterinario = 1  where id=2;";
+	//std::string sqlTeste = "UPDATE funcionarios set matricula = '12', nome = 'jamilton medeiros', idade = '12', celular = '12', endereco = '12', cpf = '12', cargo = '12', crmv = '12', isVeterinario = 1 where id=2;";
+
+	sqlite3 *db;
+	char *zErrMsg = 0;
+	int rc;
+   	
+   	rc = sqlite3_open("../database/dados.db", &db);
+   	if(rc){
+      	std::cout<<sqlite3_errmsg(db)<<std::endl;
+      	return;
+   	}
+
+   	if(isVeterinarioEditar){
+	   	rc = sqlite3_exec(db, sqlVeterinario.c_str(), callback, 0, &zErrMsg);
+		if(rc != SQLITE_OK){
+			std::cout<<"Erro ao salvar dados"<<std::endl;
+			sqlite3_free(zErrMsg);
+		}
+   	}else{
+   		rc = sqlite3_exec(db, sqlTratador.c_str(), callback, 0, &zErrMsg);
+		if(rc != SQLITE_OK){
+			std::cout<<"Erro ao salvar dados"<<std::endl;
+			sqlite3_free(zErrMsg);
+		}
+   	}
+	sqlite3_close(db);
 }
 
 void prepararEdicao(std::string id_editar){
@@ -108,6 +192,7 @@ void setTextos(){
    		gtk_entry_set_text(GTK_ENTRY(entry_cpf), tratador_recebido->getCpf().c_str());
    		gtk_entry_set_text(GTK_ENTRY(entry_cargo), tratador_recebido->getCargo().c_str());
    		gtk_entry_set_text(GTK_ENTRY(entry_nivel_seguranca), tratador_recebido->getNivel_seguranca().c_str());
+   		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radio2), TRUE);
    	}
 }
 
@@ -196,6 +281,71 @@ void janelaCadastroEditar(std::string idEditar)
 	gtk_widget_show(label);
 	gtk_widget_show(entry_cargo);
 
+
+
+	if(veterinario_recebido!=nullptr){
+		isVeterinarioEditar=true;
+		radio1 = gtk_radio_button_new_with_label(NULL, "Veterinário");
+		radio2 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(radio1), "Tratador");
+		g_signal_connect(radio1, "clicked", G_CALLBACK(radioVeterinarioEditar), NULL);
+		g_signal_connect(radio2, "clicked", G_CALLBACK(radioTratadorEditar), NULL);
+		gtk_grid_attach(GTK_GRID(grid), radio1, 1, 8, 1, 1);
+		gtk_grid_attach(GTK_GRID(grid), radio2, 1, 9, 1, 1);
+		gtk_widget_show(radio1);
+		gtk_widget_show(radio2);
+
+		label_veterinario = gtk_label_new("CRMV");
+		gtk_widget_set_halign(label_veterinario, GTK_ALIGN_END);
+		entry_crmv = gtk_entry_new();
+		gtk_entry_set_max_length(GTK_ENTRY(entry_crmv), 49);
+		gtk_grid_attach(GTK_GRID(grid), label_veterinario, 0, 10, 1, 1);
+		gtk_grid_attach(GTK_GRID(grid), entry_crmv, 1, 10, 1, 1);
+		gtk_widget_show(entry_crmv);
+	    gtk_widget_show(label_veterinario);
+
+	    label_tratador = gtk_label_new("Nível de Segurança");
+		gtk_widget_set_halign(label_veterinario, GTK_ALIGN_END);
+		entry_nivel_seguranca = gtk_entry_new();
+		gtk_entry_set_max_length(GTK_ENTRY(entry_nivel_seguranca), 49);
+		gtk_grid_attach(GTK_GRID(grid), label_tratador, 0, 11, 1, 1);
+		gtk_grid_attach(GTK_GRID(grid), entry_nivel_seguranca, 1, 11, 1, 1);
+		gtk_widget_hide(entry_nivel_seguranca);
+	    gtk_widget_hide(label_tratador);
+		
+	}
+	else if (tratador_recebido!=nullptr){
+		isVeterinarioEditar=false;
+		radio1 = gtk_radio_button_new_with_label(NULL, "Veterinário");
+		radio2 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(radio1), "Tratador");
+		g_signal_connect(radio1, "clicked", G_CALLBACK(radioVeterinarioEditar), NULL);
+		g_signal_connect(radio2, "clicked", G_CALLBACK(radioTratadorEditar), NULL);
+		gtk_grid_attach(GTK_GRID(grid), radio1, 1, 8, 1, 1);
+		gtk_grid_attach(GTK_GRID(grid), radio2, 1, 9, 1, 1);
+		gtk_widget_show(radio1);
+		gtk_widget_show(radio2);
+		
+
+		label_veterinario = gtk_label_new("CRMV");
+		gtk_widget_set_halign(label_veterinario, GTK_ALIGN_END);
+		entry_crmv = gtk_entry_new();
+		gtk_entry_set_max_length(GTK_ENTRY(entry_crmv), 49);
+		gtk_grid_attach(GTK_GRID(grid), label_veterinario, 0, 10, 1, 1);
+		gtk_grid_attach(GTK_GRID(grid), entry_crmv, 1, 10, 1, 1);
+		gtk_widget_hide(entry_crmv);
+	    gtk_widget_hide(label_veterinario);
+
+		label_tratador = gtk_label_new("Nível de Segurança");
+		gtk_widget_set_halign(label_veterinario, GTK_ALIGN_END);
+		entry_nivel_seguranca = gtk_entry_new();
+		gtk_entry_set_max_length(GTK_ENTRY(entry_nivel_seguranca), 49);
+		gtk_grid_attach(GTK_GRID(grid), label_tratador, 0, 11, 1, 1);
+		gtk_grid_attach(GTK_GRID(grid), entry_nivel_seguranca, 1, 11, 1, 1);
+		gtk_widget_show(entry_nivel_seguranca);
+	    gtk_widget_show(label_tratador);
+	}
+
+
+/*
 	radio1 = gtk_radio_button_new_with_label(NULL, "Veterinário");
 	radio2 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(radio1), "Tratador");
 	g_signal_connect(radio1, "clicked", G_CALLBACK(radioVeterinarioEditar), NULL);
@@ -204,7 +354,7 @@ void janelaCadastroEditar(std::string idEditar)
 	gtk_grid_attach(GTK_GRID(grid), radio2, 1, 9, 1, 1);
 	gtk_widget_show(radio1);
 	gtk_widget_show(radio2);
-
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radio2), TRUE);
 
 	label_veterinario = gtk_label_new("CRMV");
 	gtk_widget_set_halign(label_veterinario, GTK_ALIGN_END);
@@ -221,7 +371,7 @@ void janelaCadastroEditar(std::string idEditar)
 	gtk_entry_set_max_length(GTK_ENTRY(entry_nivel_seguranca), 49);
 	gtk_grid_attach(GTK_GRID(grid), label_tratador, 0, 11, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), entry_nivel_seguranca, 1, 11, 1, 1);	
-
+*/
 
 	button = gtk_button_new_with_label("EDITAR");
 	g_signal_connect(button, "clicked", G_CALLBACK(editar), NULL);
