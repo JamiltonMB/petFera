@@ -1,6 +1,7 @@
 #ifndef PROGRAMA_HPP
 #define PROGRAMA_HPP
 #include "interface/abafuncionarios.hpp"
+#include "interface/abaAnimais.hpp"
 
 static void destroy(GtkWidget *widget, gpointer data)
 {
@@ -18,6 +19,7 @@ void chamarPrograma(int argc, char *argv[]){
 
 	notebook = gtk_notebook_new();
 	exibir_funcionarios();
+	exibir_animais();
 
 	gtk_container_add(GTK_CONTAINER(window), notebook);
 

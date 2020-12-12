@@ -290,6 +290,12 @@ void exibir_funcionarios()
 	gtk_grid_attach(GTK_GRID(grid), button, 3, 0, 1, 1);
 
 
+	cabecalho = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
+	image = gtk_image_new_from_file(nome_image.c_str());
+	gtk_container_add(GTK_CONTAINER(cabecalho), image);
+	gtk_container_add(GTK_CONTAINER(box_base), cabecalho);
+
+
 	gtk_container_add(GTK_CONTAINER(box_base), box_head);
 	gtk_container_add(GTK_CONTAINER(scrolled_window), box);
 	gtk_container_add(GTK_CONTAINER(box_base), scrolled_window);
@@ -300,6 +306,8 @@ void exibir_funcionarios()
 	gtk_widget_show_all(box_base);
 	gtk_widget_show_all(box_head);
 	gtk_widget_show_all(box);
+	gtk_widget_show(cabecalho);
+	gtk_widget_show(image);
 }
 
 #endif

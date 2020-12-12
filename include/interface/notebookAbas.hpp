@@ -7,6 +7,7 @@
 #include "tratador.hpp"
 #include "interface/abafuncionarios.hpp"
 
+GtkWidget *cabecalho, *image;
 GtkWidget *window, *notebook;
 GtkWidget *button, *grid, *frame, *box, *label, *box_head, *box_base;
 GtkWidget *radio1, *radio2;
@@ -14,6 +15,7 @@ GtkWidget *radio1, *radio2;
 GtkWidget *entry_matricula, *entry_nome, *entry_idade, *entry_celular, *entry_endereco, *entry_cpf, 
 *entry_cargo, *entry_crmv, *entry_nivel_seguranca, *label_veterinario, *label_tratador;
 
+std::string nome_image = "../res/petfera.jpg";
 
 void atualizarLista();
 
