@@ -16,6 +16,11 @@ GtkWidget *radio1, *radio2;
 GtkWidget *entry_matricula, *entry_nome, *entry_idade, *entry_celular, *entry_endereco, *entry_cpf, 
 *entry_cargo, *entry_crmv, *entry_nivel_seguranca, *label_veterinario, *label_tratador;
 
+GtkTreeViewColumn *column;
+GtkListStore* store; 
+GtkWidget *list;
+GtkWidget *scrolled_window;
+
 std::string nome_image = "../res/petfera.jpg";
 
 void atualizarLista();

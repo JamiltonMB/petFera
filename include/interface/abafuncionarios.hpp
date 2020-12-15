@@ -83,11 +83,6 @@ enum {
 	N_COLUMNS
 };
 
-   GtkTreeViewColumn *column;
-   GtkListStore* store; 
-   GtkWidget *list;
-   GtkWidget *scrolled_window;
-
 void listar(){
 	for(auto &funcionario : funcionarios){
 		gtk_list_store_insert_with_values(store, NULL, -1,
