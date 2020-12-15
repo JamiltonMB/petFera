@@ -26,7 +26,7 @@ enum {
 	LIST_TIPOREPRODUCAOA,
 	LIST_ALIMENTOA,
 	LIST_AMEACADODEEXA,
-	LIST_VETRESONSAVELA,
+	LIST_VETRESPONSAVELA,
 	LIST_TRATADORRESPONSAVELA,
 	LIST_TIPOA,
 	LIST_PAISORIGEMA,
@@ -154,17 +154,56 @@ void pegarDadosAnimais(){
    	sqlite3_close(db); 	
 }
 
+void listarAnimais(){
+
+	for(auto &animal : animais){
+		gtk_list_store_insert_with_values(store_a, NULL, -1,
+											LIST_IDA, std::to_string(animal->getId()).c_str(),
+											LIST_NOMEA, "x",
+											LIST_SEXOA, "x",
+											LIST_IDADEA, "x",
+											LIST_PESOA, "x",
+											LIST_COMPRIMENTOA, "x",
+											LIST_HABITATA, "x",
+											LIST_PATASA, "x",
+											LIST_ESPECIEA, "x",
+											LIST_TIPOPELEA, "x",
+											LIST_TIPOREPRODUCAOA, "x",
+											LIST_ALIMENTOA, "x",
+											LIST_AMEACADODEEXA, "x",
+											LIST_VETRESPONSAVELA, "x",
+											LIST_TRATADORRESPONSAVELA, "x",
+											LIST_TIPOA, "x",
+											LIST_PAISORIGEMA, 
+												(animal->getTpAnimal()==anfibioExotico ? std::dynamic_pointer_cast<AnfibioExotico>(animal)->getPais_origem().c_str() : 
+												(animal->getTpAnimal()==mamiferoExotico ? std::dynamic_pointer_cast<MamiferoExotico>(animal)->getPais_origem().c_str() : 
+												(animal->getTpAnimal()==aveExotico ? std::dynamic_pointer_cast<AveExotico>(animal)->getPais_origem().c_str() : 
+												(animal->getTpAnimal()==reptilExotico ? std::dynamic_pointer_cast<ReptilExotico>(animal)->getPais_origem().c_str() : "NULL")))),											
+											LIST_CORPELOSA, "x",
+											LIST_DENTESA, "x",
+											LIST_UFORIGEMA, "x",
+											LIST_LICENCAIBAMAA, "x",
+											LIST_TOTALMUDASA, "x",
+											LIST_TAMANHOBICOA, "x",
+											LIST_CORPENASA, "x",
+											LIST_TROCADEPELEA, "x",
+											-1);					
+	}
+}
+
 void exibir_animais()
 {
 	pegarDadosAnimais();
 
-	store_a = gtk_list_store_new(N_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, 
+	store_a = gtk_list_store_new(N_COLUMNSA, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, 
 								G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
 								G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
-								G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+								G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
 
 	list_a = gtk_tree_view_new_with_model(GTK_TREE_MODEL(store_a));
 	g_object_unref(store_a);
+
+	listarAnimais();
 
 	column_a = gtk_tree_view_column_new_with_attributes("ID", gtk_cell_renderer_text_new(), "text", LIST_IDA, NULL);
 	gtk_tree_view_column_set_min_width(column_a, 10);
@@ -232,7 +271,7 @@ void exibir_animais()
 	gtk_tree_view_column_set_alignment(column_a, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list_a), column_a);	
 	
-	column_a = gtk_tree_view_column_new_with_attributes("VETERINÁRIO", gtk_cell_renderer_text_new(), "text", LIST_VETRESONSAVELA, NULL);
+	column_a = gtk_tree_view_column_new_with_attributes("VETERINÁRIO", gtk_cell_renderer_text_new(), "text", LIST_VETRESPONSAVELA, NULL);
 	gtk_tree_view_column_set_min_width(column_a, 50);
 	gtk_tree_view_column_set_alignment(column_a, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list_a), column_a);
