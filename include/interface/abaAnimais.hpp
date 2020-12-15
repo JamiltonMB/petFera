@@ -49,59 +49,86 @@ static int callbackAnimais(void *NotUsed, int argc, char **argv, char **azColNam
 			tp = anfibioExotico;
 			animais.push_back(std::make_shared<AnfibioExotico>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
 				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
-				argv[12],argv[13],argv[14],tp,std::stoi(argv[16]),argv[21]));
+				argv[12],argv[13],argv[14],tp,std::stoi(argv[21]),argv[16]));
 			break;
 		case 1:
-			//
+			tp = anfibioNativo;
+			animais.push_back(std::make_shared<AnfibioNativo>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::stoi(argv[21]),argv[20],argv[19]));
 			break;
 		case 2:
-			//
+			tp = anfibioDomestico;
+			animais.push_back(std::make_shared<AnfibioDomestico>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::stoi(argv[21])));
 			break;
 		case 3:
-			//
+			tp = mamiferoExotico;
+			animais.push_back(std::make_shared<MamiferoExotico>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,argv[17],argv[18],argv[16]));
 			break;
 		case 4:
-			//
+			tp = mamiferoNativo;
+			animais.push_back(std::make_shared<MamiferoNativo>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,argv[17],argv[18],argv[20],argv[19]));
 			break;
 		case 5:
-			//
+			tp = mamiferoDomestico;
+			animais.push_back(std::make_shared<MamiferoDomestico>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,argv[17],argv[18]));
 			break;
 		case 6:
-			//
+			tp = aveExotico;
+			animais.push_back(std::make_shared<AveExotico>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::stof(argv[22]),argv[23],argv[16]));			
 			break;
 		case 7:
-			//
+			tp = aveNativo;
+			animais.push_back(std::make_shared<AveNativo>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::stof(argv[22]),argv[23],argv[20],argv[19]));			
 			break;
 		case 8:
-			//
+			tp = aveDomestico;
+			animais.push_back(std::make_shared<AveDomestica>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::stof(argv[22]),argv[23]));				
 			break;
 		case 9:
-			//
+			tp = reptilExotico;
+			animais.push_back(std::make_shared<ReptilExotico>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::atoi(argv[24]),argv[16]));			
 			break;
 		case 10:
-			//
+			tp = reptilNativo;
+			animais.push_back(std::make_shared<ReptilNativo>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::atoi(argv[24]),argv[20],argv[19]));			
 			break;
 		case 11:
-			//
+			tp = reptilDomestico;
+			animais.push_back(std::make_shared<ReptilDomestico>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::atoi(argv[24])));			
 			break;								
 		default:
 			std::cout<<"Parâmetro de comando para processamento das provas é inválido"<<std::endl;
 			break;									
 	}
 
+	/* //Código de debug para imprimir toda tabela animais do banco de dados
 	int i;
 	for(i=0; i<argc; i++)
 	{
 		std::cout<<azColName[i]<<" = " << (argv[i] ? argv[i] : "NULL")<<"\n";
 	}
-
-	if(std::stoi(argv[10])==1){
-		//funcionarios.push_back(std::make_shared<Veterinario>(std::stoi(argv[0]),argv[1],argv[2],argv[3],argv[4],
-			//argv[5],argv[6],argv[7],argv[8]));
-	}else{
-		//funcionarios.push_back(std::make_shared<Tratador>(std::stoi(argv[0]),argv[1],argv[2],argv[3],argv[4],
-			//argv[5],argv[6],argv[7],argv[9]));		
-	}
+	*/
 	return 0;
 }
 
