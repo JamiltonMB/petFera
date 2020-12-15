@@ -11,6 +11,11 @@ std::vector<std::shared_ptr<Funcionario>> funcionarios;
 
 std::vector<std::string> v;
 
+GtkTreeViewColumn *column;
+GtkListStore* store; 
+GtkWidget *list;
+GtkWidget *scrolled_window;
+
 static int callback2(void *NotUsed, int argc, char **argv, char **azColName){
 	if(std::stoi(argv[10])==1){
 		funcionarios.push_back(std::make_shared<Veterinario>(std::stoi(argv[0]),argv[1],argv[2],argv[3],argv[4],
