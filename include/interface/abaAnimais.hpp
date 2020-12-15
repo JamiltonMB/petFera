@@ -12,12 +12,12 @@ GtkWidget *scrolled_window_a;
 
 std::vector<std::shared_ptr<Animal>> animais;
 
-
 enum {
 	LIST_IDA,
 	LIST_NOMEA,
 	LIST_SEXOA,
 	LIST_IDADEA,
+	LIST_PESOA,
 	LIST_COMPRIMENTOA,
 	LIST_HABITATA,
 	LIST_PATASA,
@@ -42,6 +42,59 @@ enum {
 };
 
 static int callbackAnimais(void *NotUsed, int argc, char **argv, char **azColName){
+	tpAnimal tp;
+
+	switch(atoi(argv[15])){
+		case 0:
+			tp = anfibioExotico;
+			animais.push_back(std::make_shared<AnfibioExotico>(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				argv[12],argv[13],argv[14],tp,std::stoi(argv[16]),argv[21]));
+			break;
+		case 1:
+			//
+			break;
+		case 2:
+			//
+			break;
+		case 3:
+			//
+			break;
+		case 4:
+			//
+			break;
+		case 5:
+			//
+			break;
+		case 6:
+			//
+			break;
+		case 7:
+			//
+			break;
+		case 8:
+			//
+			break;
+		case 9:
+			//
+			break;
+		case 10:
+			//
+			break;
+		case 11:
+			//
+			break;								
+		default:
+			std::cout<<"Parâmetro de comando para processamento das provas é inválido"<<std::endl;
+			break;									
+	}
+
+	int i;
+	for(i=0; i<argc; i++)
+	{
+		std::cout<<azColName[i]<<" = " << (argv[i] ? argv[i] : "NULL")<<"\n";
+	}
+
 	if(std::stoi(argv[10])==1){
 		//funcionarios.push_back(std::make_shared<Veterinario>(std::stoi(argv[0]),argv[1],argv[2],argv[3],argv[4],
 			//argv[5],argv[6],argv[7],argv[8]));
@@ -77,7 +130,8 @@ void pegarDadosAnimais(){
 void exibir_animais()
 {
 	pegarDadosAnimais();
-	store_a = gtk_list_store_new(N_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, 
+
+	store_a = gtk_list_store_new(N_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, 
 								G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
 								G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
 								G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
@@ -101,6 +155,11 @@ void exibir_animais()
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list_a), column_a);
 
 	column_a = gtk_tree_view_column_new_with_attributes("IDADE", gtk_cell_renderer_text_new(), "text", LIST_IDADEA, NULL);
+	gtk_tree_view_column_set_min_width(column_a, 10);
+	gtk_tree_view_column_set_alignment(column_a, 0.5);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(list_a), column_a);
+
+	column_a = gtk_tree_view_column_new_with_attributes("PESO", gtk_cell_renderer_text_new(), "text", LIST_PESOA, NULL);
 	gtk_tree_view_column_set_min_width(column_a, 10);
 	gtk_tree_view_column_set_alignment(column_a, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list_a), column_a);
