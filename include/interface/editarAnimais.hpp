@@ -8,8 +8,103 @@ GtkWidget *janelaEditarAnimais;
 
 tpAnimal tpEditar = anfibioExotico;
 
+AnfibioExotico* anfibioExoticoC;
+AnfibioNativo* anfibioNativoC;
+AnfibioDomestico* anfibioDomesticoC;
+MamiferoExotico* mamiferoExoticoC;
+MamiferoNativo* mamiferoNativoC;
+MamiferoDomestico* mamiferoDomesticoC;
+AveExotico* aveExoticoC;
+AveNativo* aveNativoC;
+AveDomestica* aveDomesticaC;
+ReptilExotico* reptilExoticoC;
+ReptilNativo* reptilNativoC;
+ReptilDomestico* reptilDomesticoC;
+
 static int callback_editarAnimal(void *NotUsed, int argc, char **argv, char **azColName)
 {
+	tpAnimal tp;	
+	switch(atoi(argv[15])){
+		case 0:
+			tp = anfibioExotico;
+			anfibioExoticoC = new AnfibioExotico(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::stoi(argv[21]),argv[16]);
+			break;
+		case 1:
+			tp = anfibioNativo;
+			anfibioNativoC = new AnfibioNativo(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::stoi(argv[21]),argv[20],argv[19]);
+			break;
+		case 2:
+			tp = anfibioDomestico;
+			anfibioDomesticoC = new AnfibioDomestico(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::stoi(argv[21]));
+			break;
+		case 3:
+			tp = mamiferoExotico;
+			mamiferoExoticoC = new MamiferoExotico(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,argv[17],argv[18],argv[16]);
+			break;
+		case 4:
+			tp = mamiferoNativo;
+			mamiferoNativoC = new MamiferoNativo(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,argv[17],argv[18],argv[20],argv[19]);
+			break;
+		case 5:
+			tp = mamiferoDomestico;
+			mamiferoDomesticoC = new MamiferoDomestico(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,argv[17],argv[18]);
+			break;
+		case 6:
+			tp = aveExotico;
+			aveExoticoC = new AveExotico(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::stof(argv[22]),argv[23],argv[16]);			
+			break;
+		case 7:
+			tp = aveNativo;
+			aveNativoC = new AveNativo(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::stof(argv[22]),argv[23],argv[20],argv[19]);			
+			break;
+		case 8:
+			tp = aveDomestico;
+			aveDomesticaC = new AveDomestica(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::stof(argv[22]),argv[23]);				
+			break;
+		case 9:
+			tp = reptilExotico;
+			reptilExoticoC = new ReptilExotico(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::atoi(argv[24]),argv[16]);			
+			break;
+		case 10:
+			tp = reptilNativo;
+			reptilNativoC = new ReptilNativo(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::atoi(argv[24]),argv[20],argv[19]);			
+			break;
+		case 11:
+			tp = reptilDomestico;
+			reptilDomesticoC = new ReptilDomestico(std::stoi(argv[0]),argv[1],argv[2],std::stoi(argv[3]),
+				std::stof(argv[4]), std::stof(argv[5]),argv[6],std::stoi(argv[7]),argv[8],argv[9],argv[10],argv[11],
+				std::stoi(argv[12]),argv[13],argv[14],tp,std::atoi(argv[24]));			
+			break;								
+		default:
+			std::cout<<"Parâmetro inválido"<<std::endl;
+			break;									
+	}
+
+
+
+
 	/*
 	if(std::stoi(argv[10])==1){
 		veterinario_recebido = new Veterinario(std::stoi(argv[0]),argv[1],argv[2],argv[3],argv[4],

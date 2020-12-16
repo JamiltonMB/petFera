@@ -121,7 +121,7 @@ static int callbackAnimais(void *NotUsed, int argc, char **argv, char **azColNam
 				std::stoi(argv[12]),argv[13],argv[14],tp,std::atoi(argv[24])));			
 			break;								
 		default:
-			std::cout<<"Parâmetro de comando para processamento das provas é inválido"<<std::endl;
+			std::cout<<"Parâmetro inválido"<<std::endl;
 			break;									
 	}
 	return 0;
