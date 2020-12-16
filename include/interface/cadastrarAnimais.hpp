@@ -132,13 +132,76 @@ void inserirDadosAnimal(){
 	std::string sqlInicio;
 	std::string sqlValues;
 	std::string sqlFim = ");";
-	sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,total_mudas,pais_origem) VALUES (";
-	sqlValues = "'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',";
-	sqlValues = sqlValues.substr(0, sqlValues.size()-1);
-	//sqlanfibioExoticoInicio = "INSERT INTO ANIMAIS(nome,sexo) VALUES (";
-	//sqlanfibioExoticoValues = "'0','0'";	
-	sql = sqlInicio+sqlValues+sqlFim;
+	//sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,total_mudas,pais_origem) VALUES (";
+	//sqlValues = "'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',";
+	//sqlValues = sqlValues.substr(0, sqlValues.size()-1);
+	
+	switch (tipoA){
+		case 0:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,total_mudas,pais_origem) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+totalMudasStr+paisOrigemA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
+			break;
+		case 1:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,total_mudas,licenca_IBAMA,UF_origem) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+totalMudasStr+licencaIBAMAA+ufOrigemA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
+			break;
+		case 2:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,total_mudas) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+totalMudasStr;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
+			break;
+		case 3:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,cor_pelo,dentes,pais_origem) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+corPeloA+dentesA+paisOrigemA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
+			break;
+		case 4:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,cor_pelo,dentes,licenca_IBAMA,UF_origem) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+corPeloA+dentesA+licencaIBAMAA+ufOrigemA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);							
+			break;
+		case 5:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,cor_pelo,dentes) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+corPeloA+dentesA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
+			break;
+		case 6:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,tamanho_bico,corPenas,pais_origem) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+tamanhoBicoStr+corPenasA+paisOrigemA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
+			break;
+		case 7:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,tamanho_bico,corPenas,licenca_IBAMA,UF_origem) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+tamanhoBicoStr+corPenasA+licencaIBAMAA+ufOrigemA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
+			break;
+		case 8:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,tamanho_bico,corPenas) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+tamanhoBicoStr+corPenasA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
+			break;
+		case 9:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,troca_de_pele,pais_origem) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+trocaPeleStr+paisOrigemA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
+			break;
+		case 10:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,troca_de_pele,licenca_IBAMA,UF_origem) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+trocaPeleStr+licencaIBAMAA+ufOrigemA;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
+			break;
+		case 11:
+			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,troca_de_pele) VALUES (";
+			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+trocaPeleStr;
+			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
+			break;
+		default:
+			break;
+	}	
 
+	sql = sqlInicio+sqlValues+sqlFim;
 	sqlite3 *db;
 	char *zErrMsg = 0;
 	int rc;
