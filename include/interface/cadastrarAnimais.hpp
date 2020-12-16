@@ -90,29 +90,21 @@ void inserirCadAnimais()
 */
 void hideAtributosEspecificos(){
 	gtk_widget_hide(label_paisOrigemA);
-	gtk_widget_hide(entry_paisOrigemA);
-	
+	gtk_widget_hide(entry_paisOrigemA);	
 	gtk_widget_hide(label_corPeloA);
-	gtk_widget_hide(entry_corPeloA);
-	
+	gtk_widget_hide(entry_corPeloA);	
 	gtk_widget_hide(label_dentesA);
 	gtk_widget_hide(entry_dentesA);
-
 	gtk_widget_hide(label_ufOrigemA);
 	gtk_widget_hide(entry_ufOrigemA);
-
 	gtk_widget_hide(label_licencaIBAMAA);
 	gtk_widget_hide(entry_licencaIBAMAA);
-
 	gtk_widget_hide(label_totalMudasA);
 	gtk_widget_hide(button_totalMudasA);
-
 	gtk_widget_hide(label_tamanhoBicoA);
 	gtk_widget_hide(button_tamanhoBicoA);	
-
 	gtk_widget_hide(label_corPenasA);
 	gtk_widget_hide(entry_corPenasA);
-
 	gtk_widget_hide(combo_trocaPeleA);
     gtk_widget_hide(label_trocaPeleA);
 }
@@ -121,46 +113,40 @@ void inserirDadosAnimal(){
 
 	std::string nomeA = gtk_entry_get_text(GTK_ENTRY(entry_nomeA));
 	std::string sexoA = gtk_entry_get_text(GTK_ENTRY(entry_sexoA));
-	//std::string idadeA = gtk_entry_get_text(GTK_ENTRY(button_idadeA));
-	//std::string pesoA = gtk_entry_get_text(GTK_ENTRY(button_pesoA));
-	//std::string comprimentoA = gtk_entry_get_text(GTK_ENTRY(button_comprimentoA));
+	int idadeA = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_idadeA));
+	float pesoA = gtk_spin_button_get_value(GTK_SPIN_BUTTON(button_pesoA));
+	float comprimentoA = gtk_spin_button_get_value(GTK_SPIN_BUTTON(button_comprimentoA));
 	std::string habitatA = gtk_entry_get_text(GTK_ENTRY(entry_habitatA));
-	//std::string patasA = gtk_entry_get_text(GTK_ENTRY(button_patasA));
+	int patasA = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_patasA));
 	std::string especieA = gtk_entry_get_text(GTK_ENTRY(entry_especieA));
 	std::string tipoPeleA = gtk_entry_get_text(GTK_ENTRY(entry_tipoPeleA));
 	std::string tipoReproducaoA = gtk_entry_get_text(GTK_ENTRY(entry_tipoReproducaoA));
 	std::string alimentoA = gtk_entry_get_text(GTK_ENTRY(entry_alimentoA));
-	//std::string ameacadoA = gtk_entry_get_text(GTK_ENTRY(combo_ameacadoA));
+	int ameacadoA = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_ameacadoA));
 	std::string vetResponsavelA = gtk_entry_get_text(GTK_ENTRY(entry_vetResponsavelA));
 	std::string TratadorA = gtk_entry_get_text(GTK_ENTRY(entry_TratadorA));
-	//std::string tipoA = gtk_entry_get_text(GTK_ENTRY(combo_tipoA));
+	int tipoA = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_tipoA));
 	std::string paisOrigemA = gtk_entry_get_text(GTK_ENTRY(entry_paisOrigemA));
 	std::string corPeloA = gtk_entry_get_text(GTK_ENTRY(entry_corPeloA));
 	std::string dentesA = gtk_entry_get_text(GTK_ENTRY(entry_dentesA));
 	std::string ufOrigemA = gtk_entry_get_text(GTK_ENTRY(entry_ufOrigemA));
 	std::string licencaIBAMAA = gtk_entry_get_text(GTK_ENTRY(entry_licencaIBAMAA));
-	//std::string totalMudasA = gtk_entry_get_text(GTK_ENTRY(button_totalMudasA));
-	//std::string tamanhoBicoA = gtk_entry_get_text(GTK_ENTRY(button_tamanhoBicoA));
+	int totalMudasA = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_totalMudasA));
+	float tamanhoBicoA = gtk_spin_button_get_value(GTK_SPIN_BUTTON(button_tamanhoBicoA));
 	std::string corPenasA = gtk_entry_get_text(GTK_ENTRY(entry_corPenasA));
-	//std::string trocaPeleA = gtk_entry_get_text(GTK_ENTRY(combo_trocaPeleA));
+	int trocaPeleA = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_trocaPeleA));
 }
 
 static void cadastrarAnimais(gpointer data)
 {
-    //inserir();
     inserirDadosAnimal();
     limparCamposCadAnimais();
-    int totalMudas = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_totalMudasA));
-    std::cout<<totalMudas<<std::endl;
 }
 
 static void comboBoxTipo(GtkComboBox *widget, gpointer user_data){
 	GtkComboBox *combo_box = widget;
 	//gchar *tipo = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo_box));
 	int value = gtk_combo_box_get_active(combo_box);
-	//std::cout<<value<<std::endl;
-	//g_print("You chose %s\n", tipo);
-	//g_free(tipo);
 	switch (value){
 		case 0:
 			tpCadastro = anfibioExotico;
