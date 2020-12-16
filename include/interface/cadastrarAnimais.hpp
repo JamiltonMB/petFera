@@ -101,6 +101,15 @@ static void cadastrarAnimais(gpointer data)
     limparCamposCadAnimais();
 }
 
+static void comboBoxTipo(GtkComboBox *widget, gpointer user_data){
+	GtkComboBox *combo_box = widget;
+	gchar *tipo = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo_box));
+	int teste = gtk_combo_box_get_active(combo_box);
+	std::cout<<teste<<std::endl;
+	g_print("You chose %s\n", tipo);
+	g_free(tipo);
+
+}
 
 void janelaCadastroAnimais()
 {
@@ -186,18 +195,36 @@ void janelaCadastroAnimais()
 	gtk_widget_show(entry_especieA);
     gtk_widget_show(label);
 
-	label = gtk_label_new("TIPO DE PELE");
+	label = gtk_label_new("TIPO DE PELE: ");
 	gtk_widget_set_halign(label, GTK_ALIGN_END);
 	entry_tipoPeleA = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(entry_tipoPeleA), 49);
 	gtk_grid_attach(GTK_GRID(grid), label, 0, 9, 1, 1);
-	gtk_grid_attach(GTK_GRID(grid), entry_tipoPeleA, 1, 9, 1, 1);	
-	
+	gtk_grid_attach(GTK_GRID(grid), entry_tipoPeleA, 1, 9, 1, 1);
+	gtk_widget_show(entry_tipoPeleA);
+    gtk_widget_show(label);
+
+
+	label = gtk_label_new("TIPO: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);	
+	combo_box = gtk_combo_box_text_new ();
+	const char *tipos[] = {"anfibioExotico", "anfibioNativo", "anfibioDomestico", "mamiferoExotico", 
+	"mamiferoNativo", "mamiferoDomestico", "aveExotico", "aveNativo", "aveDomestico", "reptilExotico", "reptilNativo", "reptilDomestico"};
+	for (unsigned int i = 0; i < G_N_ELEMENTS(tipos); i++){
+	  	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(combo_box), tipos[i]);
+	}
+	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_box), 0);
+	g_signal_connect (combo_box, "changed", G_CALLBACK(comboBoxTipo), NULL);
+	gtk_grid_attach(GTK_GRID(grid), label, 0, 10, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), combo_box, 1, 10, 1, 1);
+	gtk_widget_show(combo_box);
+    gtk_widget_show(label);	
+
+
 	button = gtk_button_new_with_label("CADASTRAR");
 	g_signal_connect(button, "clicked", G_CALLBACK(cadastrarAnimais), NULL);
 	gtk_grid_attach(GTK_GRID(grid), button, 1, 12, 1, 1);
 	gtk_widget_show(button);
-
 
 	box_base = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
 	

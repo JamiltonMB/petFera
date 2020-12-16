@@ -33,6 +33,8 @@ GtkWidget *entry_idA, *entry_nomeA, *entry_sexoA, *entry_idadeA, *entry_pesoA, *
 *entry_TratadorA, *entry_tipoA, *entry_paisOrigemA, *entry_corPeloA, *entry_dentesA,  *entry_ufOrigemA, *entry_licencaIBAMAA, 
 *entry_totalMudasA, *entry_tamanhoBicoA, *entry_corPenasA, *radio_troaPeleA;
 
+GtkWidget *combo_box;
+
 std::string nome_image = "../res/petfera.jpg";
 
 void atualizarLista();
