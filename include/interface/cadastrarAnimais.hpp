@@ -6,6 +6,7 @@
 
 GtkWidget *janelaCadAnimais;
 
+tpAnimal tpCadastro = anfibioExotico;
 
 static void fecharJanelaCadAnimais(GtkWidget *widget, gpointer data)
 {
@@ -87,10 +88,67 @@ void inserirCadAnimais()
 	
 }
 */
+void hideAtributosEspecificos(){
+	gtk_widget_hide(label_paisOrigemA);
+	gtk_widget_hide(entry_paisOrigemA);
+	
+	gtk_widget_hide(label_corPeloA);
+	gtk_widget_hide(entry_corPeloA);
+	
+	gtk_widget_hide(label_dentesA);
+	gtk_widget_hide(entry_dentesA);
+
+	gtk_widget_hide(label_ufOrigemA);
+	gtk_widget_hide(entry_ufOrigemA);
+
+	gtk_widget_hide(label_licencaIBAMAA);
+	gtk_widget_hide(entry_licencaIBAMAA);
+
+	gtk_widget_hide(label_totalMudasA);
+	gtk_widget_hide(button_totalMudasA);
+
+	gtk_widget_hide(label_tamanhoBicoA);
+	gtk_widget_hide(button_tamanhoBicoA);	
+
+	gtk_widget_hide(label_corPenasA);
+	gtk_widget_hide(entry_corPenasA);
+
+	gtk_widget_hide(combo_trocaPeleA);
+    gtk_widget_hide(label_trocaPeleA);
+}
+
+void inserirDadosAnimal(){
+
+	std::string nomeA = gtk_entry_get_text(GTK_ENTRY(entry_nomeA));
+	std::string sexoA = gtk_entry_get_text(GTK_ENTRY(entry_sexoA));
+	//std::string idadeA = gtk_entry_get_text(GTK_ENTRY(button_idadeA));
+	//std::string pesoA = gtk_entry_get_text(GTK_ENTRY(button_pesoA));
+	//std::string comprimentoA = gtk_entry_get_text(GTK_ENTRY(button_comprimentoA));
+	std::string habitatA = gtk_entry_get_text(GTK_ENTRY(entry_habitatA));
+	//std::string patasA = gtk_entry_get_text(GTK_ENTRY(button_patasA));
+	std::string especieA = gtk_entry_get_text(GTK_ENTRY(entry_especieA));
+	std::string tipoPeleA = gtk_entry_get_text(GTK_ENTRY(entry_tipoPeleA));
+	std::string tipoReproducaoA = gtk_entry_get_text(GTK_ENTRY(entry_tipoReproducaoA));
+	std::string alimentoA = gtk_entry_get_text(GTK_ENTRY(entry_alimentoA));
+	//std::string ameacadoA = gtk_entry_get_text(GTK_ENTRY(combo_ameacadoA));
+	std::string vetResponsavelA = gtk_entry_get_text(GTK_ENTRY(entry_vetResponsavelA));
+	std::string TratadorA = gtk_entry_get_text(GTK_ENTRY(entry_TratadorA));
+	//std::string tipoA = gtk_entry_get_text(GTK_ENTRY(combo_tipoA));
+	std::string paisOrigemA = gtk_entry_get_text(GTK_ENTRY(entry_paisOrigemA));
+	std::string corPeloA = gtk_entry_get_text(GTK_ENTRY(entry_corPeloA));
+	std::string dentesA = gtk_entry_get_text(GTK_ENTRY(entry_dentesA));
+	std::string ufOrigemA = gtk_entry_get_text(GTK_ENTRY(entry_ufOrigemA));
+	std::string licencaIBAMAA = gtk_entry_get_text(GTK_ENTRY(entry_licencaIBAMAA));
+	//std::string totalMudasA = gtk_entry_get_text(GTK_ENTRY(button_totalMudasA));
+	//std::string tamanhoBicoA = gtk_entry_get_text(GTK_ENTRY(button_tamanhoBicoA));
+	std::string corPenasA = gtk_entry_get_text(GTK_ENTRY(entry_corPenasA));
+	//std::string trocaPeleA = gtk_entry_get_text(GTK_ENTRY(combo_trocaPeleA));
+}
 
 static void cadastrarAnimais(gpointer data)
 {
     //inserir();
+    inserirDadosAnimal();
     limparCamposCadAnimais();
     int totalMudas = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_totalMudasA));
     std::cout<<totalMudas<<std::endl;
@@ -98,12 +156,123 @@ static void cadastrarAnimais(gpointer data)
 
 static void comboBoxTipo(GtkComboBox *widget, gpointer user_data){
 	GtkComboBox *combo_box = widget;
-	gchar *tipo = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo_box));
-	int teste = gtk_combo_box_get_active(combo_box);
-	std::cout<<teste<<std::endl;
-	g_print("You chose %s\n", tipo);
-	g_free(tipo);
-
+	//gchar *tipo = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo_box));
+	int value = gtk_combo_box_get_active(combo_box);
+	//std::cout<<value<<std::endl;
+	//g_print("You chose %s\n", tipo);
+	//g_free(tipo);
+	switch (value){
+		case 0:
+			tpCadastro = anfibioExotico;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_paisOrigemA);
+			gtk_widget_show(entry_paisOrigemA);
+			gtk_widget_show(label_totalMudasA);
+			gtk_widget_show(button_totalMudasA);	
+			break;
+		case 1:
+			tpCadastro = anfibioNativo;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_ufOrigemA);
+			gtk_widget_show(entry_ufOrigemA);
+			gtk_widget_show(label_licencaIBAMAA);
+			gtk_widget_show(entry_licencaIBAMAA);
+			gtk_widget_show(label_totalMudasA);
+			gtk_widget_show(button_totalMudasA);	
+			break;
+		case 2:
+			tpCadastro = anfibioDomestico;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_totalMudasA);
+			gtk_widget_show(button_totalMudasA);
+			break;
+		case 3:
+			tpCadastro = mamiferoExotico;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_paisOrigemA);
+			gtk_widget_show(entry_paisOrigemA);
+			gtk_widget_show(label_corPeloA);
+			gtk_widget_show(entry_corPeloA);		
+			gtk_widget_show(label_dentesA);
+			gtk_widget_show(entry_dentesA);	
+			break;
+		case 4:
+			tpCadastro = mamiferoNativo;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_corPeloA);
+			gtk_widget_show(entry_corPeloA);
+			gtk_widget_show(label_dentesA);
+			gtk_widget_show(entry_dentesA);
+			gtk_widget_show(label_ufOrigemA);
+			gtk_widget_show(entry_ufOrigemA);
+			gtk_widget_show(label_licencaIBAMAA);
+			gtk_widget_show(entry_licencaIBAMAA);								
+			break;
+		case 5:
+			tpCadastro = mamiferoDomestico;;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_corPeloA);
+			gtk_widget_show(entry_corPeloA);
+			gtk_widget_show(label_dentesA);
+			gtk_widget_show(entry_dentesA);	
+			break;
+		case 6:
+			tpCadastro = aveExotico;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_paisOrigemA);
+			gtk_widget_show(entry_paisOrigemA);
+			gtk_widget_show(label_tamanhoBicoA);
+			gtk_widget_show(button_tamanhoBicoA);
+			gtk_widget_show(label_corPenasA);
+			gtk_widget_show(entry_corPenasA);	
+			break;
+		case 7:
+			tpCadastro = aveNativo;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_ufOrigemA);
+			gtk_widget_show(entry_ufOrigemA);
+			gtk_widget_show(label_licencaIBAMAA);
+			gtk_widget_show(entry_licencaIBAMAA);	
+			gtk_widget_show(label_tamanhoBicoA);
+			gtk_widget_show(button_tamanhoBicoA);
+			gtk_widget_show(label_corPenasA);
+			gtk_widget_show(entry_corPenasA);	
+			break;
+		case 8:
+			tpCadastro = aveDomestico;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_tamanhoBicoA);
+			gtk_widget_show(button_tamanhoBicoA);
+			gtk_widget_show(label_corPenasA);
+			gtk_widget_show(entry_corPenasA);	
+			break;
+		case 9:
+			tpCadastro = reptilExotico;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_paisOrigemA);
+			gtk_widget_show(entry_paisOrigemA);
+			gtk_widget_show(combo_trocaPeleA);
+		    gtk_widget_show(label_trocaPeleA);		
+			break;
+		case 10:
+			tpCadastro = reptilNativo;
+			hideAtributosEspecificos();
+			gtk_widget_show(label_ufOrigemA);
+			gtk_widget_show(entry_ufOrigemA);
+			gtk_widget_show(label_licencaIBAMAA);
+			gtk_widget_show(entry_licencaIBAMAA);		
+			gtk_widget_show(combo_trocaPeleA);
+		    gtk_widget_show(label_trocaPeleA);		
+			break;
+		case 11:
+			tpCadastro = reptilDomestico;
+			hideAtributosEspecificos();
+			gtk_widget_show(combo_trocaPeleA);
+		    gtk_widget_show(label_trocaPeleA);	
+			break;
+		default:
+			break;
+	}
 }
 
 void janelaCadastroAnimais()
@@ -260,94 +429,100 @@ void janelaCadastroAnimais()
 	gtk_grid_attach(GTK_GRID(grid), label, 0, 15, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), combo_tipoA, 1, 15, 1, 1);
 	gtk_widget_show(combo_tipoA);
-    gtk_widget_show(label);	
+    gtk_widget_show(label);
 
 
 
-
-	label = gtk_label_new("	PAIS DE ORIGEM: ");
-	gtk_widget_set_halign(label, GTK_ALIGN_END);
+    //Atributos de classes derivadas
+	label_paisOrigemA = gtk_label_new("	PAIS DE ORIGEM: ");
+	gtk_widget_set_halign(label_paisOrigemA, GTK_ALIGN_END);
 	entry_paisOrigemA = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(entry_paisOrigemA), 49);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), label_paisOrigemA, 2, 1, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), entry_paisOrigemA, 3, 1, 1, 1);
-	gtk_widget_show(label);
-	gtk_widget_show(entry_paisOrigemA);
+	//gtk_widget_show(label_paisOrigemA);
+	//gtk_widget_show(entry_paisOrigemA);
 
-	label = gtk_label_new("	COR DO PÊLO: ");
-	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	label_corPeloA = gtk_label_new("	COR DO PÊLO: ");
+	gtk_widget_set_halign(label_corPeloA, GTK_ALIGN_END);
 	entry_corPeloA = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(entry_corPeloA), 49);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 2, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), label_corPeloA, 2, 2, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), entry_corPeloA, 3, 2, 1, 1);
-	gtk_widget_show(label);
-	gtk_widget_show(entry_corPeloA);
+	//gtk_widget_show(label_corPeloA);
+	//gtk_widget_show(entry_corPeloA);
 
-	label = gtk_label_new("	DENTES: ");
-	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	label_dentesA = gtk_label_new("	DENTES: ");
+	gtk_widget_set_halign(label_dentesA, GTK_ALIGN_END);
 	entry_dentesA = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(entry_dentesA), 49);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 3, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), label_dentesA, 2, 3, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), entry_dentesA, 3, 3, 1, 1);
-	gtk_widget_show(label);
-	gtk_widget_show(entry_dentesA);
+	//gtk_widget_show(label_dentesA);
+	//gtk_widget_show(entry_dentesA);
 
-	label = gtk_label_new("	UF DE ORIGEM: ");
-	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	label_ufOrigemA = gtk_label_new("	UF DE ORIGEM: ");
+	gtk_widget_set_halign(label_ufOrigemA, GTK_ALIGN_END);
 	entry_ufOrigemA = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(entry_ufOrigemA), 49);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 4, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), label_ufOrigemA, 2, 4, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), entry_ufOrigemA, 3, 4, 1, 1);
-	gtk_widget_show(label);
-	gtk_widget_show(entry_ufOrigemA);
+	//gtk_widget_show(label_ufOrigemA);
+	//gtk_widget_show(entry_ufOrigemA);
 
-	label = gtk_label_new("	LICENÇA IBAMA: ");
-	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	label_licencaIBAMAA = gtk_label_new("	LICENÇA IBAMA: ");
+	gtk_widget_set_halign(label_licencaIBAMAA, GTK_ALIGN_END);
 	entry_licencaIBAMAA = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(entry_licencaIBAMAA), 49);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 5, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), label_licencaIBAMAA, 2, 5, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), entry_licencaIBAMAA, 3, 5, 1, 1);
-	gtk_widget_show(label);
-	gtk_widget_show(entry_licencaIBAMAA);
+	//gtk_widget_show(label_licencaIBAMAA);
+	//gtk_widget_show(entry_licencaIBAMAA);
 
-	label = gtk_label_new("	TOTAL DE MUDAS: ");
+	label_totalMudasA = gtk_label_new("	TOTAL DE MUDAS: ");
 	gtk_widget_set_halign(label, GTK_ALIGN_END);
 	adjustment = gtk_adjustment_new(1.0, 0.0, 1000.0, 1.0, 5.0, 0.0);
 	button_totalMudasA = gtk_spin_button_new(adjustment, 1.0, 0);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 6, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), label_totalMudasA, 2, 6, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), button_totalMudasA, 3, 6, 1, 1);
-	gtk_widget_show(label);
-	gtk_widget_show(button_totalMudasA);
+	//gtk_widget_show(label_totalMudasA);
+	//gtk_widget_show(button_totalMudasA);
 
-	label = gtk_label_new("	TAMANHO DO BICO (CENTÍMETROS): ");
-	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	label_tamanhoBicoA = gtk_label_new("	TAMANHO DO BICO (CENTÍMETROS): ");
+	gtk_widget_set_halign(label_tamanhoBicoA, GTK_ALIGN_END);
 	adjustment = gtk_adjustment_new(0.001, 0.0, 150.0, 0.001, 0.1, 0.0);
 	button_tamanhoBicoA = gtk_spin_button_new(adjustment, 0.001, 3);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 7, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), label_tamanhoBicoA, 2, 7, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), button_tamanhoBicoA, 3, 7, 1, 1);
-	gtk_widget_show(label);
-	gtk_widget_show(button_tamanhoBicoA);	
+	//gtk_widget_show(label_tamanhoBicoA);
+	//gtk_widget_show(button_tamanhoBicoA);	
 
-	label = gtk_label_new("	COR DAS PENAS: ");
-	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	label_corPenasA = gtk_label_new("	COR DAS PENAS: ");
+	gtk_widget_set_halign(label_corPenasA, GTK_ALIGN_END);
 	entry_corPenasA = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(entry_corPenasA), 49);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 8, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), label_corPenasA, 2, 8, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), entry_corPenasA, 3, 8, 1, 1);
-	gtk_widget_show(label);
-	gtk_widget_show(entry_corPenasA);
+	//gtk_widget_show(label_corPenasA);
+	//gtk_widget_show(entry_corPenasA);
 
-	label = gtk_label_new("TROCA DE PELE: ");
-	gtk_widget_set_halign(label, GTK_ALIGN_END);	
-	combo_troaPeleA = gtk_combo_box_text_new ();
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_troaPeleA), "Não");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_troaPeleA), "Sim");
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_troaPeleA), 0);
-	gtk_grid_attach(GTK_GRID(grid), label, 2, 9, 1, 1);
-	gtk_grid_attach(GTK_GRID(grid), combo_troaPeleA, 3, 9, 1, 1);
-	gtk_widget_show(combo_troaPeleA);
-    gtk_widget_show(label);
+	label_trocaPeleA = gtk_label_new("TROCA DE PELE: ");
+	gtk_widget_set_halign(label_trocaPeleA, GTK_ALIGN_END);	
+	combo_trocaPeleA = gtk_combo_box_text_new ();
+	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_trocaPeleA), "Não");
+	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_trocaPeleA), "Sim");
+	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_trocaPeleA), 0);
+	gtk_grid_attach(GTK_GRID(grid), label_trocaPeleA, 2, 9, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), combo_trocaPeleA, 3, 9, 1, 1);
+	//gtk_widget_show(combo_trocaPeleA);
+    //gtk_widget_show(label_trocaPeleA);
 
+    hideAtributosEspecificos();
+	tpCadastro = anfibioExotico;
+	gtk_widget_show(label_paisOrigemA);
+	gtk_widget_show(entry_paisOrigemA);
+	gtk_widget_show(label_totalMudasA);
+	gtk_widget_show(button_totalMudasA);
 
 	button = gtk_button_new_with_label("CADASTRAR");
 	g_signal_connect(button, "clicked", G_CALLBACK(cadastrarAnimais), NULL);

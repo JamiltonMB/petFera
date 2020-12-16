@@ -31,7 +31,10 @@ GtkWidget *entry_matricula, *entry_nome, *entry_idade, *entry_celular, *entry_en
 GtkWidget *entry_idA, *entry_nomeA, *entry_sexoA, *button_idadeA, *button_pesoA, *button_comprimentoA, *entry_habitatA, 
 *button_patasA, *entry_especieA, *entry_tipoPeleA, *entry_tipoReproducaoA, *entry_alimentoA, *combo_ameacadoA, *entry_vetResponsavelA, 
 *entry_TratadorA, *combo_tipoA, *entry_paisOrigemA, *entry_corPeloA, *entry_dentesA, *entry_ufOrigemA, *entry_licencaIBAMAA, 
-*button_totalMudasA, *button_tamanhoBicoA, *entry_corPenasA, *combo_troaPeleA;
+*button_totalMudasA, *button_tamanhoBicoA, *entry_corPenasA, *combo_trocaPeleA;
+
+GtkWidget *label_paisOrigemA, *label_corPeloA, *label_dentesA, *label_ufOrigemA, *label_licencaIBAMAA, *label_totalMudasA, 
+*label_tamanhoBicoA, *label_corPenasA, *label_trocaPeleA;
 
 GtkAdjustment *adjustment;
 
