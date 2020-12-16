@@ -28,12 +28,12 @@ GtkWidget *radio1, *radio2;
 GtkWidget *entry_matricula, *entry_nome, *entry_idade, *entry_celular, *entry_endereco, *entry_cpf, 
 *entry_cargo, *entry_crmv, *entry_nivel_seguranca, *label_veterinario, *label_tratador;
 
-GtkWidget *entry_idA, *entry_nomeA, *entry_sexoA, *entry_idadeA, *entry_pesoA, *entry_comprimentoA, *entry_habitatA, 
-*entry_patasA, *entry_especieA, *entry_tipoPeleA, *entry_tipoReproducaoA, *entry_alimentoA, *combo_ameacadoA, *entry_vetResponsavelA, 
+GtkWidget *entry_idA, *entry_nomeA, *entry_sexoA, *button_idadeA, *button_pesoA, *button_comprimentoA, *entry_habitatA, 
+*button_patasA, *entry_especieA, *entry_tipoPeleA, *entry_tipoReproducaoA, *entry_alimentoA, *combo_ameacadoA, *entry_vetResponsavelA, 
 *entry_TratadorA, *combo_tipoA, *entry_paisOrigemA, *entry_corPeloA, *entry_dentesA, *entry_ufOrigemA, *entry_licencaIBAMAA, 
-*button_totalMudasA, *entry_tamanhoBicoA, *entry_corPenasA, *radio_troaPeleA;
+*button_totalMudasA, *button_tamanhoBicoA, *entry_corPenasA, *combo_troaPeleA;
 
-GtkAdjustment *adjustmentInt;
+GtkAdjustment *adjustment;
 
 //GtkWidget *combo_box;
 

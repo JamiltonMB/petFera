@@ -14,14 +14,6 @@ static void fecharJanelaCadAnimais(GtkWidget *widget, gpointer data)
 
 void limparCamposCadAnimais(){
 	gtk_entry_set_text(GTK_ENTRY(entry_nomeA), "");
-	gtk_entry_set_text(GTK_ENTRY(entry_sexoA), "");
-	gtk_entry_set_text(GTK_ENTRY(entry_idadeA), "");
-	gtk_entry_set_text(GTK_ENTRY(entry_pesoA), "");
-	gtk_entry_set_text(GTK_ENTRY(entry_comprimentoA), "");
-	gtk_entry_set_text(GTK_ENTRY(entry_habitatA), "");
-	gtk_entry_set_text(GTK_ENTRY(entry_patasA), "");
-	gtk_entry_set_text(GTK_ENTRY(entry_especieA), "");
-	gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), "");
 }
 
 /*
@@ -144,32 +136,32 @@ void janelaCadastroAnimais()
 	gtk_widget_show(label);
 	gtk_widget_show(entry_sexoA);
 
-	label = gtk_label_new("IDADE: ");
-	entry_idadeA = gtk_entry_new();
+	label = gtk_label_new("IDADE (ANOS): ");
 	gtk_widget_set_halign(label, GTK_ALIGN_END);
-	gtk_entry_set_max_length(GTK_ENTRY(entry_idadeA), 49);
+	adjustment = gtk_adjustment_new(1.0, 0.0, 600.0, 1.0, 5.0, 0.0);
+	button_idadeA = gtk_spin_button_new(adjustment, 1.0, 0);
 	gtk_grid_attach(GTK_GRID(grid), label, 0, 3, 1, 1);
-	gtk_grid_attach(GTK_GRID(grid), entry_idadeA, 1, 3, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), button_idadeA, 1, 3, 1, 1);
 	gtk_widget_show(label);
-	gtk_widget_show(entry_idadeA);
+	gtk_widget_show(button_idadeA);
 
-	label = gtk_label_new("PESO: ");
-	entry_pesoA = gtk_entry_new();
+	label = gtk_label_new("PESO (KG): ");
 	gtk_widget_set_halign(label, GTK_ALIGN_END);
-	gtk_entry_set_max_length(GTK_ENTRY(entry_pesoA), 49);
+	adjustment = gtk_adjustment_new(0.001, 0.0, 1000.0, 0.001, 0.1, 0.0);
+	button_pesoA = gtk_spin_button_new(adjustment, 0.001, 3);
 	gtk_grid_attach(GTK_GRID(grid), label, 0, 4, 1, 1);
-	gtk_grid_attach(GTK_GRID(grid), entry_pesoA, 1, 4, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), button_pesoA, 1, 4, 1, 1);
 	gtk_widget_show(label);
-	gtk_widget_show(entry_pesoA);
+	gtk_widget_show(button_pesoA);	
 
-	label = gtk_label_new("COMPRIMENTO: ");
-	entry_comprimentoA = gtk_entry_new();
+	label = gtk_label_new("COMPRIMENTO (METROS): ");
 	gtk_widget_set_halign(label, GTK_ALIGN_END);
-	gtk_entry_set_max_length(GTK_ENTRY(entry_comprimentoA), 49);
+	adjustment = gtk_adjustment_new(0.001, 0.0, 10.0, 0.001, 0.1, 0.0);
+	button_comprimentoA = gtk_spin_button_new(adjustment, 0.001, 3);
 	gtk_grid_attach(GTK_GRID(grid), label, 0, 5, 1, 1);
-	gtk_grid_attach(GTK_GRID(grid), entry_comprimentoA, 1, 5, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), button_comprimentoA, 1, 5, 1, 1);
 	gtk_widget_show(label);
-	gtk_widget_show(entry_comprimentoA);
+	gtk_widget_show(button_comprimentoA);	
 
 	label = gtk_label_new("HABITAT: ");
 	entry_habitatA = gtk_entry_new();
@@ -181,13 +173,14 @@ void janelaCadastroAnimais()
 	gtk_widget_show(entry_habitatA);
 
 	label = gtk_label_new("Nº DE PATAS: ");
-	entry_patasA = gtk_entry_new();
 	gtk_widget_set_halign(label, GTK_ALIGN_END);
-	gtk_entry_set_max_length(GTK_ENTRY(entry_patasA), 49);
+	adjustment = gtk_adjustment_new(1.0, 0.0, 100.0, 1.0, 5.0, 0.0);
+	button_patasA = gtk_spin_button_new(adjustment, 1.0, 0);
 	gtk_grid_attach(GTK_GRID(grid), label, 0, 7, 1, 1);
-	gtk_grid_attach(GTK_GRID(grid), entry_patasA, 1, 7, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), button_patasA, 1, 7, 1, 1);
 	gtk_widget_show(label);
-	gtk_widget_show(entry_patasA);
+	gtk_widget_show(button_patasA);
+
 
 	label = gtk_label_new("ESPÉCIE: ");
 	gtk_widget_set_halign(label, GTK_ALIGN_END);
@@ -319,16 +312,41 @@ void janelaCadastroAnimais()
 
 	label = gtk_label_new("	TOTAL DE MUDAS: ");
 	gtk_widget_set_halign(label, GTK_ALIGN_END);
-	//GtkAdjustment *adjustmentInt;
-	adjustmentInt = gtk_adjustment_new(1.0, 0.0, 1000.0, 1.0, 5.0, 0.0);
-	button_totalMudasA = gtk_spin_button_new(adjustmentInt, 1.0, 0);
-	//gtk_entry_set_max_length(GTK_ENTRY(button_totalMudasA), 49);
+	adjustment = gtk_adjustment_new(1.0, 0.0, 1000.0, 1.0, 5.0, 0.0);
+	button_totalMudasA = gtk_spin_button_new(adjustment, 1.0, 0);
 	gtk_grid_attach(GTK_GRID(grid), label, 2, 6, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), button_totalMudasA, 3, 6, 1, 1);
 	gtk_widget_show(label);
 	gtk_widget_show(button_totalMudasA);
 
+	label = gtk_label_new("	TAMANHO DO BICO (CENTÍMETROS): ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	adjustment = gtk_adjustment_new(0.001, 0.0, 150.0, 0.001, 0.1, 0.0);
+	button_tamanhoBicoA = gtk_spin_button_new(adjustment, 0.001, 3);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 7, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), button_tamanhoBicoA, 3, 7, 1, 1);
+	gtk_widget_show(label);
+	gtk_widget_show(button_tamanhoBicoA);	
 
+	label = gtk_label_new("	COR DAS PENAS: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_corPenasA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_corPenasA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 8, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_corPenasA, 3, 8, 1, 1);
+	gtk_widget_show(label);
+	gtk_widget_show(entry_corPenasA);
+
+	label = gtk_label_new("TROCA DE PELE: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);	
+	combo_troaPeleA = gtk_combo_box_text_new ();
+	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_troaPeleA), "Não");
+	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_troaPeleA), "Sim");
+	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_troaPeleA), 0);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 9, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), combo_troaPeleA, 3, 9, 1, 1);
+	gtk_widget_show(combo_troaPeleA);
+    gtk_widget_show(label);
 
 
 	button = gtk_button_new_with_label("CADASTRAR");
@@ -340,7 +358,7 @@ void janelaCadastroAnimais()
 	
 	janelaCadAnimais = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_position(GTK_WINDOW(janelaCadAnimais), GTK_WIN_POS_CENTER);
-	gtk_window_set_default_size(GTK_WINDOW(janelaCadAnimais), 800, 550);
+	gtk_window_set_default_size(GTK_WINDOW(janelaCadAnimais), 850, 550);
 	gtk_container_set_border_width(GTK_CONTAINER(janelaCadAnimais), 10);
 	gtk_window_set_title(GTK_WINDOW(janelaCadAnimais), "PET FERA");
 	g_signal_connect(G_OBJECT(janelaCadAnimais), "destroy", G_CALLBACK(fecharJanelaCadAnimais), NULL);
