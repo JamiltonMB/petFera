@@ -121,14 +121,6 @@ static int callbackAnimais(void *NotUsed, int argc, char **argv, char **azColNam
 			std::cout<<"Parâmetro de comando para processamento das provas é inválido"<<std::endl;
 			break;									
 	}
-
-	/* //Código de debug para imprimir toda tabela animais do banco de dados
-	int i;
-	for(i=0; i<argc; i++)
-	{
-		std::cout<<azColName[i]<<" = " << (argv[i] ? argv[i] : "NULL")<<"\n";
-	}
-	*/
 	return 0;
 }
 
@@ -159,34 +151,60 @@ void listarAnimais(){
 	for(auto &animal : animais){
 		gtk_list_store_insert_with_values(store_a, NULL, -1,
 											LIST_IDA, std::to_string(animal->getId()).c_str(),
-											LIST_NOMEA, "x",
-											LIST_SEXOA, "x",
-											LIST_IDADEA, "x",
-											LIST_PESOA, "x",
-											LIST_COMPRIMENTOA, "x",
-											LIST_HABITATA, "x",
-											LIST_PATASA, "x",
-											LIST_ESPECIEA, "x",
-											LIST_TIPOPELEA, "x",
-											LIST_TIPOREPRODUCAOA, "x",
-											LIST_ALIMENTOA, "x",
-											LIST_AMEACADODEEXA, "x",
-											LIST_VETRESPONSAVELA, "x",
-											LIST_TRATADORRESPONSAVELA, "x",
-											LIST_TIPOA, "x",
+											LIST_NOMEA, animal->getNome().c_str(),
+											LIST_SEXOA, animal->getSexo().c_str(),
+											LIST_IDADEA, std::to_string(animal->getIdade()).c_str(),
+											LIST_PESOA, std::to_string(animal->getPeso()).c_str(),
+											LIST_COMPRIMENTOA, std::to_string(animal->getComprimento()).c_str(),
+											LIST_HABITATA, animal->getHabitat().c_str(),
+											LIST_PATASA, std::to_string(animal->getPatas()).c_str(),
+											LIST_ESPECIEA, animal->getEspecie().c_str(),
+											LIST_TIPOPELEA, animal->getTipo_pele().c_str(),
+											LIST_TIPOREPRODUCAOA, animal->getTipo_reproducao().c_str(),
+											LIST_ALIMENTOA, animal->getAlimento().c_str(),
+											LIST_AMEACADODEEXA, (animal->getAmeacadoDeEx() ? "SIM" : "NÃO"),
+											LIST_VETRESPONSAVELA, animal->getVetResposavel().c_str(),
+											LIST_TRATADORRESPONSAVELA, animal->getTratadorResponsavel().c_str(),
+											LIST_TIPOA, std::to_string(animal->getTpAnimal()).c_str(),
 											LIST_PAISORIGEMA, 
 												(animal->getTpAnimal()==anfibioExotico ? std::dynamic_pointer_cast<AnfibioExotico>(animal)->getPais_origem().c_str() : 
 												(animal->getTpAnimal()==mamiferoExotico ? std::dynamic_pointer_cast<MamiferoExotico>(animal)->getPais_origem().c_str() : 
 												(animal->getTpAnimal()==aveExotico ? std::dynamic_pointer_cast<AveExotico>(animal)->getPais_origem().c_str() : 
 												(animal->getTpAnimal()==reptilExotico ? std::dynamic_pointer_cast<ReptilExotico>(animal)->getPais_origem().c_str() : "NULL")))),											
-											LIST_CORPELOSA, "x",
-											LIST_DENTESA, "x",
-											LIST_UFORIGEMA, "x",
-											LIST_LICENCAIBAMAA, "x",
-											LIST_TOTALMUDASA, "x",
-											LIST_TAMANHOBICOA, "x",
-											LIST_CORPENASA, "x",
-											LIST_TROCADEPELEA, "x",
+											LIST_CORPELOSA, 
+												(animal->getTpAnimal()==mamiferoNativo ? std::dynamic_pointer_cast<MamiferoNativo>(animal)->getCorPelo().c_str() : 
+												(animal->getTpAnimal()==mamiferoExotico ? std::dynamic_pointer_cast<MamiferoExotico>(animal)->getCorPelo().c_str() : 
+												(animal->getTpAnimal()==mamiferoDomestico ? std::dynamic_pointer_cast<MamiferoDomestico>(animal)->getCorPelo().c_str() : "NULL"))),
+											LIST_DENTESA, 
+												(animal->getTpAnimal()==mamiferoNativo ? std::dynamic_pointer_cast<MamiferoNativo>(animal)->getDentes().c_str() : 
+												(animal->getTpAnimal()==mamiferoExotico ? std::dynamic_pointer_cast<MamiferoExotico>(animal)->getDentes().c_str() : 
+												(animal->getTpAnimal()==mamiferoDomestico ? std::dynamic_pointer_cast<MamiferoDomestico>(animal)->getDentes().c_str() : "NULL"))),
+											LIST_UFORIGEMA, 
+												(animal->getTpAnimal()==anfibioNativo ? std::dynamic_pointer_cast<AnfibioNativo>(animal)->getUF_origem().c_str() : 
+												(animal->getTpAnimal()==mamiferoNativo ? std::dynamic_pointer_cast<MamiferoNativo>(animal)->getUF_origem().c_str() : 
+												(animal->getTpAnimal()==aveNativo ? std::dynamic_pointer_cast<AveNativo>(animal)->getUF_origem().c_str() : 
+												(animal->getTpAnimal()==reptilNativo ? std::dynamic_pointer_cast<ReptilNativo>(animal)->getUF_origem().c_str() : "NULL")))),
+											LIST_LICENCAIBAMAA, 
+												(animal->getTpAnimal()==anfibioNativo ? std::dynamic_pointer_cast<AnfibioNativo>(animal)->getLicenca_IBAMA().c_str() : 
+												(animal->getTpAnimal()==mamiferoNativo ? std::dynamic_pointer_cast<MamiferoNativo>(animal)->getLicenca_IBAMA().c_str() : 
+												(animal->getTpAnimal()==aveNativo ? std::dynamic_pointer_cast<AveNativo>(animal)->getLicenca_IBAMA().c_str() : 
+												(animal->getTpAnimal()==reptilNativo ? std::dynamic_pointer_cast<ReptilNativo>(animal)->getLicenca_IBAMA().c_str() : "NULL")))),
+											LIST_TOTALMUDASA, 
+												(animal->getTpAnimal()==anfibioNativo ? std::to_string(std::dynamic_pointer_cast<AnfibioNativo>(animal)->getMudas()).c_str() : 
+												(animal->getTpAnimal()==anfibioExotico ? std::to_string(std::dynamic_pointer_cast<AnfibioExotico>(animal)->getMudas()).c_str() : 
+												(animal->getTpAnimal()==anfibioDomestico ? std::to_string(std::dynamic_pointer_cast<AnfibioDomestico>(animal)->getMudas()).c_str() : "NULL"))),
+											LIST_TAMANHOBICOA, 
+												(animal->getTpAnimal()==aveNativo ? std::to_string(std::dynamic_pointer_cast<AveNativo>(animal)->getTamanhoBico()).c_str() : 
+												(animal->getTpAnimal()==aveExotico ? std::to_string(std::dynamic_pointer_cast<AveExotico>(animal)->getTamanhoBico()).c_str() : 
+												(animal->getTpAnimal()==aveDomestico ? std::to_string(std::dynamic_pointer_cast<AveDomestica>(animal)->getTamanhoBico()).c_str() : "NULL"))),
+											LIST_CORPENASA, 
+												(animal->getTpAnimal()==aveNativo ? std::dynamic_pointer_cast<AveNativo>(animal)->getCorPenas().c_str() : 
+												(animal->getTpAnimal()==aveExotico ? std::dynamic_pointer_cast<AveExotico>(animal)->getCorPenas().c_str() : 
+												(animal->getTpAnimal()==aveDomestico ? std::dynamic_pointer_cast<AveDomestica>(animal)->getCorPenas().c_str() : "NULL"))),
+											LIST_TROCADEPELEA, 
+												(animal->getTpAnimal()==reptilNativo ? (std::dynamic_pointer_cast<ReptilNativo>(animal)->getTrocaDePele() ? "SIM" : "NÃO") : 
+												(animal->getTpAnimal()==reptilExotico ? (std::dynamic_pointer_cast<ReptilExotico>(animal)->getTrocaDePele() ? "SIM" : "NÃO") : 
+												(animal->getTpAnimal()==reptilDomestico ? (std::dynamic_pointer_cast<ReptilDomestico>(animal)->getTrocaDePele() ? "SIM" : "NÃO") : "NULL"))),
 											-1);					
 	}
 }
