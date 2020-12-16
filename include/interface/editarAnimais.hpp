@@ -101,19 +101,6 @@ static int callback_editarAnimal(void *NotUsed, int argc, char **argv, char **az
 			std::cout<<"Parâmetro inválido"<<std::endl;
 			break;									
 	}
-
-
-
-
-	/*
-	if(std::stoi(argv[10])==1){
-		veterinario_recebido = new Veterinario(std::stoi(argv[0]),argv[1],argv[2],argv[3],argv[4],
-			argv[5],argv[6],argv[7],argv[8]);
-	}else{
-		tratador_recebido = new Tratador(std::stoi(argv[0]),argv[1],argv[2],argv[3],argv[4],
-			argv[5],argv[6],argv[7],argv[9]);	
-	}
-	*/
 	return 0;
 }
 
@@ -337,7 +324,6 @@ static void editarAnimais(gpointer data)
 
 static void comboBoxTipoEditar(GtkComboBox *widget, gpointer user_data){
 	GtkComboBox *combo_box = widget;
-	//gchar *tipo = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo_box));
 	int value = gtk_combo_box_get_active(combo_box);
 	switch (value){
 		case 0:
@@ -478,8 +464,242 @@ void prepararEdicaoAnimais(std::string id_editar){
 }
 
 
-
-
+void setTextosEditarAnimais(){
+	if(anfibioExoticoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), anfibioExoticoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), anfibioExoticoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), anfibioExoticoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), anfibioExoticoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), anfibioExoticoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), anfibioExoticoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), anfibioExoticoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), anfibioExoticoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), anfibioExoticoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), anfibioExoticoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), anfibioExoticoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), anfibioExoticoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), anfibioExoticoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), anfibioExoticoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), anfibioExoticoC->getTpAnimal());
+		gtk_entry_set_text(GTK_ENTRY(entry_paisOrigemA), anfibioExoticoC->getPais_origem().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_totalMudasA), anfibioExoticoC->getMudas());
+	}
+	else if(anfibioNativoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), anfibioNativoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), anfibioNativoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), anfibioNativoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), anfibioNativoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), anfibioNativoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), anfibioNativoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), anfibioNativoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), anfibioNativoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), anfibioNativoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), anfibioNativoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), anfibioNativoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), anfibioNativoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), anfibioNativoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), anfibioNativoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), anfibioNativoC->getTpAnimal());
+		gtk_entry_set_text(GTK_ENTRY(entry_ufOrigemA), anfibioNativoC->getUF_origem().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_licencaIBAMAA), anfibioNativoC->getLicenca_IBAMA().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_totalMudasA), anfibioNativoC->getMudas());
+	}
+	else if(anfibioDomesticoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), anfibioDomesticoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), anfibioDomesticoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), anfibioDomesticoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), anfibioDomesticoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), anfibioDomesticoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), anfibioDomesticoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), anfibioDomesticoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), anfibioDomesticoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), anfibioDomesticoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), anfibioDomesticoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), anfibioDomesticoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), anfibioDomesticoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), anfibioDomesticoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), anfibioDomesticoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), anfibioDomesticoC->getTpAnimal());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_totalMudasA), anfibioDomesticoC->getMudas());		
+	}
+	else if(mamiferoExoticoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), mamiferoExoticoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), mamiferoExoticoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), mamiferoExoticoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), mamiferoExoticoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), mamiferoExoticoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), mamiferoExoticoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), mamiferoExoticoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), mamiferoExoticoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), mamiferoExoticoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), mamiferoExoticoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), mamiferoExoticoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), mamiferoExoticoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), mamiferoExoticoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), mamiferoExoticoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), mamiferoExoticoC->getTpAnimal());
+		gtk_entry_set_text(GTK_ENTRY(entry_corPeloA), mamiferoExoticoC->getCorPelo().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_dentesA), mamiferoExoticoC->getDentes().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_paisOrigemA), mamiferoExoticoC->getPais_origem().c_str());
+	}
+	else if(mamiferoNativoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), mamiferoNativoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), mamiferoNativoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), mamiferoNativoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), mamiferoNativoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), mamiferoNativoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), mamiferoNativoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), mamiferoNativoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), mamiferoNativoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), mamiferoNativoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), mamiferoNativoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), mamiferoNativoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), mamiferoNativoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), mamiferoNativoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), mamiferoNativoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), mamiferoNativoC->getTpAnimal());
+		gtk_entry_set_text(GTK_ENTRY(entry_corPeloA), mamiferoNativoC->getCorPelo().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_dentesA), mamiferoNativoC->getDentes().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_ufOrigemA), mamiferoNativoC->getUF_origem().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_licencaIBAMAA), mamiferoNativoC->getLicenca_IBAMA().c_str());
+	}
+	else if(mamiferoDomesticoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), mamiferoDomesticoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), mamiferoDomesticoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), mamiferoDomesticoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), mamiferoDomesticoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), mamiferoDomesticoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), mamiferoDomesticoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), mamiferoDomesticoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), mamiferoDomesticoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), mamiferoDomesticoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), mamiferoDomesticoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), mamiferoDomesticoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), mamiferoDomesticoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), mamiferoDomesticoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), mamiferoDomesticoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), mamiferoDomesticoC->getTpAnimal());
+		gtk_entry_set_text(GTK_ENTRY(entry_corPeloA), mamiferoDomesticoC->getCorPelo().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_dentesA), mamiferoDomesticoC->getDentes().c_str());		
+	}
+	else if(aveExoticoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), aveExoticoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), aveExoticoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), aveExoticoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), aveExoticoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), aveExoticoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), aveExoticoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), aveExoticoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), aveExoticoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), aveExoticoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), aveExoticoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), aveExoticoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), aveExoticoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), aveExoticoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), aveExoticoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), aveExoticoC->getTpAnimal());		
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_tamanhoBicoA), aveExoticoC->getTamanhoBico());
+		gtk_entry_set_text(GTK_ENTRY(entry_corPenasA), aveExoticoC->getCorPenas().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_paisOrigemA), aveExoticoC->getPais_origem().c_str());
+	}
+	else if(aveNativoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), aveNativoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), aveNativoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), aveNativoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), aveNativoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), aveNativoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), aveNativoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), aveNativoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), aveNativoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), aveNativoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), aveNativoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), aveNativoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), aveNativoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), aveNativoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), aveNativoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), aveNativoC->getTpAnimal());		
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_tamanhoBicoA), aveNativoC->getTamanhoBico());
+		gtk_entry_set_text(GTK_ENTRY(entry_corPenasA), aveNativoC->getCorPenas().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_ufOrigemA), aveNativoC->getUF_origem().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_licencaIBAMAA), aveNativoC->getLicenca_IBAMA().c_str());				
+	}
+	else if(aveDomesticaC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), aveDomesticaC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), aveDomesticaC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), aveDomesticaC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), aveDomesticaC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), aveDomesticaC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), aveDomesticaC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), aveDomesticaC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), aveDomesticaC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), aveDomesticaC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), aveDomesticaC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), aveDomesticaC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), aveDomesticaC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), aveDomesticaC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), aveDomesticaC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), aveDomesticaC->getTpAnimal());		
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_tamanhoBicoA), aveDomesticaC->getTamanhoBico());
+		gtk_entry_set_text(GTK_ENTRY(entry_corPenasA), aveDomesticaC->getCorPenas().c_str());		
+	}
+	else if(reptilExoticoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), reptilExoticoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), reptilExoticoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), reptilExoticoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), reptilExoticoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), reptilExoticoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), reptilExoticoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), reptilExoticoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), reptilExoticoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), reptilExoticoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), reptilExoticoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), reptilExoticoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), reptilExoticoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), reptilExoticoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), reptilExoticoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), reptilExoticoC->getTpAnimal());		
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_trocaPeleA), reptilExoticoC->getTrocaDePele());
+		gtk_entry_set_text(GTK_ENTRY(entry_paisOrigemA), reptilExoticoC->getPais_origem().c_str());		
+	}
+	else if(reptilNativoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), reptilNativoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), reptilNativoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), reptilNativoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), reptilNativoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), reptilNativoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), reptilNativoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), reptilNativoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), reptilNativoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), reptilNativoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), reptilNativoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), reptilNativoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), reptilNativoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), reptilNativoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), reptilNativoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), reptilNativoC->getTpAnimal());		
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_trocaPeleA), reptilNativoC->getTrocaDePele());
+		gtk_entry_set_text(GTK_ENTRY(entry_ufOrigemA), reptilNativoC->getUF_origem().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_licencaIBAMAA), reptilNativoC->getLicenca_IBAMA().c_str());					
+	}
+	else if(reptilDomesticoC!=nullptr){
+		gtk_entry_set_text(GTK_ENTRY(entry_nomeA), reptilDomesticoC->getNome().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_sexoA), reptilDomesticoC->getSexo().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_idadeA), reptilDomesticoC->getIdade());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_pesoA), reptilDomesticoC->getPeso());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_comprimentoA), reptilDomesticoC->getComprimento());
+		gtk_entry_set_text(GTK_ENTRY(entry_habitatA), reptilDomesticoC->getHabitat().c_str());
+		gtk_spin_button_set_value(GTK_SPIN_BUTTON(button_patasA), reptilDomesticoC->getPatas());
+		gtk_entry_set_text(GTK_ENTRY(entry_especieA), reptilDomesticoC->getEspecie().c_str());		
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoPeleA), reptilDomesticoC->getTipo_pele().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_tipoReproducaoA), reptilDomesticoC->getTipo_reproducao().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_alimentoA), reptilDomesticoC->getAlimento().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), reptilDomesticoC->getAmeacadoDeEx());
+		gtk_entry_set_text(GTK_ENTRY(entry_vetResponsavelA), reptilDomesticoC->getVetResposavel().c_str());
+		gtk_entry_set_text(GTK_ENTRY(entry_TratadorA), reptilDomesticoC->getTratadorResponsavel().c_str());
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), reptilDomesticoC->getTpAnimal());		
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_trocaPeleA), reptilDomesticoC->getTrocaDePele());		
+	}
+}
 
 void janelaEditarAnimaisRun(std::string idEditar)
 {
@@ -734,6 +954,8 @@ void janelaEditarAnimaisRun(std::string idEditar)
 	g_signal_connect(button, "clicked", G_CALLBACK(editarAnimais), NULL);
 	gtk_grid_attach(GTK_GRID(grid), button, 1, 27, 1, 1);
 	gtk_widget_show(button);
+	
+	setTextosEditarAnimais();
 
 	box_base = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
 	
