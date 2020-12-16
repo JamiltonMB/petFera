@@ -95,10 +95,13 @@ void inserirCadAnimais()
 	
 }
 */
+
 static void cadastrarAnimais(gpointer data)
 {
     //inserir();
     limparCamposCadAnimais();
+    int totalMudas = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_totalMudasA));
+    std::cout<<totalMudas<<std::endl;
 }
 
 static void comboBoxTipo(GtkComboBox *widget, gpointer user_data){
@@ -119,7 +122,7 @@ void janelaCadastroAnimais()
 	grid = gtk_grid_new();
 	gtk_widget_show(grid);
 
-	label = gtk_label_new("\nCADASTRO DE ANIMAIS\n");
+	label = gtk_label_new("CADASTRO DE ANIMAIS\n");
 	gtk_container_add(GTK_CONTAINER(box_head), label);
 	gtk_widget_show(label);
 
@@ -204,33 +207,140 @@ void janelaCadastroAnimais()
 	gtk_widget_show(entry_tipoPeleA);
     gtk_widget_show(label);
 
+	label = gtk_label_new("TIPO DE REPRODUÇÃO: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_tipoReproducaoA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_tipoReproducaoA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 0, 10, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_tipoReproducaoA, 1, 10, 1, 1);
+	gtk_widget_show(entry_tipoReproducaoA);
+    gtk_widget_show(label);    
+
+	label = gtk_label_new("ALIMENTO: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_alimentoA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_alimentoA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 0, 11, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_alimentoA, 1, 11, 1, 1);
+	gtk_widget_show(entry_alimentoA);
+    gtk_widget_show(label);
+
+	label = gtk_label_new("AMEAÇADO DE EXTINÇÃO: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);	
+	combo_ameacadoA = gtk_combo_box_text_new ();
+	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_ameacadoA), "Não");
+	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_ameacadoA), "Sim");
+	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_ameacadoA), 0);
+	gtk_grid_attach(GTK_GRID(grid), label, 0, 12, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), combo_ameacadoA, 1, 12, 1, 1);
+	gtk_widget_show(combo_ameacadoA);
+    gtk_widget_show(label);
+
+	label = gtk_label_new(" VETERINÁRIO RESPONSÁVEL: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_vetResponsavelA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_vetResponsavelA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 0, 13, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_vetResponsavelA, 1, 13, 1, 1);
+	gtk_widget_show(entry_vetResponsavelA);
+    gtk_widget_show(label);
+
+	label = gtk_label_new(" TRATADOR RESPONSÁVEL: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_TratadorA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_TratadorA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 0, 14, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_TratadorA, 1, 14, 1, 1);
+	gtk_widget_show(entry_TratadorA);
+    gtk_widget_show(label);              
 
 	label = gtk_label_new("TIPO: ");
 	gtk_widget_set_halign(label, GTK_ALIGN_END);	
-	combo_box = gtk_combo_box_text_new ();
+	combo_tipoA = gtk_combo_box_text_new ();
 	const char *tipos[] = {"anfibioExotico", "anfibioNativo", "anfibioDomestico", "mamiferoExotico", 
 	"mamiferoNativo", "mamiferoDomestico", "aveExotico", "aveNativo", "aveDomestico", "reptilExotico", "reptilNativo", "reptilDomestico"};
 	for (unsigned int i = 0; i < G_N_ELEMENTS(tipos); i++){
-	  	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(combo_box), tipos[i]);
+	  	gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT(combo_tipoA), tipos[i]);
 	}
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_box), 0);
-	g_signal_connect (combo_box, "changed", G_CALLBACK(comboBoxTipo), NULL);
-	gtk_grid_attach(GTK_GRID(grid), label, 0, 10, 1, 1);
-	gtk_grid_attach(GTK_GRID(grid), combo_box, 1, 10, 1, 1);
-	gtk_widget_show(combo_box);
+	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_tipoA), 0);
+	g_signal_connect (combo_tipoA, "changed", G_CALLBACK(comboBoxTipo), NULL);
+	gtk_grid_attach(GTK_GRID(grid), label, 0, 15, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), combo_tipoA, 1, 15, 1, 1);
+	gtk_widget_show(combo_tipoA);
     gtk_widget_show(label);	
+
+
+
+
+	label = gtk_label_new("	PAIS DE ORIGEM: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_paisOrigemA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_paisOrigemA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_paisOrigemA, 3, 1, 1, 1);
+	gtk_widget_show(label);
+	gtk_widget_show(entry_paisOrigemA);
+
+	label = gtk_label_new("	COR DO PÊLO: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_corPeloA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_corPeloA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 2, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_corPeloA, 3, 2, 1, 1);
+	gtk_widget_show(label);
+	gtk_widget_show(entry_corPeloA);
+
+	label = gtk_label_new("	DENTES: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_dentesA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_dentesA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 3, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_dentesA, 3, 3, 1, 1);
+	gtk_widget_show(label);
+	gtk_widget_show(entry_dentesA);
+
+	label = gtk_label_new("	UF DE ORIGEM: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_ufOrigemA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_ufOrigemA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 4, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_ufOrigemA, 3, 4, 1, 1);
+	gtk_widget_show(label);
+	gtk_widget_show(entry_ufOrigemA);
+
+	label = gtk_label_new("	LICENÇA IBAMA: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	entry_licencaIBAMAA = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(entry_licencaIBAMAA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 5, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), entry_licencaIBAMAA, 3, 5, 1, 1);
+	gtk_widget_show(label);
+	gtk_widget_show(entry_licencaIBAMAA);
+
+	label = gtk_label_new("	TOTAL DE MUDAS: ");
+	gtk_widget_set_halign(label, GTK_ALIGN_END);
+	//GtkAdjustment *adjustmentInt;
+	adjustmentInt = gtk_adjustment_new(1.0, 0.0, 1000.0, 1.0, 5.0, 0.0);
+	button_totalMudasA = gtk_spin_button_new(adjustmentInt, 1.0, 0);
+	//gtk_entry_set_max_length(GTK_ENTRY(button_totalMudasA), 49);
+	gtk_grid_attach(GTK_GRID(grid), label, 2, 6, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), button_totalMudasA, 3, 6, 1, 1);
+	gtk_widget_show(label);
+	gtk_widget_show(button_totalMudasA);
+
+
 
 
 	button = gtk_button_new_with_label("CADASTRAR");
 	g_signal_connect(button, "clicked", G_CALLBACK(cadastrarAnimais), NULL);
-	gtk_grid_attach(GTK_GRID(grid), button, 1, 12, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), button, 1, 27, 1, 1);
 	gtk_widget_show(button);
 
 	box_base = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
 	
 	janelaCadAnimais = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_position(GTK_WINDOW(janelaCadAnimais), GTK_WIN_POS_CENTER);
-	gtk_window_set_default_size(GTK_WINDOW(janelaCadAnimais), 430, 700);
+	gtk_window_set_default_size(GTK_WINDOW(janelaCadAnimais), 800, 550);
 	gtk_container_set_border_width(GTK_CONTAINER(janelaCadAnimais), 10);
 	gtk_window_set_title(GTK_WINDOW(janelaCadAnimais), "PET FERA");
 	g_signal_connect(G_OBJECT(janelaCadAnimais), "destroy", G_CALLBACK(fecharJanelaCadAnimais), NULL);

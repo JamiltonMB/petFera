@@ -29,11 +29,13 @@ GtkWidget *entry_matricula, *entry_nome, *entry_idade, *entry_celular, *entry_en
 *entry_cargo, *entry_crmv, *entry_nivel_seguranca, *label_veterinario, *label_tratador;
 
 GtkWidget *entry_idA, *entry_nomeA, *entry_sexoA, *entry_idadeA, *entry_pesoA, *entry_comprimentoA, *entry_habitatA, 
-*entry_patasA, *entry_especieA, *entry_tipoPeleA, *entry_tipoReproducaoA, *entry_alimentoA, *radio_ameacadoA, *entry_vetResponsavelA, 
-*entry_TratadorA, *entry_tipoA, *entry_paisOrigemA, *entry_corPeloA, *entry_dentesA,  *entry_ufOrigemA, *entry_licencaIBAMAA, 
-*entry_totalMudasA, *entry_tamanhoBicoA, *entry_corPenasA, *radio_troaPeleA;
+*entry_patasA, *entry_especieA, *entry_tipoPeleA, *entry_tipoReproducaoA, *entry_alimentoA, *combo_ameacadoA, *entry_vetResponsavelA, 
+*entry_TratadorA, *combo_tipoA, *entry_paisOrigemA, *entry_corPeloA, *entry_dentesA, *entry_ufOrigemA, *entry_licencaIBAMAA, 
+*button_totalMudasA, *entry_tamanhoBicoA, *entry_corPenasA, *radio_troaPeleA;
 
-GtkWidget *combo_box;
+GtkAdjustment *adjustmentInt;
+
+//GtkWidget *combo_box;
 
 std::string nome_image = "../res/petfera.jpg";
 
