@@ -4,6 +4,8 @@
 #include <memory>
 #include <string>
 #include "interface/notebookAbas.hpp"
+#include "interface/cadastrarAnimais.hpp"
+
 
 GtkTreeViewColumn *column_a;
 GtkListStore* store_a; 
@@ -209,6 +211,69 @@ void listarAnimais(){
 	}
 }
 
+
+void atualizarListaAnimalPorFora(){
+	gtk_list_store_clear(store_a);
+	animais.clear();
+	pegarDadosAnimais();
+	listarAnimais();
+}
+
+void deletarPorIdAnimal(std::string idDel){
+	sqlite3 *db;
+	char *zErrMsg = 0;
+	int rc;
+	std::string sqlfinal = ";";
+	std::string sql = "DELETE from animais where id="+idDel+sqlfinal;
+   
+   	rc = sqlite3_open("../database/dados.db", &db);
+   
+   	if(rc){
+      	std::cout<<sqlite3_errmsg(db)<<std::endl;
+      	return;
+   	}
+
+   	rc = sqlite3_exec(db, sql.c_str(), NULL, 0, &zErrMsg);
+   
+	if(rc != SQLITE_OK){
+		std::cout<<"Erro ao buscar dados"<<std::endl;
+		sqlite3_free(zErrMsg);
+	}
+   	sqlite3_close(db);	
+}
+
+
+static void atualizarListaAnimal(){
+	atualizarListaAnimalPorFora();
+}
+
+static void deletarAnimal(){
+	GtkTreeSelection *selection;
+	GtkTreeModel     *model;
+	GtkTreeIter       iter;
+	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(list_a));	
+	if (gtk_tree_selection_get_selected(selection, &model, &iter)){
+		char *name;
+		gtk_tree_model_get(model, &iter, LIST_IDA, &name, -1);
+		std::string idDelete = name;
+		delete name;
+		std::cout<<idDelete<<std::endl;
+		deletarPorIdAnimal(idDelete);
+		show_ok(window);
+		atualizarListaAnimalPorFora();
+	}else{
+    show_error(window);
+	}
+}
+
+static void editarAnimal(){}
+
+static void inserirNovoAnimal(){
+	janelaCadastroAnimais();
+}
+
+
+
 void exibir_animais()
 {
 	pegarDadosAnimais();
@@ -282,7 +347,6 @@ void exibir_animais()
 	gtk_tree_view_column_set_min_width(column_a, 100);
 	gtk_tree_view_column_set_alignment(column_a, 0.5);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(list_a), column_a);
-
 
 	column_a = gtk_tree_view_column_new_with_attributes("AMEAÇADO DE EXT.", gtk_cell_renderer_text_new(), "text", LIST_AMEACADODEEXA, NULL);
 	gtk_tree_view_column_set_min_width(column_a, 100);
@@ -360,10 +424,31 @@ void exibir_animais()
 	box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
 	gtk_box_pack_start(GTK_BOX(box), list_a, TRUE, TRUE, 5);
 
-	label = gtk_label_new("\nMÓDUDO DE CONSULTA E CADASTRO DE ANIMAIS\n");
+	label = gtk_label_new("MÓDUDO DE CONSULTA E CADASTRO DE ANIMAIS");
 	gtk_container_add(GTK_CONTAINER(box_head), label);
 	
 	box_base = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
+
+	box_buttons = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
+	gtk_widget_set_halign(box_buttons, GTK_ALIGN_CENTER);
+	gtk_widget_set_valign (box_buttons, GTK_ALIGN_CENTER);
+	
+	button = gtk_button_new_with_label("ATUALIZAR LISTA");
+	g_signal_connect(button, "clicked", G_CALLBACK(atualizarListaAnimal), NULL);
+	gtk_box_pack_start(GTK_BOX(box_buttons), button, FALSE, FALSE, 1);
+	
+	button = gtk_button_new_with_label("DELETAR ANIMAL");
+	g_signal_connect(button, "clicked", G_CALLBACK(deletarAnimal), NULL);
+	gtk_widget_set_halign(button, GTK_ALIGN_CENTER);
+	gtk_box_pack_start(GTK_BOX(box_buttons), button, FALSE, FALSE, 1);
+	
+	button = gtk_button_new_with_label("EDITAR ANIMAL");
+	g_signal_connect(button, "clicked", G_CALLBACK(editarAnimal), NULL);
+	gtk_box_pack_start(GTK_BOX(box_buttons), button, FALSE, FALSE, 1);
+	
+	button = gtk_button_new_with_label("INSERIR NOVO ANIMAL");
+	g_signal_connect(button, "clicked", G_CALLBACK(inserirNovoAnimal), NULL);
+	gtk_box_pack_start(GTK_BOX(box_buttons), button, FALSE, FALSE, 1);
 
 	cabecalho = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
 	image = gtk_image_new_from_file(nome_image.c_str());
@@ -373,7 +458,7 @@ void exibir_animais()
 	gtk_container_add(GTK_CONTAINER(box_base), box_head);
 	gtk_container_add(GTK_CONTAINER(scrolled_window_a), box);
 	gtk_container_add(GTK_CONTAINER(box_base), scrolled_window_a);
-	//gtk_container_add(GTK_CONTAINER(box_base), grid);
+	gtk_box_pack_start(GTK_BOX(box_base), box_buttons, TRUE, TRUE, 1);
 	gtk_container_add(GTK_CONTAINER(notebook), box_base);
 	gtk_notebook_set_tab_label_text (GTK_NOTEBOOK (notebook), box_base, "CONSULTAR ANIMAIS");
 	gtk_widget_show(notebook);
