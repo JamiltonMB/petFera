@@ -5,6 +5,7 @@
 #include <string>
 #include "interface/notebookAbas.hpp"
 #include "interface/cadastrarAnimais.hpp"
+#include "interface/editarAnimais.hpp"
 
 
 GtkTreeViewColumn *column_a;
@@ -266,7 +267,21 @@ static void deletarAnimal(){
 	}
 }
 
-static void editarAnimal(){}
+static void editarAnimal(){
+	GtkTreeSelection *selection;
+	GtkTreeModel     *model;
+	GtkTreeIter       iter;
+	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(list_a));	
+	if (gtk_tree_selection_get_selected(selection, &model, &iter)){
+		char *name;
+		gtk_tree_model_get(model, &iter, LIST_IDA, &name, -1);
+		std::string idEditar = name;
+		delete name;
+		janelaEditarAnimaisRun(idEditar);
+	}else{
+    show_error(window);
+	}	
+}
 
 static void inserirNovoAnimal(){
 	janelaCadastroAnimais();
