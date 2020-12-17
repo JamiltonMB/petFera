@@ -108,6 +108,30 @@ static int callback_editarAnimal(void *NotUsed, int argc, char **argv, char **az
 
 static void fecharJanelaEditarAnimais(GtkWidget *widget, gpointer data)
 {
+	anfibioExoticoC=nullptr;
+	anfibioNativoC=nullptr;
+	anfibioDomesticoC=nullptr;
+	mamiferoExoticoC=nullptr;
+	mamiferoNativoC=nullptr;
+	mamiferoDomesticoC=nullptr;
+	aveExoticoC=nullptr;
+	aveNativoC=nullptr;
+	aveDomesticaC=nullptr;
+	reptilExoticoC=nullptr;
+	reptilNativoC=nullptr;
+	reptilDomesticoC=nullptr;
+	delete anfibioExoticoC;
+	delete anfibioNativoC;
+	delete anfibioDomesticoC;
+	delete mamiferoExoticoC;
+	delete mamiferoNativoC;
+	delete mamiferoDomesticoC;
+	delete aveExoticoC;
+	delete aveNativoC;
+	delete aveDomesticaC;
+	delete reptilExoticoC;
+	delete reptilNativoC;
+	delete reptilDomesticoC;		
     atualizarListaAnimalPorFora();
 }
 
