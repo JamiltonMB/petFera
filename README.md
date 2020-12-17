@@ -16,7 +16,7 @@ funcionários e o módulo de cadastro de animais. Cada módulo conta com seu res
 CRUD e uum conjunto de classes. A interação com o usuário é feita via
 terminal, porém futuramente vamos implementar uma interface gráfica. O programa
 é executado através de uma instância de uma classe chamada "Programa", os métodos
-dessa classe fazem o uso das classes animal e fuuncionário.
+dessa classe fazem o uso das classes animal e funcionário.
 
 
 ============================================================================
