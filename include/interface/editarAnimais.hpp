@@ -3,6 +3,7 @@
 #include <string.h>
 #include "interface/notebookAbas.hpp"
 
+std::string id_Animal;
 
 GtkWidget *janelaEditarAnimais;
 
@@ -139,155 +140,170 @@ void editarDadosAnimal(){
 
 	std::string aspas = "'";
 	std::string aspasV = "',";
+	std::string virgula = ", ";
+	std::string pontovirgula = ";";
+	std::string coluna;
 
 	std::string nomeA = gtk_entry_get_text(GTK_ENTRY(entry_nomeA));
-	nomeA = aspas+nomeA+aspasV;
+	coluna = "nome = ";
+	nomeA = coluna+aspas+nomeA+aspasV;
 	
 	std::string sexoA = gtk_entry_get_text(GTK_ENTRY(entry_sexoA));
-	sexoA = aspas+sexoA+aspasV;
+	coluna = " sexo = ";
+	sexoA = coluna+aspas+sexoA+aspasV;
 	
 	int idadeA = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_idadeA));
 	std::string idadeStr = std::to_string(idadeA);
-	idadeStr = aspas+idadeStr+aspasV;
+	coluna = " idade = ";
+	idadeStr = coluna+aspas+idadeStr+aspasV;
 	
 	float pesoA = gtk_spin_button_get_value(GTK_SPIN_BUTTON(button_pesoA));
 	std::string pesoStr = std::to_string(pesoA);
-	pesoStr = aspas+pesoStr+aspasV;
+	coluna = " peso = ";
+	pesoStr = coluna+aspas+pesoStr+aspasV;
 	
 	float comprimentoA = gtk_spin_button_get_value(GTK_SPIN_BUTTON(button_comprimentoA));
 	std::string comprimentoStr = std::to_string(comprimentoA);
-	comprimentoStr = aspas+comprimentoStr+aspasV;
+	coluna = "comprimento = ";
+	comprimentoStr = coluna+aspas+comprimentoStr+aspasV;
 	
 	std::string habitatA = gtk_entry_get_text(GTK_ENTRY(entry_habitatA));
-	habitatA = aspas+habitatA+aspasV;
+	coluna = "habitat = ";
+	habitatA = coluna+aspas+habitatA+aspasV;
 	
 	int patasA = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_patasA));
 	std::string patasStr = std::to_string(patasA);
-	patasStr = aspas+patasStr+aspasV;
+	coluna = "patas = ";
+	patasStr = coluna+aspas+patasStr+aspasV;
 	
 	std::string especieA = gtk_entry_get_text(GTK_ENTRY(entry_especieA));
-	especieA = aspas+especieA+aspasV;
+	coluna = "especie = ";
+	especieA = coluna+aspas+especieA+aspasV;
 	
 	std::string tipoPeleA = gtk_entry_get_text(GTK_ENTRY(entry_tipoPeleA));
-	tipoPeleA = aspas+tipoPeleA+aspasV;
+	coluna = "tipo_pele = ";
+	tipoPeleA = coluna+aspas+tipoPeleA+aspasV;
 	
 	std::string tipoReproducaoA = gtk_entry_get_text(GTK_ENTRY(entry_tipoReproducaoA));
-	tipoReproducaoA = aspas+tipoReproducaoA+aspasV;
+	coluna = "tipo_reproducao = ";
+	tipoReproducaoA = coluna+aspas+tipoReproducaoA+aspasV;
 	
 	std::string alimentoA = gtk_entry_get_text(GTK_ENTRY(entry_alimentoA));
-	alimentoA = aspas+alimentoA+aspasV;
+	coluna = "alimento = ";
+	alimentoA = coluna+aspas+alimentoA+aspasV;
 	
 	int ameacadoA = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_ameacadoA));
 	std::string ameacadoStr = std::to_string(ameacadoA);
-	ameacadoStr = aspas+ameacadoStr+aspasV;
+	coluna = "ameacadoDeEx = ";
+	ameacadoStr = coluna+aspas+ameacadoStr+aspasV;
 	
 	std::string vetResponsavelA = gtk_entry_get_text(GTK_ENTRY(entry_vetResponsavelA));
-	vetResponsavelA = aspas+vetResponsavelA+aspasV;
+	coluna = "vetResponsavel = ";
+	vetResponsavelA = coluna+aspas+vetResponsavelA+aspasV;
 	
 	std::string tratadorA = gtk_entry_get_text(GTK_ENTRY(entry_TratadorA));
-	tratadorA = aspas+tratadorA+aspasV;
+	coluna = "tratadorResponsavel = ";
+	tratadorA = coluna+aspas+tratadorA+aspasV;
 	
 	int tipoA = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_tipoA));
 	std::string tipoStr = std::to_string(tipoA);
-	tipoStr = aspas+tipoStr+aspasV;
+	coluna = "tipo = ";
+	tipoStr = coluna+aspas+tipoStr+aspasV;
 	
 	std::string paisOrigemA = gtk_entry_get_text(GTK_ENTRY(entry_paisOrigemA));
-	paisOrigemA = aspas+paisOrigemA+aspasV;
+	coluna = "pais_origem = ";
+	paisOrigemA = coluna+aspas+paisOrigemA+aspasV;
 	
 	std::string corPeloA = gtk_entry_get_text(GTK_ENTRY(entry_corPeloA));
-	corPeloA = aspas+corPeloA+aspasV;
+	coluna = "cor_pelo = ";
+	corPeloA = coluna+aspas+corPeloA+aspasV;
 	
 	std::string dentesA = gtk_entry_get_text(GTK_ENTRY(entry_dentesA));
-	dentesA = aspas+dentesA+aspasV;
+	coluna = "dentes = ";
+	dentesA = coluna+aspas+dentesA+aspasV;
 	
 	std::string ufOrigemA = gtk_entry_get_text(GTK_ENTRY(entry_ufOrigemA));
-	ufOrigemA = aspas+ufOrigemA+aspasV;
-	
+	coluna = "UF_origem = ";
+	ufOrigemA = coluna+aspas+ufOrigemA+aspasV;
+
 	std::string licencaIBAMAA = gtk_entry_get_text(GTK_ENTRY(entry_licencaIBAMAA));
-	licencaIBAMAA = aspas+licencaIBAMAA+aspasV;
+	coluna = "licenca_IBAMA = ";
+	licencaIBAMAA = coluna+aspas+licencaIBAMAA+aspasV;
 	
 	int totalMudasA = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(button_totalMudasA));
 	std::string totalMudasStr = std::to_string(totalMudasA);
-	totalMudasStr = aspas+totalMudasStr+aspasV;
+	coluna = "total_mudas = ";
+	totalMudasStr = coluna+aspas+totalMudasStr+aspasV;
 	
 	float tamanhoBicoA = gtk_spin_button_get_value(GTK_SPIN_BUTTON(button_tamanhoBicoA));
 	std::string tamanhoBicoStr = std::to_string(tamanhoBicoA);
-	tamanhoBicoStr = aspas+tamanhoBicoStr+aspasV;
+	coluna = "tamanho_bico = ";
+	tamanhoBicoStr = coluna+aspas+tamanhoBicoStr+aspasV;
 	
 	std::string corPenasA = gtk_entry_get_text(GTK_ENTRY(entry_corPenasA));
-	corPenasA = aspas+corPenasA+aspasV;
+	coluna = "corPenas = ";
+	corPenasA = coluna+aspas+corPenasA+aspasV;
 	
 	int trocaPeleA = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_trocaPeleA));
 	std::string trocaPeleStr = std::to_string(trocaPeleA);
-	trocaPeleStr = aspas+trocaPeleStr+aspasV;
+	coluna = "troca_de_pele = ";
+	trocaPeleStr = coluna+aspas+trocaPeleStr+aspasV;
 
-	std::string sqlTudo;
-
-	sqlTudo = "(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,pais_origem,cor_pelo,dentes,UF_origem,licenca_IBAMA,total_mudas,tamanho_bico,corPenas,troca_de_pele)";
+	//std::string sqlTudo;
+	//sqlTudo = "(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,pais_origem,cor_pelo,dentes,UF_origem,licenca_IBAMA,total_mudas,tamanho_bico,corPenas,troca_de_pele)";
 
 	std::string sql;
-	std::string sqlInicio;
+	std::string sqlInicio = "UPDATE animais set ";
 	std::string sqlValues;
-	std::string sqlFim = ");";
+	std::string sqlFim = "where id=";
+	sqlFim = sqlFim+id_Animal+pontovirgula;
 	
 	switch (tipoA){
 		case 0:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,total_mudas,pais_origem) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+totalMudasStr+paisOrigemA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
 			break;
 		case 1:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,total_mudas,licenca_IBAMA,UF_origem) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+totalMudasStr+licencaIBAMAA+ufOrigemA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
 			break;
 		case 2:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,total_mudas) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+totalMudasStr;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
 			break;
 		case 3:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,cor_pelo,dentes,pais_origem) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+corPeloA+dentesA+paisOrigemA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
 			break;
 		case 4:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,cor_pelo,dentes,licenca_IBAMA,UF_origem) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+corPeloA+dentesA+licencaIBAMAA+ufOrigemA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);							
 			break;
 		case 5:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,cor_pelo,dentes) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+corPeloA+dentesA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
 			break;
 		case 6:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,tamanho_bico,corPenas,pais_origem) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+tamanhoBicoStr+corPenasA+paisOrigemA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
 			break;
 		case 7:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,tamanho_bico,corPenas,licenca_IBAMA,UF_origem) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+tamanhoBicoStr+corPenasA+licencaIBAMAA+ufOrigemA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
 			break;
 		case 8:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,tamanho_bico,corPenas) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+tamanhoBicoStr+corPenasA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
 			break;
 		case 9:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,troca_de_pele,pais_origem) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+trocaPeleStr+paisOrigemA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
 			break;
 		case 10:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,troca_de_pele,licenca_IBAMA,UF_origem) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+trocaPeleStr+licencaIBAMAA+ufOrigemA;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);	
 			break;
 		case 11:
-			sqlInicio = "INSERT INTO ANIMAIS(nome,sexo,idade,peso,comprimento,habitat,patas,especie,tipo_pele,tipo_reproducao,alimento,ameacadoDeEx,vetResponsavel,tratadorResponsavel,tipo,troca_de_pele) VALUES (";
 			sqlValues = nomeA+sexoA+idadeStr+pesoStr+comprimentoStr+habitatA+patasStr+especieA+tipoPeleA+tipoReproducaoA+alimentoA+ameacadoStr+vetResponsavelA+tratadorA+tipoStr+trocaPeleStr;
 			sqlValues = sqlValues.substr(0, sqlValues.size()-1);
 			break;
@@ -703,7 +719,7 @@ void setTextosEditarAnimais(){
 
 void janelaEditarAnimaisRun(std::string idEditar)
 {
-
+	id_Animal = idEditar;
 	prepararEdicaoAnimais(idEditar);
 
 	box_head = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
