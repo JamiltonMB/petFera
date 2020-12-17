@@ -5,6 +5,41 @@
 
 static void destroy(GtkWidget *widget, gpointer data)
 {
+	delete cabecalho; 
+	delete image;
+	delete window;
+	delete notebook;
+	delete box_buttons;
+	delete button;
+	delete grid;
+	delete frame;
+	delete box;
+	delete label;
+	delete box_head;
+	delete box_base;
+	delete box_buttons;
+	delete radio1;
+	delete radio2;
+	delete janela;
+	delete janela_editar;
+	delete janelaCadAnimais;
+	delete tratador_recebido;
+	delete veterinario_recebido;
+	delete janelaEditarAnimais;
+	delete anfibioDomesticoC;
+	delete anfibioNativoC;
+	delete anfibioExoticoC;
+	delete mamiferoExoticoC;
+	delete mamiferoNativoC;
+	delete mamiferoDomesticoC;
+	delete aveExoticoC;
+	delete aveNativoC;
+	delete aveDomesticaC;
+	delete reptilExoticoC;
+	delete reptilNativoC;
+	delete reptilDomesticoC;
+	//delete );
+
     gtk_main_quit();
 }
 
