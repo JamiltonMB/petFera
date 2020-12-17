@@ -6,6 +6,7 @@
 static void destroy(GtkWidget *widget, gpointer data)
 {
 
+/* Tente usar esses métodos para liberar a memória
 	gtk_widget_destroy(cabecalho);
 	gtk_widget_destroy(image);
 	gtk_widget_destroy(window);
@@ -23,7 +24,7 @@ static void destroy(GtkWidget *widget, gpointer data)
 	gtk_widget_destroy(janela);
 	gtk_widget_destroy(janela_editar);
 	gtk_widget_destroy(janelaCadAnimais);
-
+*/
 	//delete );
 
     gtk_main_quit();
