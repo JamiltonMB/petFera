@@ -31,7 +31,9 @@ em cada aba.
 
 
 Como usar o programa:
+
 Para que o programa seja compilado é necessario instalar o banco de dados SQLite e a biblioteca gtk, digite os seguintes comandos no terminal para instalação:
+
 Para o SQLite: sudo apt-get install sqlite3
 Para o gtk : sudo apt-get install libgtk-3-dev
 
