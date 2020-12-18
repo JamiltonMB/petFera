@@ -46,7 +46,7 @@ o programa deve-se seguir os seguints passos:
 
 4 - Executar o comando: ./prog
 
-
+Melhorias a serem feitas: Para melhorias futuras é necessario fazer o tratamento de exceções e a validação de dados dos campos, neste segundo caso, na versão atual, se o usuário digitar dados inválidos nos campos o programa da erro
 
 ============================================================================
 
