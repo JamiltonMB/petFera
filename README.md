@@ -18,12 +18,12 @@ terminal, porém já implementamos uma interface gráfica. O programa
 era executado através de uma instância de uma classe chamada "Programa", os métodos
 dessa classe fazem o uso das classes animal e funcionário.
 
-Na primeira entrega ocorreu um erro de versionamento e foientregue uma versão que não
+Na primeira entrega ocorreu um erro de versionamento e foi entregue uma versão que não
 compilava e apresentava muitos erros, nesta segunda etapa nós corrigimos os erros e implementamos 
 a interface gráfica.
 
 Na segunda parte, versão atual, usamos o gtk para criação da interface gráfica e para persistência de 
-dados utilizamos o bando de dados SQLite. Na janela principal foi criado duas abas: Consultar Funcionários
+dados utilizamos o banCo de dados SQLite. Na janela principal foi criado duas abas: Consultar Funcionários
 e Consultar Animais, nelas o usuário pode atualizar, deletar, editar e inserir um novo tipo especificado 
 em cada aba.
 
