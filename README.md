@@ -23,7 +23,7 @@ compilava e apresentava muitos erros, nesta segunda etapa nós corrigimos os err
 a interface gráfica.
 
 Na segunda parte, versão atual, usamos o gtk para criação da interface gráfica e para persistência de 
-dados utilizamos o banCo de dados SQLite. Na janela principal foi criado duas abas: Consultar Funcionários
+dados utilizamos o banco de dados SQLite. Na janela principal foi criado duas abas: Consultar Funcionários
 e Consultar Animais, nelas o usuário pode atualizar, deletar, editar e inserir um novo tipo especificado 
 em cada aba.
 
